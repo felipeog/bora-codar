@@ -88,6 +88,12 @@ async function handleNext(_event) {
 }
 
 function handleTimeUpdate(_event) {
+  const elapsedTime = Math.floor(audioPlayer.currentTime);
+  const remainingTime =
+    Math.floor(audioPlayer.duration) - Math.floor(audioPlayer.currentTime);
+
+  elapsed.textContent = formatSeconds(elapsedTime);
+  remaining.textContent = formatSeconds(remainingTime);
   progressBar.setAttribute("value", audioPlayer.currentTime);
 }
 
@@ -109,4 +115,11 @@ async function setCurrentMusic(music) {
 
   audioPlayer.src = window.URL.createObjectURL(blob);
   audioPlayer.play();
+}
+
+function formatSeconds(initialSeconds) {
+  const minutes = String(Math.floor(initialSeconds / 60)).padStart(2, "0");
+  const seconds = String(Math.floor(initialSeconds % 60)).padStart(2, "0");
+
+  return `${minutes}:${seconds}`;
 }
