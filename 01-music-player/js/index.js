@@ -32,7 +32,7 @@ playPauseButton.addEventListener("click", handlePlayPause);
 previousButton.addEventListener("click", handlePrevious);
 progressBar.addEventListener("input", handleProgressBarInput);
 
-// utils
+// handlers
 async function handleFolderSelection(_event) {
   const dirHandle = await window.showDirectoryPicker();
 
@@ -119,6 +119,7 @@ function handleProgressBarInput(event) {
   audioPlayer.currentTime = event.target.value;
 }
 
+// utils
 async function setCurrentMusic(music) {
   state.currentMusic = music;
 
