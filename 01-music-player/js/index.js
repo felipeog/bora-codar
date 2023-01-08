@@ -62,6 +62,10 @@ async function handleFolderSelection(_event) {
 }
 
 function handlePlayPause(_event) {
+  if (!state.currentMusic) {
+    return;
+  }
+
   if (audioPlayer.paused) {
     audioPlayer.play();
   } else {
@@ -70,6 +74,10 @@ function handlePlayPause(_event) {
 }
 
 async function handlePrevious(_event) {
+  if (!state.currentMusic) {
+    return;
+  }
+
   const currentIndex = state.playlist.indexOf(state.currentMusic);
   const newIndex =
     currentIndex <= 0 ? state.playlist.length - 1 : currentIndex - 1;
@@ -79,6 +87,10 @@ async function handlePrevious(_event) {
 }
 
 async function handleNext(_event) {
+  if (!state.currentMusic) {
+    return;
+  }
+
   const currentIndex = state.playlist.indexOf(state.currentMusic);
   const newIndex =
     currentIndex > state.playlist.length - 1 ? 0 : currentIndex + 1;
