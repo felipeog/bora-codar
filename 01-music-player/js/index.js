@@ -1,9 +1,3 @@
-// const actions = document.querySelector('.actions')
-// const container = document.querySelector('.container')
-// const duration = document.querySelector('.duration')
-// const thumbnail = document.querySelector('.thumbnail')
-// const wrapper = document.querySelector('.wrapper')
-
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
 const elapsed = document.querySelector(".elapsed");
@@ -14,6 +8,7 @@ const previousButton = document.querySelector(".previous-button");
 const progressBar = document.querySelector(".progress-bar");
 const remaining = document.querySelector(".remaining");
 const subheader = document.querySelector(".subheader");
+// const thumbnail = document.querySelector('.thumbnail')
 
 // instances
 const audioPlayer = new Audio();
@@ -33,6 +28,7 @@ chooseMusicButton.addEventListener("click", handleFolderSelection);
 nextButton.addEventListener("click", handleNext);
 playPauseButton.addEventListener("click", handlePlayPause);
 previousButton.addEventListener("click", handlePrevious);
+progressBar.addEventListener("input", handleProgressBarInput);
 
 // utils
 async function handleFolderSelection(_event) {
@@ -104,22 +100,27 @@ function handleTimeUpdate(_event) {
   const remainingTime =
     Math.floor(audioPlayer.duration) - Math.floor(audioPlayer.currentTime);
 
-  progressBar.setAttribute("value", audioPlayer.currentTime);
+  progressBar.value = audioPlayer.currentTime;
   elapsed.textContent = formatSeconds(elapsedTime);
   remaining.textContent = formatSeconds(remainingTime);
 }
 
 function handleDurationChange(_event) {
-  progressBar.setAttribute("max", audioPlayer.duration);
+  progressBar.max = audioPlayer.duration;
 }
 
 function handleError(_event) {
   alert("an error occurred");
 }
 
+function handleProgressBarInput(event) {
+  audioPlayer.currentTime = event.target.value;
+
+  console.log("🚀 ~ event.target", event.target);
+}
+
 async function setCurrentMusic(music) {
   state.currentMusic = music;
-  console.log("🚀 ~ state.currentMusic", state.currentMusic);
 
   const buffer = await state.currentMusic.arrayBuffer();
   const blob = new Blob([buffer], {
