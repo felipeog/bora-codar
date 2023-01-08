@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Music Player</title>
+  </head>
+
+  <body>
+    <button class="choose-music-button">choose music folder</button>
+
+    <div class="wrapper">
+      <div class="container">
+        <div class="thumbnail">thumbnail</div>
+        <div class="header">header</div>
+        <div class="subheader">subheader</div>
+
+        <div class="actions">
+          <button class="previous-button">pervious</button>
+          <button class="play-pause-button">play/pause</button>
+          <button class="next-button">next</button>
+        </div>
+
+        <progress class="progress-bar"></progress>
+
+        <div class="duration">
+          <div class="elapsed">--:--</div>
+          <div class="remaining">--:--</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>
