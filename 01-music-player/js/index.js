@@ -1,19 +1,19 @@
 // const actions = document.querySelector('.actions')
 // const container = document.querySelector('.container')
 // const duration = document.querySelector('.duration')
-// const header = document.querySelector('.header')
-// const subheader = document.querySelector('.subheader')
 // const thumbnail = document.querySelector('.thumbnail')
 // const wrapper = document.querySelector('.wrapper')
 
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
 const elapsed = document.querySelector(".elapsed");
+const header = document.querySelector(".header");
 const nextButton = document.querySelector(".next-button");
 const playPauseButton = document.querySelector(".play-pause-button");
 const previousButton = document.querySelector(".previous-button");
 const progressBar = document.querySelector(".progress-bar");
 const remaining = document.querySelector(".remaining");
+const subheader = document.querySelector(".subheader");
 
 // instances
 const audioPlayer = new Audio();
@@ -104,9 +104,9 @@ function handleTimeUpdate(_event) {
   const remainingTime =
     Math.floor(audioPlayer.duration) - Math.floor(audioPlayer.currentTime);
 
+  progressBar.setAttribute("value", audioPlayer.currentTime);
   elapsed.textContent = formatSeconds(elapsedTime);
   remaining.textContent = formatSeconds(remainingTime);
-  progressBar.setAttribute("value", audioPlayer.currentTime);
 }
 
 function handleDurationChange(_event) {
@@ -119,12 +119,15 @@ function handleError(_event) {
 
 async function setCurrentMusic(music) {
   state.currentMusic = music;
+  console.log("🚀 ~ state.currentMusic", state.currentMusic);
 
   const buffer = await state.currentMusic.arrayBuffer();
   const blob = new Blob([buffer], {
     type: state.currentMusic.type,
   });
 
+  header.textContent = state.currentMusic.name;
+  subheader.textContent = state.currentMusic.type;
   audioPlayer.src = window.URL.createObjectURL(blob);
   audioPlayer.play();
 }
