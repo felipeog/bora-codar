@@ -9,15 +9,15 @@
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
 
-const previousButton = document.querySelector(".previous-button");
 const playPauseButton = document.querySelector(".play-pause-button");
+const previousButton = document.querySelector(".previous-button");
 const nextButton = document.querySelector(".next-button");
 
 const progressBar = document.querySelector(".progress-bar");
 const elapsed = document.querySelector(".elapsed");
 const remaining = document.querySelector(".remaining");
 
-const audioPlayer = document.createElement("audio");
+const audioPlayer = new Audio();
 
 // state
 const state = {
@@ -27,6 +27,9 @@ const state = {
 
 // events
 chooseMusicButton.addEventListener("click", handleFolderSelection);
+playPauseButton.addEventListener("click", handlePlayPause);
+previousButton.addEventListener("click", handlePrevious);
+nextButton.addEventListener("click", handleNext);
 
 // TODO: check events: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement#events
 audioPlayer.addEventListener("timeupdate", (event) => {
@@ -57,10 +60,44 @@ async function handleFolderSelection(_event) {
     return alert("no audio files found");
   }
 
-  state.currentMusic = state.playlist[0];
+  state.playlist.sort((a, b) => a.name.localeCompare(b.name));
+
+  await setCurrentMusic(state.playlist[0]);
+}
+
+function handlePlayPause(_event) {
+  if (audioPlayer.paused) {
+    audioPlayer.play();
+  } else {
+    audioPlayer.pause();
+  }
+}
+
+function handlePrevious(_event) {
+  const currentIndex = state.playlist.indexOf(state.currentMusic);
+  const newIndex =
+    currentIndex <= 0 ? state.playlist.length - 1 : currentIndex - 1;
+  const music = state.playlist[newIndex];
+
+  setCurrentMusic(music);
+}
+
+function handleNext(_event) {
+  const currentIndex = state.playlist.indexOf(state.currentMusic);
+  const newIndex =
+    currentIndex > state.playlist.length - 1 ? 0 : currentIndex + 1;
+  const music = state.playlist[newIndex];
+
+  setCurrentMusic(music);
+}
+
+async function setCurrentMusic(music) {
+  state.currentMusic = music;
 
   const buffer = await state.currentMusic.arrayBuffer();
-  const blob = new Blob([buffer], { type: state.currentMusic.type });
+  const blob = new Blob([buffer], {
+    type: state.currentMusic.type,
+  });
 
   audioPlayer.src = window.URL.createObjectURL(blob);
   audioPlayer.play();
