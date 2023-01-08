@@ -115,8 +115,6 @@ function handleError(_event) {
 
 function handleProgressBarInput(event) {
   audioPlayer.currentTime = event.target.value;
-
-  console.log("🚀 ~ event.target", event.target);
 }
 
 async function setCurrentMusic(music) {
