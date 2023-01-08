@@ -8,33 +8,31 @@
 
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
-
+const elapsed = document.querySelector(".elapsed");
+const nextButton = document.querySelector(".next-button");
 const playPauseButton = document.querySelector(".play-pause-button");
 const previousButton = document.querySelector(".previous-button");
-const nextButton = document.querySelector(".next-button");
-
 const progressBar = document.querySelector(".progress-bar");
-const elapsed = document.querySelector(".elapsed");
 const remaining = document.querySelector(".remaining");
 
+// instances
 const audioPlayer = new Audio();
 
 // state
 const state = {
-  playlist: [],
   currentMusic: null,
+  playlist: [],
 };
 
 // events
+audioPlayer.addEventListener("durationchange", handleDurationChange);
+audioPlayer.addEventListener("ended", handleNext);
+audioPlayer.addEventListener("error", handleError);
+audioPlayer.addEventListener("timeupdate", handleTimeUpdate);
 chooseMusicButton.addEventListener("click", handleFolderSelection);
+nextButton.addEventListener("click", handleNext);
 playPauseButton.addEventListener("click", handlePlayPause);
 previousButton.addEventListener("click", handlePrevious);
-nextButton.addEventListener("click", handleNext);
-
-// TODO: check events: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement#events
-audioPlayer.addEventListener("timeupdate", (event) => {
-  console.log("🚀 ~ event", event);
-});
 
 // utils
 async function handleFolderSelection(_event) {
@@ -48,8 +46,6 @@ async function handleFolderSelection(_event) {
 
   for await (const value of dirHandle.values()) {
     const file = await value.getFile();
-
-    console.log({ file });
 
     if (file.type.startsWith("audio/")) {
       state.playlist.push(file);
@@ -73,22 +69,34 @@ function handlePlayPause(_event) {
   }
 }
 
-function handlePrevious(_event) {
+async function handlePrevious(_event) {
   const currentIndex = state.playlist.indexOf(state.currentMusic);
   const newIndex =
     currentIndex <= 0 ? state.playlist.length - 1 : currentIndex - 1;
   const music = state.playlist[newIndex];
 
-  setCurrentMusic(music);
+  await setCurrentMusic(music);
 }
 
-function handleNext(_event) {
+async function handleNext(_event) {
   const currentIndex = state.playlist.indexOf(state.currentMusic);
   const newIndex =
     currentIndex > state.playlist.length - 1 ? 0 : currentIndex + 1;
   const music = state.playlist[newIndex];
 
-  setCurrentMusic(music);
+  await setCurrentMusic(music);
+}
+
+function handleTimeUpdate(_event) {
+  progressBar.setAttribute("value", audioPlayer.currentTime);
+}
+
+function handleDurationChange(_event) {
+  progressBar.setAttribute("max", audioPlayer.duration);
+}
+
+function handleError(_event) {
+  alert("an error occurred");
 }
 
 async function setCurrentMusic(music) {
