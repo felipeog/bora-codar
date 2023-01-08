@@ -1,3 +1,5 @@
+//TODO: get thumbnail from file
+
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
 const elapsed = document.querySelector(".elapsed");
