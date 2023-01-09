@@ -43,6 +43,7 @@ async function handleFolderSelection(_event) {
   state.playlist = [];
 
   for await (const value of dirHandle.values()) {
+    // TODO: check if it's a file
     const file = await value.getFile();
 
     if (file.type.startsWith("audio/")) {
