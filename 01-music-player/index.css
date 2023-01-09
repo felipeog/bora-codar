@@ -91,11 +91,13 @@ button {
   margin-top: 1.8rem;
 }
 
+/* TODO: add hover effect */
 .action-button {
   background-color: transparent;
   border: none;
 }
 
+/* TODO: add hover effect */
 .progress-bar {
   margin-top: 1.8rem;
   appearance: none;
