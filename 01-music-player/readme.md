@@ -1,5 +1,9 @@
 # Music Player
 
+## Live preview
+
+- https://fog-bc-music-player.netlify.app
+
 ## Resources
 
-- [HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement#events)
+- [MDN HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement#events)
