@@ -163,12 +163,14 @@ function onSuccessRead(result) {
 function onErrorRead(error) {
   console.error(error);
 
+  const title = state.currentMusic.name ?? "Unknown title";
+  const artist = "Unknown artist";
+
   thumbnail.src = "img/default-thumbnail.png";
-  // TODO: show file name
-  header.textContent = "Unknown title";
-  header.title = "Unknown title";
-  subheader.textContent = "Unknown artist";
-  subheader.title = "Unknown artist";
+  header.textContent = title;
+  header.title = title;
+  subheader.textContent = artist;
+  subheader.title = artist;
 }
 
 function formatSeconds(initialSeconds) {
