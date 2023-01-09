@@ -25,6 +25,9 @@ const state = {
 audioPlayer.addEventListener("durationchange", handleDurationChange);
 audioPlayer.addEventListener("ended", handleNext);
 audioPlayer.addEventListener("error", handleError);
+// TODO: change play/pause button's icon
+// audioPlayer.addEventListener("pause", handlePause);
+// audioPlayer.addEventListener("play", handlePlay);
 audioPlayer.addEventListener("timeupdate", handleTimeUpdate);
 chooseMusicButton.addEventListener("click", handleFolderSelection);
 nextButton.addEventListener("click", handleNext);
@@ -43,7 +46,10 @@ async function handleFolderSelection(_event) {
   state.playlist = [];
 
   for await (const value of dirHandle.values()) {
-    // TODO: check if it's a file
+    if (value.kind !== "file") {
+      continue;
+    }
+
     const file = await value.getFile();
 
     if (file.type.startsWith("audio/")) {
@@ -130,28 +136,39 @@ async function setCurrentMusic(music) {
   });
   const reader = new jsmediatags.Reader(blob);
 
-  // TODO: get title and artist
-  reader.setTagsToRead(["picture"]).read({
-    onSuccess(result) {
-      const { data } = result.tags.picture;
-      const base64String = data.reduce((acc, cur) => {
-        return `${acc}${String.fromCharCode(cur)}`;
-      }, "");
-
-      thumbnail.src = `data:${data.format};base64,${window.btoa(base64String)}`;
-    },
-    onError(error) {
-      console.error(error);
-
-      thumbnail.src = "img/default-thumbnail.png";
-    },
+  reader.setTagsToRead(["artist", "picture", "title"]).read({
+    onSuccess: onSuccessRead,
+    onError: onErrorRead,
   });
-  header.textContent = state.currentMusic.name;
-  header.title = state.currentMusic.name;
-  subheader.textContent = state.currentMusic.type;
-  subheader.title = state.currentMusic.type;
+
   audioPlayer.src = window.URL.createObjectURL(blob);
   audioPlayer.play();
+}
+
+function onSuccessRead(result) {
+  const artist = result?.tags?.artist ?? "Unknown artist";
+  const title = result?.tags?.title ?? "Unknown title";
+  const pictureData = result?.tags?.picture?.data;
+  const base64String = pictureData.reduce((acc, cur) => {
+    return `${acc}${String.fromCharCode(cur)}`;
+  }, "");
+
+  thumbnail.src =
+    "data:" + pictureData.format + ";base64," + window.btoa(base64String);
+  header.textContent = title;
+  header.title = title;
+  subheader.textContent = artist;
+  subheader.title = artist;
+}
+
+function onErrorRead(error) {
+  console.error(error);
+
+  thumbnail.src = "img/default-thumbnail.png";
+  header.textContent = "Unknown title";
+  header.title = "Unknown title";
+  subheader.textContent = "Unknown artist";
+  subheader.title = "Unknown artist";
 }
 
 function formatSeconds(initialSeconds) {
