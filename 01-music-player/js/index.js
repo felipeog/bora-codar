@@ -140,7 +140,6 @@ async function setCurrentMusic(music) {
     onSuccess: onSuccessRead,
     onError: onErrorRead,
   });
-
   audioPlayer.src = window.URL.createObjectURL(blob);
   audioPlayer.play();
 }
