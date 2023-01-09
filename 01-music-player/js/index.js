@@ -130,6 +130,7 @@ async function setCurrentMusic(music) {
   });
   const reader = new jsmediatags.Reader(blob);
 
+  // TODO: get title and artist
   reader.setTagsToRead(["picture"]).read({
     onSuccess(result) {
       const { data } = result.tags.picture;
