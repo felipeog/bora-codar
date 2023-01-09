@@ -1,4 +1,5 @@
 // TODO: break in multiple files?
+// TODO: add try/catch
 
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
