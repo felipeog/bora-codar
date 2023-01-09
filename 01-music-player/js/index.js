@@ -25,9 +25,6 @@ const state = {
 audioPlayer.addEventListener("durationchange", handleDurationChange);
 audioPlayer.addEventListener("ended", handleNext);
 audioPlayer.addEventListener("error", handleError);
-// TODO: change play/pause button's icon
-// audioPlayer.addEventListener("pause", handlePause);
-// audioPlayer.addEventListener("play", handlePlay);
 audioPlayer.addEventListener("timeupdate", handleTimeUpdate);
 chooseMusicButton.addEventListener("click", handleFolderSelection);
 nextButton.addEventListener("click", handleNext);

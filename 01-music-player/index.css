@@ -91,13 +91,20 @@ button {
   margin-top: 1.8rem;
 }
 
-/* TODO: add hover effect */
 .action-button {
   background-color: transparent;
   border: none;
 }
 
-/* TODO: add hover effect */
+.action-button path {
+  fill: var(--gray_200);
+  transition: fill 100ms;
+}
+
+.action-button:hover path {
+  fill: var(--gray_100);
+}
+
 .progress-bar {
   margin-top: 1.8rem;
   appearance: none;
