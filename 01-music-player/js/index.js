@@ -1,5 +1,3 @@
-//TODO: get thumbnail from file
-
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
 const elapsed = document.querySelector(".elapsed");
@@ -10,7 +8,7 @@ const previousButton = document.querySelector(".previous-button");
 const progressBar = document.querySelector(".progress-bar");
 const remaining = document.querySelector(".remaining");
 const subheader = document.querySelector(".subheader");
-// const thumbnail = document.querySelector('.thumbnail')
+const thumbnail = document.querySelector(".thumbnail");
 
 // instances
 const audioPlayer = new Audio();
@@ -91,7 +89,7 @@ async function handleNext(_event) {
 
   const currentIndex = state.playlist.indexOf(state.currentMusic);
   const newIndex =
-    currentIndex > state.playlist.length - 1 ? 0 : currentIndex + 1;
+    currentIndex >= state.playlist.length - 1 ? 0 : currentIndex + 1;
   const music = state.playlist[newIndex];
 
   await setCurrentMusic(music);
@@ -127,7 +125,23 @@ async function setCurrentMusic(music) {
   const blob = new Blob([buffer], {
     type: state.currentMusic.type,
   });
+  const reader = new jsmediatags.Reader(blob);
 
+  reader.setTagsToRead(["picture"]).read({
+    onSuccess(result) {
+      const { data } = result.tags.picture;
+      const base64String = data.reduce((acc, cur) => {
+        return `${acc}${String.fromCharCode(cur)}`;
+      }, "");
+
+      thumbnail.src = `data:${data.format};base64,${window.btoa(base64String)}`;
+    },
+    onError(error) {
+      console.error(error);
+
+      thumbnail.src = "img/default-thumbnail.png";
+    },
+  });
   header.textContent = state.currentMusic.name;
   subheader.textContent = state.currentMusic.type;
   audioPlayer.src = window.URL.createObjectURL(blob);
