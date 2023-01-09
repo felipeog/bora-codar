@@ -164,6 +164,7 @@ function onErrorRead(error) {
   console.error(error);
 
   thumbnail.src = "img/default-thumbnail.png";
+  // TODO: show file name
   header.textContent = "Unknown title";
   header.title = "Unknown title";
   subheader.textContent = "Unknown artist";
