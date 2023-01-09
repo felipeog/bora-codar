@@ -36,6 +36,14 @@ progressBar.addEventListener("input", handleProgressBarInput);
 
 // handlers
 async function handleFolderSelection(_event) {
+  if (!window.showDirectoryPicker) {
+    return alert(
+      "The application is not compatible with this browser." +
+        "\n" +
+        "Try it on Chrome, Edge or Opera."
+    );
+  }
+
   const dirHandle = await window.showDirectoryPicker();
 
   if (!dirHandle) {
