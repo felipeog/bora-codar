@@ -6,33 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
 
     <title>Music Player</title>
   </head>
 
   <body>
-    <button class="choose-music-button">choose music folder</button>
-
     <div class="wrapper">
-      <div class="container">
+      <main class="container">
+        <button class="choose-music-button">Choose music folder</button>
+
         <img class="thumbnail" src="img/default-thumbnail.png" />
-        <div class="header">file name</div>
-        <div class="subheader">file type</div>
+
+        <h1 class="header">File name</h1>
+        <h2 class="subheader">File type</h2>
 
         <div class="actions">
-          <button class="previous-button">previous</button>
-          <button class="play-pause-button">play/pause</button>
-          <button class="next-button">next</button>
+          <button class="action-button previous-button">
+            <img src="img/previous.png" alt="Previous button" />
+          </button>
+
+          <button class="action-button play-pause-button">
+            <img src="img/play.png" alt="Play button" />
+          </button>
+
+          <button class="action-button next-button">
+            <img src="img/next.png" alt="Next button" />
+          </button>
         </div>
 
         <input class="progress-bar" type="range" min="0" max="0" />
 
         <div class="duration">
-          <div class="elapsed">00:00</div>
-          <div class="remaining">00:00</div>
+          <p class="elapsed">00:00</p>
+          <p class="remaining">00:00</p>
         </div>
-      </div>
+      </main>
     </div>
 
     <script

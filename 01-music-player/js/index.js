@@ -143,7 +143,9 @@ async function setCurrentMusic(music) {
     },
   });
   header.textContent = state.currentMusic.name;
+  header.title = state.currentMusic.name;
   subheader.textContent = state.currentMusic.type;
+  subheader.title = state.currentMusic.type;
   audioPlayer.src = window.URL.createObjectURL(blob);
   audioPlayer.play();
 }
