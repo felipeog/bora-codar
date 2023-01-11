@@ -3,18 +3,26 @@
 
 // elements
 const chooseMusicButton = document.querySelector(".choose-music-button");
-const elapsed = document.querySelector(".elapsed");
-const header = document.querySelector(".header");
-const nextButton = document.querySelector(".next-button");
-const playPauseButton = document.querySelector(".play-pause-button");
-const previousButton = document.querySelector(".previous-button");
-const progressBar = document.querySelector(".progress-bar");
-const remaining = document.querySelector(".remaining");
-const subheader = document.querySelector(".subheader");
+
 const thumbnail = document.querySelector(".thumbnail");
+const header = document.querySelector(".header");
+const subheader = document.querySelector(".subheader");
+
+const previousButton = document.querySelector(".previous-button");
+const playPauseButton = document.querySelector(".play-pause-button");
+const nextButton = document.querySelector(".next-button");
+
+const progressBar = document.querySelector(".progress-bar");
+const elapsed = document.querySelector(".elapsed");
+const remaining = document.querySelector(".remaining");
 
 // instances
 const audioPlayer = new Audio();
+
+audioPlayer.addEventListener("durationchange", handleDurationChange);
+audioPlayer.addEventListener("ended", handleNext);
+audioPlayer.addEventListener("error", handleError);
+audioPlayer.addEventListener("timeupdate", handleTimeUpdate);
 
 // state
 const state = {
@@ -23,14 +31,12 @@ const state = {
 };
 
 // events
-audioPlayer.addEventListener("durationchange", handleDurationChange);
-audioPlayer.addEventListener("ended", handleNext);
-audioPlayer.addEventListener("error", handleError);
-audioPlayer.addEventListener("timeupdate", handleTimeUpdate);
 chooseMusicButton.addEventListener("click", handleFolderSelection);
-nextButton.addEventListener("click", handleNext);
-playPauseButton.addEventListener("click", handlePlayPause);
+
 previousButton.addEventListener("click", handlePrevious);
+playPauseButton.addEventListener("click", handlePlayPause);
+nextButton.addEventListener("click", handleNext);
+
 progressBar.addEventListener("input", handleProgressBarInput);
 
 // handlers
@@ -112,8 +118,7 @@ async function handleNext(_event) {
 
 function handleTimeUpdate(_event) {
   const elapsedTime = Math.floor(audioPlayer.currentTime);
-  const remainingTime =
-    Math.floor(audioPlayer.duration) - Math.floor(audioPlayer.currentTime);
+  const remainingTime = Math.floor(audioPlayer.duration) - elapsedTime;
 
   progressBar.value = audioPlayer.currentTime;
   elapsed.textContent = formatSeconds(elapsedTime);
@@ -158,12 +163,14 @@ function onSuccessRead(result) {
     return `${acc}${String.fromCharCode(cur)}`;
   }, "");
 
-  thumbnail.src =
-    "data:" + pictureData.format + ";base64," + window.btoa(base64String);
   header.textContent = title;
   header.title = title;
   subheader.textContent = artist;
   subheader.title = artist;
+  thumbnail.src =
+    "data:" + pictureData.format + ";base64," + window.btoa(base64String);
+  thumbnail.alt = title + artist;
+  thumbnail.title = title + " - " + artist;
 }
 
 function onErrorRead(error) {
@@ -172,11 +179,13 @@ function onErrorRead(error) {
   const title = state.currentMusic.name ?? "Unknown title";
   const artist = "Unknown artist";
 
-  thumbnail.src = "img/default-thumbnail.png";
   header.textContent = title;
   header.title = title;
   subheader.textContent = artist;
   subheader.title = artist;
+  thumbnail.src = "img/default-thumbnail.png";
+  thumbnail.alt = "";
+  thumbnail.title = "";
 }
 
 function formatSeconds(initialSeconds) {
