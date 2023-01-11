@@ -1,3 +1,4 @@
+/* global variables */
 :root {
   --primary_100: #0f0d13;
   --primary_200: #2a2141;
@@ -5,6 +6,7 @@
   --gray_200: #e1e1e6;
 }
 
+/* soft reset */
 *,
 *::before,
 *::after {
@@ -13,6 +15,7 @@
   margin: 0;
 }
 
+/* general styles */
 html,
 button,
 input {
@@ -29,6 +32,7 @@ button {
   cursor: pointer;
 }
 
+/* player styles */
 .wrapper {
   min-height: 100vh;
   display: grid;
