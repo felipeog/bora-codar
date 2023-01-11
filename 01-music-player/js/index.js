@@ -1,3 +1,5 @@
+// TODO: add try/catch on async/await
+
 import { audio } from "./objects/audio.js";
 import { elements } from "./objects/elements.js";
 
