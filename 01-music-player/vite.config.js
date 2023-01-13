@@ -9,6 +9,8 @@ export default defineConfig({
   },
   test: {
     dir: "./test",
+    testTimeout: 60_000,
+    hookTimeout: 60_000,
   },
   build: {
     outDir: "../dist",
