@@ -1,7 +1,7 @@
-import { elements } from "../objects/elements.js";
-import { audio } from "../objects/audio.js";
+import { elements } from "../objects/elements";
+import { audio } from "../objects/audio";
 
-import { formatSeconds } from "../utils/formatSeconds.js";
+import { formatSeconds } from "../utils/formatSeconds";
 
 export function handleDurationChange(_event) {
   elements.progressBar.value = 0;

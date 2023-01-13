@@ -1,5 +1,5 @@
-import { elements } from "../objects/elements.js";
-import { state } from "../objects/state.js";
+import { elements } from "../objects/elements";
+import { state } from "../objects/state";
 
 import defaultBackground from "../../img/default-thumbnail.png";
 

@@ -1,6 +1,6 @@
-import { state } from "../objects/state.js";
+import { state } from "../objects/state";
 
-import { setCurrentMusic } from "../utils/setCurrentMusic.js";
+import { setCurrentMusic } from "../utils/setCurrentMusic";
 
 export async function handleMusicSelection(event) {
   const files = event?.target?.files ?? [];

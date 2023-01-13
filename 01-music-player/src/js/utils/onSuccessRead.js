@@ -1,4 +1,4 @@
-import { elements } from "../objects/elements.js";
+import { elements } from "../objects/elements";
 
 export function onSuccessRead(result) {
   const artist = result?.tags?.artist ?? "Unknown artist";

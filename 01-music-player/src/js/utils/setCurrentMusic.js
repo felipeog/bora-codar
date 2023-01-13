@@ -1,8 +1,8 @@
-import { audio } from "../objects/audio.js";
-import { state } from "../objects/state.js";
+import { audio } from "../objects/audio";
+import { state } from "../objects/state";
 
-import { onSuccessRead } from "../utils/onSuccessRead.js";
-import { onErrorRead } from "../utils/onErrorRead.js";
+import { onSuccessRead } from "../utils/onSuccessRead";
+import { onErrorRead } from "../utils/onErrorRead";
 
 export async function setCurrentMusic(music) {
   state.currentMusic = music;

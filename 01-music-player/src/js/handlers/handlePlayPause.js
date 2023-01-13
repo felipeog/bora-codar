@@ -1,5 +1,5 @@
-import { audio } from "../objects/audio.js";
-import { state } from "../objects/state.js";
+import { audio } from "../objects/audio";
+import { state } from "../objects/state";
 
 export function handlePlayPause(_event) {
   if (!state.currentMusic) {

@@ -1,16 +1,16 @@
 // TODO: add try/catch on async/await
 
-import { audio } from "./objects/audio.js";
-import { elements } from "./objects/elements.js";
+import { audio } from "./objects/audio";
+import { elements } from "./objects/elements";
 
-import { handleDurationChange } from "./handlers/handleDurationChange.js";
-import { handleError } from "./handlers/handleError.js";
-import { handleMusicSelection } from "./handlers/handleMusicSelection.js";
-import { handleNext } from "./handlers/handleNext.js";
-import { handlePlayPause } from "./handlers/handlePlayPause.js";
-import { handlePrevious } from "./handlers/handlePrevious.js";
-import { handleProgressBarInput } from "./handlers/handleProgressBarInput.js";
-import { handleTimeUpdate } from "./handlers/handleTimeUpdate.js";
+import { handleDurationChange } from "./handlers/handleDurationChange";
+import { handleError } from "./handlers/handleError";
+import { handleMusicSelection } from "./handlers/handleMusicSelection";
+import { handleNext } from "./handlers/handleNext";
+import { handlePlayPause } from "./handlers/handlePlayPause";
+import { handlePrevious } from "./handlers/handlePrevious";
+import { handleProgressBarInput } from "./handlers/handleProgressBarInput";
+import { handleTimeUpdate } from "./handlers/handleTimeUpdate";
 
 audio.addEventListener("durationchange", handleDurationChange);
 audio.addEventListener("ended", handleNext);

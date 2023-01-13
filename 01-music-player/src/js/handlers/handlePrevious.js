@@ -1,7 +1,7 @@
-import { audio } from "../objects/audio.js";
-import { state } from "../objects/state.js";
+import { audio } from "../objects/audio";
+import { state } from "../objects/state";
 
-import { setCurrentMusic } from "../utils/setCurrentMusic.js";
+import { setCurrentMusic } from "../utils/setCurrentMusic";
 
 export async function handlePrevious(_event) {
   if (!state.currentMusic) {
