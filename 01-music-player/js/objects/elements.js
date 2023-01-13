@@ -1,6 +1,6 @@
 export const elements = {
   // input
-  chooseMusicButton: document.querySelector(".choose-music-button"),
+  chooseMusicInput: document.querySelector(".choose-music-input"),
 
   // music information
   thumbnail: document.querySelector(".thumbnail"),

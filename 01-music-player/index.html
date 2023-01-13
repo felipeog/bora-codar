@@ -20,7 +20,15 @@
   <body>
     <div class="wrapper">
       <main class="container">
-        <button class="choose-music-button">Choose music folder</button>
+        <input
+          class="choose-music-input"
+          id="music"
+          name="music"
+          type="file"
+          accept="audio/*"
+          multiple
+        />
+        <label class="choose-music-button" for="music">Choose music</label>
 
         <img class="thumbnail" src="img/default-thumbnail.png" alt="" />
 

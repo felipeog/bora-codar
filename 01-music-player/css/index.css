@@ -48,6 +48,10 @@ button {
   border-radius: 0.5rem;
 }
 
+.choose-music-input {
+  display: none;
+}
+
 .choose-music-button {
   border: none;
   background-color: var(--gray_200);
@@ -55,6 +59,7 @@ button {
   border-radius: 0.5rem;
   padding: 1rem 0.5rem;
   transition: background-color 100ms;
+  text-align: center;
 }
 
 .choose-music-button:hover {
