@@ -9,7 +9,9 @@
     "test:run": "vitest run"
   },
   "devDependencies": {
+    "@playwright/test": "^1.29.2",
     "@vitest/ui": "^0.27.1",
+    "playwright": "^1.29.2",
     "vite": "^4.0.4",
     "vite-plugin-mkcert": "^1.11.0",
     "vitest": "^0.27.1"
