@@ -1,7 +1,5 @@
 {
   "name": "bora-codar-01-music-player",
-  "version": "1.0.0",
-  "main": "httpsServer.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
