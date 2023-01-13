@@ -1,5 +1,4 @@
 // TODO: add try/catch on async/await
-// TODO: check firefox styling
 
 import { audio } from "./objects/audio.js";
 import { elements } from "./objects/elements.js";

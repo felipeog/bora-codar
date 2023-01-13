@@ -120,10 +120,11 @@ button {
   overflow: hidden;
   background-color: transparent;
   border-radius: 0.2rem;
+  height: 0.4rem;
 }
 
+/* webkit progress bar */
 .progress-bar::-webkit-slider-runnable-track {
-  height: 0.4rem;
   background: var(--gray_100);
 }
 
@@ -137,6 +138,25 @@ button {
   border-radius: 50%;
   background: var(--gray_200);
   box-shadow: calc(-99rem - var(--shadow_offset)) 0 0 99rem var(--gray_200);
+}
+
+/* moz progress bar */
+.progress-bar::-moz-range-track {
+  height: 0.4rem;
+  background: var(--gray_100);
+}
+
+.progress-bar::-moz-range-thumb {
+  --thumb_size: 0.4rem;
+  --shadow_offset: calc(var(--thumb_size) / 2);
+
+  appearance: none;
+  width: var(--thumb_size);
+  height: var(--thumb_size);
+  border-radius: 50%;
+  background: var(--gray_200);
+  box-shadow: calc(-99rem - var(--shadow_offset)) 0 0 99rem var(--gray_200);
+  border: none;
 }
 
 .duration {
