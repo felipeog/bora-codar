@@ -1,5 +1,4 @@
 // TODO: add try/catch on async/await
-// TODO: check safari functionality
 // TODO: check firefox styling
 
 import { audio } from "./objects/audio.js";
