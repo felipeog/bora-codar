@@ -13,7 +13,7 @@ export async function setCurrentMusic(music) {
   });
   const reader = new jsmediatags.Reader(blob);
 
-  reader.setTagsToRead(["artist", "picture", "title"]).read({
+  reader.setTagsToRead(["album", "artist", "picture", "title"]).read({
     onSuccess: onSuccessRead,
     onError: onErrorRead,
   });
