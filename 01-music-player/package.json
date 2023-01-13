@@ -1,0 +1,12 @@
+{
+  "name": "bora-codar-01-music-player",
+  "version": "1.0.0",
+  "main": "httpsServer.js",
+  "scripts": {
+    "dev": "node httpsServer.js"
+  },
+  "devDependencies": {
+    "devcert": "^1.2.2",
+    "express": "^4.18.2"
+  }
+}
