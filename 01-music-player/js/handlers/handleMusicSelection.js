@@ -9,7 +9,7 @@ export async function handleMusicSelection(event) {
     return;
   }
 
-  state.playlist = [...files];
+  state.playlist = Array.from(files);
 
   await setCurrentMusic(state.playlist[0]);
 }

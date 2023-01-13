@@ -4,6 +4,10 @@ import { audio } from "../objects/audio.js";
 import { formatSeconds } from "../utils/formatSeconds.js";
 
 export function handleTimeUpdate(_event) {
+  if (isNaN(audio.currentTime) || isNaN(audio.duration)) {
+    return;
+  }
+
   const elapsedTime = Math.floor(audio.currentTime);
   const remainingTime = Math.floor(audio.duration) - elapsedTime;
 

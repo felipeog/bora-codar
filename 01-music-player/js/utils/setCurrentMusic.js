@@ -11,12 +11,11 @@ export async function setCurrentMusic(music) {
   const blob = new Blob([buffer], {
     type: state.currentMusic.type,
   });
-  const reader = new jsmediatags.Reader(blob);
 
-  reader.setTagsToRead(["album", "artist", "picture", "title"]).read({
+  jsmediatags.read(blob, {
     onSuccess: onSuccessRead,
     onError: onErrorRead,
   });
+
   audio.src = window.URL.createObjectURL(blob);
-  audio.play();
 }
