@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     https: true,
   },
+  test: {
+    dir: "./test",
+  },
   build: {
     outDir: "../dist",
   },
