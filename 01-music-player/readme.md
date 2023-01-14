@@ -70,4 +70,4 @@ The buttons can be used by:
 The range can be used by:
 
 - mouse, clicking on it, or dragging it left or right
-- keyboard, tabbing into it and pressing the `left arrow` or `right arrow` buttons, to go 5s forward or 5s back, respectively
+- keyboard, tabbing into it and pressing the `left arrow` or `right arrow` buttons, to go 5s back or 5s forward, respectively
