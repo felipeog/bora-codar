@@ -4,6 +4,7 @@ import { audio } from "./objects/audio";
 import { elements } from "./objects/elements";
 
 import { handleDurationChange } from "./handlers/handleDurationChange";
+import { handleEnded } from "./handlers/handleEnded";
 import { handleError } from "./handlers/handleError";
 import { handleMusicSelection } from "./handlers/handleMusicSelection";
 import { handleNext } from "./handlers/handleNext";
@@ -13,7 +14,7 @@ import { handleProgressBarInput } from "./handlers/handleProgressBarInput";
 import { handleTimeUpdate } from "./handlers/handleTimeUpdate";
 
 audio.addEventListener("durationchange", handleDurationChange);
-audio.addEventListener("ended", handleNext);
+audio.addEventListener("ended", handleEnded);
 audio.addEventListener("error", handleError);
 audio.addEventListener("timeupdate", handleTimeUpdate);
 
