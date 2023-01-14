@@ -1,7 +1,7 @@
 import { state } from "../objects/state";
 
 /**
- * @param {('previous'|'next'|undefined)} direction: ;
+ * @param {('previous'|'next'|undefined)} direction
  * @returns number
  */
 export function getMusicIndex(direction) {
