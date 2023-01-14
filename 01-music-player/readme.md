@@ -13,7 +13,7 @@
 
 ## Live preview
 
-- https://fog-bc-music-player.netlify.app
+https://fog-bc-music-player.netlify.app
 
 ## Overview
 
