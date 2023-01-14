@@ -19,6 +19,8 @@
 
 ### The challenge
 
+[Layout](https://postimg.cc/nsP0LB0m)
+
 Users should be able to:
 
 - [x] Select music files from the device's local storage
