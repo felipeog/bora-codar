@@ -52,23 +52,11 @@ button {
   border-radius: var(--radius);
 }
 
-.choose-music-input-wrapper {
-  position: relative;
-  width: 100%;
-  height: 3rem;
-}
-
 .choose-music-input {
-  width: 0;
-  height: 0;
+  display: none;
 }
 
-.choose-music-input::before {
-  content: attr(data-content);
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
+.choose-music-button {
   background-color: var(--gray_200);
   color: var(--primary_200);
   border-radius: var(--radius);
@@ -76,13 +64,14 @@ button {
   transition: var(--transition);
   text-align: center;
   cursor: pointer;
+  border: none;
 }
 
-.choose-music-input:focus-visible::before {
+.choose-music-button:focus-visible {
   outline: var(--outline);
 }
 
-.choose-music-input:hover::before {
+.choose-music-button:hover {
   outline: none;
   filter: none;
   background-color: var(--gray_100);

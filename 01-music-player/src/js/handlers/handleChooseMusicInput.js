@@ -5,7 +5,7 @@ import { setCurrentMusic } from "../utils/setCurrentMusic";
 /**
  * @param {Event} event
  */
-export async function handleMusicSelection(event) {
+export async function handleChooseMusicInput(event) {
   const files = event?.target?.files ?? [];
 
   if (!files?.length) {

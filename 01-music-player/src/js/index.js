@@ -3,10 +3,11 @@
 import { audio } from "./objects/audio";
 import { elements } from "./objects/elements";
 
+import { handleChooseMusicClick } from "./handlers/handleChooseMusicClick";
 import { handleDurationChange } from "./handlers/handleDurationChange";
 import { handleEnded } from "./handlers/handleEnded";
 import { handleError } from "./handlers/handleError";
-import { handleMusicSelection } from "./handlers/handleMusicSelection";
+import { handleChooseMusicInput } from "./handlers/handleChooseMusicInput";
 import { handleNext } from "./handlers/handleNext";
 import { handlePlayPause } from "./handlers/handlePlayPause";
 import { handlePrevious } from "./handlers/handlePrevious";
@@ -18,7 +19,8 @@ audio.addEventListener("ended", handleEnded);
 audio.addEventListener("error", handleError);
 audio.addEventListener("timeupdate", handleTimeUpdate);
 
-elements.chooseMusicInput.addEventListener("input", handleMusicSelection);
+elements.chooseMusicButton.addEventListener("click", handleChooseMusicClick);
+elements.chooseMusicInput.addEventListener("input", handleChooseMusicInput);
 elements.nextButton.addEventListener("click", handleNext);
 elements.playPauseButton.addEventListener("click", handlePlayPause);
 elements.previousButton.addEventListener("click", handlePrevious);
