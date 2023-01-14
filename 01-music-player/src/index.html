@@ -20,17 +20,17 @@
   <body>
     <div class="wrapper">
       <main class="container">
-        <input
-          class="choose-music-input"
-          id="music"
-          name="music"
-          type="file"
-          accept="audio/*"
-          multiple
-        />
-        <label class="choose-music-button" for="music" tabindex="0">
-          Choose music
-        </label>
+        <div class="choose-music-input-wrapper">
+          <input
+            class="choose-music-input"
+            data-content="Choose music"
+            id="music"
+            name="music"
+            type="file"
+            accept="audio/*"
+            multiple
+          />
+        </div>
 
         <img class="thumbnail" src="img/default-thumbnail.png" alt="" />
 
