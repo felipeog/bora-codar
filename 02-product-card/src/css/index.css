@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.container__left {
+}
+
+.rotate-button {
+}
+
+.rotate-image {
+  width: 450px;
+  aspect-ratio: 900/506;
+  background-size: cover;
+  background-image: url(/sofa-sprites.png);
+  background-position: 0 0;
+}
+
+.rotate-range {
+}
+
+.container__right {
+}
+
+.sku {
+}
+
+.name {
+}
+
+.price {
+}
+
+.add-to-cart-button {
+}
+
+/* helpers */
+.hidden {
+  display: none;
+}

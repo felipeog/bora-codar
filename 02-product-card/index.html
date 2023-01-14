@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="src/css/index.css" />
+
+    <title>Product Card</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="container__left">
+          <button class="activate-button">360°</button>
+          <button class="deactivate-button hidden">&times;</button>
+
+          <div class="rotate-image"></div>
+
+          <input
+            class="rotate-range hidden"
+            type="range"
+            value="0"
+            min="0"
+            max="68"
+          />
+        </div>
+
+        <div class="container__right">
+          <p class="sku">Código: 42404</p>
+
+          <h1 class="name">Sofá Margot II - Rosé</h1>
+          <h2 class="price">R$ 4.000</h2>
+
+          <button class="add-to-cart-button">Adicionar à cesta</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/js/index.js"></script>
+  </body>
+</html>
