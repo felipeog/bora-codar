@@ -2,6 +2,9 @@ import { state } from "../objects/state";
 
 import { setCurrentMusic } from "../utils/setCurrentMusic";
 
+/**
+ * @param {Event} event
+ */
 export async function handleMusicSelection(event) {
   const files = event?.target?.files ?? [];
 

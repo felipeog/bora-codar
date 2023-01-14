@@ -1,3 +1,7 @@
+/**
+ * @param {number} initialSeconds
+ * @returns string
+ */
 export function formatSeconds(initialSeconds) {
   if (isNaN(initialSeconds)) {
     return "00:00";

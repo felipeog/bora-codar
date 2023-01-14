@@ -4,6 +4,9 @@ import { state } from "../objects/state";
 import { onSuccessRead } from "../utils/onSuccessRead";
 import { onErrorRead } from "../utils/onErrorRead";
 
+/**
+ * @param {File} music
+ */
 export async function setCurrentMusic(music) {
   state.currentMusic = music;
 

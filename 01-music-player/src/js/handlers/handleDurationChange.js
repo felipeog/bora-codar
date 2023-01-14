@@ -3,7 +3,10 @@ import { audio } from "../objects/audio";
 
 import { formatSeconds } from "../utils/formatSeconds";
 
-export function handleDurationChange(_event) {
+/**
+ * @param {Event} event
+ */
+export function handleDurationChange(event) {
   elements.progressBar.value = 0;
   elements.progressBar.max = audio.duration;
   elements.elapsed.textContent = formatSeconds(0);

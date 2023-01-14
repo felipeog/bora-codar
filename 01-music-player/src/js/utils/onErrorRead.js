@@ -3,6 +3,12 @@ import { state } from "../objects/state";
 
 import defaultBackground from "../../img/default-thumbnail.png";
 
+/**
+ * @param {{
+ *   info: string,
+ *   type: string
+ * }} error
+ */
 export function onErrorRead(error) {
   console.error(error);
 

@@ -1,7 +1,10 @@
 import { audio } from "../objects/audio";
 import { state } from "../objects/state";
 
-export function handlePlayPause(_event) {
+/**
+ * @param {Event} event
+ */
+export function handlePlayPause(event) {
   if (!state.currentMusic) {
     return;
   }

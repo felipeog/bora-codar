@@ -3,7 +3,10 @@ import { audio } from "../objects/audio";
 
 import { formatSeconds } from "../utils/formatSeconds";
 
-export function handleTimeUpdate(_event) {
+/**
+ * @param {Event} event
+ */
+export function handleTimeUpdate(event) {
   if (isNaN(audio.currentTime) || isNaN(audio.duration)) {
     return;
   }

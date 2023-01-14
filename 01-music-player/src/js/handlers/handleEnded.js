@@ -4,7 +4,10 @@ import { state } from "../objects/state";
 import { getMusicIndex } from "../utils/getMusicIndex";
 import { setCurrentMusic } from "../utils/setCurrentMusic";
 
-export async function handleEnded(_event) {
+/**
+ * @param {Event} event
+ */
+export async function handleEnded(event) {
   if (!state.currentMusic) {
     return;
   }

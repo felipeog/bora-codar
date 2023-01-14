@@ -1,5 +1,9 @@
 import { state } from "../objects/state";
 
+/**
+ * @param {('previous'|'next'|undefined)} direction: ;
+ * @returns number
+ */
 export function getMusicIndex(direction) {
   const currentIndex = state.playlist.indexOf(state.currentMusic);
   const lastIndex = state.playlist.length - 1;
