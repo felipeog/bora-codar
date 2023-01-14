@@ -5,8 +5,8 @@
   --gray_100: #a5a2b0;
   --gray_200: #e1e1e6;
 
-  --transition: 100ms;
   --outline: var(--gray_100) double 0.4rem;
+  --transition: 100ms;
   --radius: 0.5rem;
 }
 
