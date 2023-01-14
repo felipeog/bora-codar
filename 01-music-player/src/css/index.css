@@ -4,6 +4,10 @@
   --primary_200: #2a2141;
   --gray_100: #a5a2b0;
   --gray_200: #e1e1e6;
+
+  --transition: 100ms;
+  --outline: var(--gray_100) double 0.4rem;
+  --radius: 0.5rem;
 }
 
 /* soft reset */
@@ -45,7 +49,7 @@ button {
   flex-direction: column;
   background-color: var(--primary_200);
   padding: 3rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
 }
 
 .choose-music-input-wrapper {
@@ -67,15 +71,15 @@ button {
   place-content: center;
   background-color: var(--gray_200);
   color: var(--primary_200);
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   padding: 1rem 0.5rem;
-  transition: 100ms;
+  transition: var(--transition);
   text-align: center;
   cursor: pointer;
 }
 
 .choose-music-input:focus-visible::before {
-  outline: var(--gray_100) double 0.4rem;
+  outline: var(--outline);
 }
 
 .choose-music-input:hover::before {
@@ -89,7 +93,7 @@ button {
   max-width: 100%;
   aspect-ratio: 1/1;
   margin-top: 2rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
 }
 
 .header {
@@ -121,11 +125,11 @@ button {
 .action-button {
   background-color: transparent;
   border: none;
-  transition: 100ms;
+  transition: var(--transition);
 }
 
 .action-button:focus-visible {
-  outline: var(--gray_100) double 0.4rem;
+  outline: var(--outline);
 }
 
 .action-button:hover {
@@ -135,7 +139,7 @@ button {
 
 .action-button path {
   fill: var(--gray_200);
-  transition: 100ms;
+  transition: var(--transition);
 }
 
 .action-button:hover path {
@@ -150,11 +154,11 @@ button {
   border-radius: 0.2rem;
   height: 0.4rem;
   cursor: pointer;
-  transition: 100ms;
+  transition: var(--transition);
 }
 
 .progress-bar:focus-visible {
-  outline: var(--gray_100) double 0.4rem;
+  outline: var(--outline);
 }
 
 .progress-bar:hover {
