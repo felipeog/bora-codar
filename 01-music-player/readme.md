@@ -43,6 +43,7 @@ Users should be able to:
 
 ### Built with
 
+- HTML5, CSS3 and JS
 - [JS MediaTags](https://github.com/aadsm/jsmediatags) - Media tags reader
 - [Playwright](https://playwright.dev/) - Reliable end-to-end testing for modern web apps
 - [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
