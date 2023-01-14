@@ -1,4 +1,5 @@
 // TODO: add try/catch on async/await
+// TODO: add more tests
 
 import { audio } from "./objects/audio";
 import { elements } from "./objects/elements";
