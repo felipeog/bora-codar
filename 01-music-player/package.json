@@ -2,7 +2,7 @@
   "name": "bora-codar-01-music-player",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
