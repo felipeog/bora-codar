@@ -122,6 +122,7 @@ button {
   background-color: transparent;
   border-radius: 0.2rem;
   height: 0.4rem;
+  cursor: pointer;
 }
 
 /* webkit progress bar */
