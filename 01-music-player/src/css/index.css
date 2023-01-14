@@ -60,6 +60,7 @@ button {
   padding: 1rem 0.5rem;
   transition: background-color 100ms;
   text-align: center;
+  cursor: pointer;
 }
 
 .choose-music-button:hover {
