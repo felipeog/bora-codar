@@ -1,17 +1,8 @@
 import { elements } from "../objects/elements";
 
 /**
- * @param {{
- *   tags: {
- *     artist: string,
- *     title: string,
- *     album: string,
- *     picture: {
- *       data: number[],
- *       format: string
- *     }
- *   }
- * }} result
+ * @typedef {import('@types/jsmediatags/types').Tags} JSMediaTagsTags
+ * @param {{tags: JSMediaTagsTags}} result
  */
 export function onSuccessRead(result) {
   const artist = result?.tags?.artist ?? "Unknown artist";
