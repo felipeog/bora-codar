@@ -127,6 +127,7 @@ body {
   font-size: 12px;
   margin-top: 1rem;
   background-color: var(--primary_100);
+  color: var(--primary_300);
   border: 0.06rem solid var(--primary_300);
   border-radius: 99rem;
   padding: 0.6rem 1.2rem;
