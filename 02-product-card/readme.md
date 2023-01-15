@@ -8,7 +8,6 @@
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
 - [Functionality](#functionality)
-  - [Buttons](#buttons)
   - [Range](#range)
 
 ## Live preview
