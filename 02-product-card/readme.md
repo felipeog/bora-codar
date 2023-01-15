@@ -1,4 +1,4 @@
-# Music Player
+# Product Card
 
 - [Live preview](#live-preview)
 - [Overview](#overview)
