@@ -1,5 +1,5 @@
-// TODO: add responsiveness
-// TODO: optimize sprites file
+// TODO: Add responsiveness
+// TODO: Optimize sprites file
 
 const spriteHeight = 253;
 

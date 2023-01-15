@@ -9,7 +9,7 @@
   --transition: 100ms;
 }
 
-/* soft reset */
+/* Soft reset */
 *,
 *::before,
 *::after {
@@ -18,7 +18,7 @@
   margin: 0;
 }
 
-/* general styles */
+/* General styles */
 html {
   font-family: var(--font_sans);
   font-size: 16px;
@@ -42,7 +42,7 @@ body {
   padding: 1rem;
 }
 
-/* card styles */
+/* Card styles */
 .rotate__image {
   width: 450px;
   aspect-ratio: 900/506;
@@ -79,7 +79,7 @@ body {
   background: var(--primary_300);
   margin-top: -0.3rem;
 }
-/* end webkit range input */
+/* End webkit range input */
 
 /* moz range input */
 .rotate__range::-moz-range-track {
@@ -97,7 +97,7 @@ body {
   margin-top: -0.3rem;
   border: none;
 }
-/* end moz range input */
+/* End moz range input */
 
 .data {
   display: grid;
