@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshots
 
-[![boracodar-productcard.png](https://i.postimg.cc/7hmpGPHP/boracodar-productcard.png)](https://postimg.cc/SYYZHhYH)
+[![boracodar-productcard.png](https://i.postimg.cc/WbYBs4YX/boracodar-productcard.png)](https://postimg.cc/0bmWf9sw)
 
 ## My process
 
