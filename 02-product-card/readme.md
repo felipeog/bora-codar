@@ -39,6 +39,7 @@ Users should be able to:
 
 - [MDN's `<input type="range">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
 - [Alyssa Holland's Creating A Custom Range Input That Looks Consistent Across All Browsers](https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/)
+- [Daniel Stern's Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 
 ## Functionality
 
