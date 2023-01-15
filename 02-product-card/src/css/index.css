@@ -6,6 +6,22 @@
   margin: 0;
 }
 
+html,
+button,
+input {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Crimson Pro", serif;
+}
+
 .wrapper {
   min-height: 100dvh;
   display: grid;
