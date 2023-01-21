@@ -16,7 +16,7 @@ h1 {
 }
 
 p {
-  color: #aeaeb0;
+  color: var(--gray_200);
   font-size: 19.21px;
   margin-top: 8px;
 }
@@ -30,16 +30,16 @@ table {
 }
 
 tr {
-  border-right: 0.4rem solid #1c162c;
+  border-right: 0.4rem solid var(--primary_400);
 }
 
 tr:last-of-type {
-  border-bottom: 0.4rem solid #1c162c;
+  border-bottom: 0.4rem solid var(--primary_400);
 }
 
 th {
   padding: 1rem;
-  background-color: #1c162c;
+  background-color: var(--primary_400);
   font-size: 11px;
   font-weight: 400;
   text-transform: uppercase;
@@ -50,7 +50,7 @@ td {
 }
 
 .tests {
-  background-color: #130f1e;
+  background-color: var(--primary_500);
 }
 
 .tests__buttons {

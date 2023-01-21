@@ -7,7 +7,7 @@ button {
   border: none;
   background: none;
   padding: 1rem 1.6rem;
-  color: #fff;
+  color: var(--gray_100);
   font-size: 14px;
 }
 
@@ -27,13 +27,13 @@ button.hover {
 button:focus,
 button.focus {
   cursor: auto;
-  box-shadow: 0 0 0 0.1rem #fff;
+  box-shadow: 0 0 0 0.1rem var(--gray_100);
 }
 
 button:disabled,
 button.disabled {
   cursor: not-allowed;
-  color: #949396;
+  color: var(--gray_300);
 }
 
 button.loading {
@@ -63,31 +63,31 @@ button.movable {
 
 /* variants */
 button.primary {
-  background-color: #8257e5;
+  background-color: var(--primary_200);
 }
 
 button.primary:hover,
 button.primary.hover {
-  background-color: #9674e5;
+  background-color: var(--primary_100);
 }
 
 button.primary:disabled,
 button.primary.disabled {
-  background-color: #4e3588;
+  background-color: var(--primary_300);
 }
 
 button.secondary {
-  background-color: #3c3748;
+  background-color: var(--secondary_200);
 }
 
 button.secondary:hover,
 button.secondary.hover {
-  background-color: #6a617f;
+  background-color: var(--secondary_100);
 }
 
 button.secondary:disabled,
 button.secondary.disabled {
-  background-color: #262330;
+  background-color: var(--gray_400);
 }
 
 button.tertiary,
