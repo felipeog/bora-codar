@@ -11,10 +11,6 @@ export namespace Components {
     interface CursorPreview {
         "type": EntityType;
     }
-    interface SectionHeader {
-        "text": string;
-        "title": string;
-    }
     interface SimpleButton {
         "type": EntityType;
         "variant": EntityVariant;
@@ -33,12 +29,6 @@ declare global {
         prototype: HTMLCursorPreviewElement;
         new (): HTMLCursorPreviewElement;
     };
-    interface HTMLSectionHeaderElement extends Components.SectionHeader, HTMLStencilElement {
-    }
-    var HTMLSectionHeaderElement: {
-        prototype: HTMLSectionHeaderElement;
-        new (): HTMLSectionHeaderElement;
-    };
     interface HTMLSimpleButtonElement extends Components.SimpleButton, HTMLStencilElement {
     }
     var HTMLSimpleButtonElement: {
@@ -48,7 +38,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "cursor-preview": HTMLCursorPreviewElement;
-        "section-header": HTMLSectionHeaderElement;
         "simple-button": HTMLSimpleButtonElement;
     }
 }
@@ -58,10 +47,6 @@ declare namespace LocalJSX {
     interface CursorPreview {
         "type"?: EntityType;
     }
-    interface SectionHeader {
-        "text"?: string;
-        "title"?: string;
-    }
     interface SimpleButton {
         "type"?: EntityType;
         "variant"?: EntityVariant;
@@ -69,7 +54,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-root": AppRoot;
         "cursor-preview": CursorPreview;
-        "section-header": SectionHeader;
         "simple-button": SimpleButton;
     }
 }
@@ -79,7 +63,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "cursor-preview": LocalJSX.CursorPreview & JSXBase.HTMLAttributes<HTMLCursorPreviewElement>;
-            "section-header": LocalJSX.SectionHeader & JSXBase.HTMLAttributes<HTMLSectionHeaderElement>;
             "simple-button": LocalJSX.SimpleButton & JSXBase.HTMLAttributes<HTMLSimpleButtonElement>;
         }
     }

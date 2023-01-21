@@ -13,10 +13,12 @@ export class AppRoot {
       <div>
         <main>
           <section class="types">
-            <section-header
-              title="Tipos de botão"
-              text="Dentro de um layout, botões servem para destacar ações importantes a serem tomadas. Acompanhe abaixo um exemplo de tipos e propriedades."
-            ></section-header>
+            <h1>Tipos de botão</h1>
+            <p>
+              AcompanheDentro de um layout, botões servem para destacar ações importantes a serem tomadas.
+              <br />
+              Acompanhe abaixo um exemplo de tipos e propriedades.
+            </p>
 
             <table>
               <tr>
@@ -56,11 +58,14 @@ export class AppRoot {
           </section>
 
           <section class="tests">
-            <section-header title="Teste os botões" text="Interaja com os botões e observe a mudança de aparência e de cursores"></section-header>
+            <h1>Teste os botões</h1>
+            <p>Interaja com os botões e observe a mudança de aparência e de cursores.</p>
 
-            <simple-button>Interaja comigo</simple-button>
-            <simple-button>Interaja comigo</simple-button>
-            <simple-button>Interaja comigo</simple-button>
+            <div class="tests__buttons">
+              <simple-button>Interaja comigo</simple-button>
+              <simple-button>Interaja comigo</simple-button>
+              <simple-button>Interaja comigo</simple-button>
+            </div>
           </section>
         </main>
       </div>
