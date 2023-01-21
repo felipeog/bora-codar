@@ -1,3 +1,94 @@
 button {
   text-transform: uppercase;
+  border-radius: 999rem;
+  border: none;
+  background: none;
+  padding: 1rem 1.6rem;
+  color: #fff;
+  outline: none;
+}
+
+img {
+  margin-right: 1rem;
+}
+
+/* types */
+button.default {
+  cursor: auto;
+}
+
+button.hover {
+  cursor: auto;
+}
+
+button:focus,
+button.focus {
+  cursor: auto;
+  box-shadow: 0 0 0 0.1rem #fff;
+}
+
+button[disabled],
+button.disabled {
+  cursor: not-allowed;
+  color: #949396;
+}
+
+button.loading {
+  cursor: progress;
+}
+
+button.loading img {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button.movable {
+  cursor: move;
+}
+
+/* variants */
+button.primary {
+  background-color: #8257e5;
+}
+
+button.primary:hover,
+button.primary.hover {
+  background-color: #9674e5;
+}
+
+button.primary[disabled],
+button.primary.disabled {
+  background-color: #4e3588;
+}
+
+button.secondary {
+  background-color: #3c3748;
+}
+
+button.secondary:hover,
+button.secondary.hover {
+  background-color: #6a617f;
+}
+
+button.secondary[disabled],
+button.secondary.disabled {
+  background-color: #262330;
+}
+
+button.tertiary,
+button.tertiary:hover,
+button.tertiary.hover {
+  background-color: transparent;
 }

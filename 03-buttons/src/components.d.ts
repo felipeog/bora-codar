@@ -12,6 +12,9 @@ export namespace Components {
         "type": EntityType;
     }
     interface SimpleButton {
+        "customStyles": {
+    [key: string]: string | undefined;
+  };
         "type": EntityType;
         "variant": EntityVariant;
     }
@@ -48,6 +51,9 @@ declare namespace LocalJSX {
         "type"?: EntityType;
     }
     interface SimpleButton {
+        "customStyles"?: {
+    [key: string]: string | undefined;
+  };
         "type"?: EntityType;
         "variant"?: EntityVariant;
     }

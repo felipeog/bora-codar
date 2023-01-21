@@ -15,7 +15,7 @@ export class AppRoot {
           <section class="types">
             <h1>Tipos de botão</h1>
             <p>
-              AcompanheDentro de um layout, botões servem para destacar ações importantes a serem tomadas.
+              Dentro de um layout, botões servem para destacar ações importantes a serem tomadas.
               <br />
               Acompanhe abaixo um exemplo de tipos e propriedades.
             </p>
@@ -62,9 +62,15 @@ export class AppRoot {
             <p>Interaja com os botões e observe a mudança de aparência e de cursores.</p>
 
             <div class="tests__buttons">
-              <simple-button>Interaja comigo</simple-button>
-              <simple-button>Interaja comigo</simple-button>
-              <simple-button>Interaja comigo</simple-button>
+              <simple-button type="default" variant="primary" customStyles={{ width: '100%' }}>
+                Interaja comigo
+              </simple-button>
+              <simple-button type="disabled" variant="secondary" customStyles={{ width: '100%' }}>
+                Interaja comigo
+              </simple-button>
+              <simple-button type="movable" variant="tertiary" customStyles={{ width: '100%' }}>
+                Interaja comigo
+              </simple-button>
             </div>
           </section>
         </main>
