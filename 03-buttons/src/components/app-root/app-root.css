@@ -11,11 +11,19 @@ section {
 }
 
 table {
-  border-collapse: collapse;
   border-radius: 8px;
+  border-collapse: collapse;
   overflow: hidden;
   text-align: center;
   margin-top: 68px;
+}
+
+tr {
+  border-right: 0.4rem solid #1c162c;
+}
+
+tr:last-of-type {
+  border-bottom: 0.4rem solid #1c162c;
 }
 
 th {
