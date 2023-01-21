@@ -9,13 +9,15 @@ export namespace Components {
     interface AppRoot {
     }
     interface CursorPreview {
-        "type": 'default' | 'disabled' | 'loading' | 'movable';
+        "type": EntityType;
     }
     interface SectionHeader {
         "text": string;
         "title": string;
     }
     interface SimpleButton {
+        "type": EntityType;
+        "variant": EntityVariant;
     }
 }
 declare global {
@@ -54,13 +56,15 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface CursorPreview {
-        "type": 'default' | 'disabled' | 'loading' | 'movable';
+        "type"?: EntityType;
     }
     interface SectionHeader {
-        "text": string;
-        "title": string;
+        "text"?: string;
+        "title"?: string;
     }
     interface SimpleButton {
+        "type"?: EntityType;
+        "variant"?: EntityVariant;
     }
     interface IntrinsicElements {
         "app-root": AppRoot;

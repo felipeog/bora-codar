@@ -10,10 +10,12 @@ import movableSvg from './svg/movable.svg';
   shadow: true,
 })
 export class CursorPreview {
-  @Prop() type!: 'default' | 'disabled' | 'loading' | 'movable';
+  @Prop() type: EntityType;
 
   cursors = {
     default: defaultSvg,
+    hover: defaultSvg,
+    focus: defaultSvg,
     disabled: disabledSvg,
     loading: loadingSvg,
     movable: movableSvg,
@@ -22,7 +24,7 @@ export class CursorPreview {
   render() {
     return (
       <Host>
-        <img src={this.cursors[this.type]} alt="" />
+        <img src={this.cursors[this.type ?? 'default']} alt="" />
         <slot></slot>
       </Host>
     );

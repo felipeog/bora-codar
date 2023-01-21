@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'simple-button',
@@ -6,11 +6,14 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class SimpleButton {
+  @Prop() type: EntityType;
+  @Prop() variant: EntityVariant;
+
   render() {
     return (
-      <Host>
+      <button class={`${this.type ?? 'default'} ${this.variant ?? 'primary'}`}>
         <slot></slot>
-      </Host>
+      </button>
     );
   }
 }

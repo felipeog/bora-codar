@@ -1,0 +1,15 @@
+main {
+  display: grid;
+  grid-template-columns: auto 406px;
+  max-width: 1517px;
+  min-height: 100dvh;
+  margin: 0 auto;
+}
+
+section {
+  padding: 2rem;
+}
+
+.tests {
+  background-color: #130f1e;
+}
