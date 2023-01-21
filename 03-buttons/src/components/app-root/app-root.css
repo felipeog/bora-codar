@@ -70,6 +70,6 @@ tr:last-of-type td {
 .tests__buttons {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   margin-top: 4.25rem;
 }
