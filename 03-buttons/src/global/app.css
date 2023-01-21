@@ -6,11 +6,28 @@
   margin: 0;
 }
 
+:root {
+  --primary_100: #9674e5;
+  --primary_200: #8257e5;
+  --primary_300: #4e3588;
+  --primary_400: #1c162c;
+  --primary_500: #130f1e;
+  --primary_600: #0b0911;
+
+  --secondary_100: #6a617f;
+  --secondary_200: #3c3748;
+
+  --gray_100: #fff;
+  --gray_200: #aeaeb0;
+  --gray_300: #949396;
+  --gray_400: #262330;
+}
+
 html {
   font-family: Inter, sans-serif;
 }
 
 body {
-  background-color: #0b0911;
-  color: #fff;
+  background-color: var(--primary_600);
+  color: var(--gray_100);
 }
