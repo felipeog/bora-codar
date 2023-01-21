@@ -38,7 +38,7 @@ tr:last-of-type {
 }
 
 th {
-  padding: 1.2rem;
+  padding: 1rem;
   background-color: #1c162c;
   font-size: 11px;
   font-weight: 400;
@@ -46,7 +46,7 @@ th {
 }
 
 td {
-  padding: 1.2rem;
+  padding: 1rem;
 }
 
 .tests {
