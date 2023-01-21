@@ -8,7 +8,7 @@ button {
   background: none;
   padding: 1rem 1.6rem;
   color: #fff;
-  outline: none;
+  font-size: 14px;
 }
 
 img {
