@@ -11,22 +11,22 @@ section {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 2rem;
   margin: 0;
 }
 
 p {
   color: var(--gray_200);
-  font-size: 19.21px;
-  margin-top: 8px;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 table {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border-collapse: collapse;
   overflow: hidden;
   text-align: center;
-  margin-top: 68px;
+  margin-top: 4.25rem;
 }
 
 tr {
@@ -34,7 +34,7 @@ tr {
 }
 
 tr:first-of-type {
-  height: 64px;
+  height: 4rem;
 }
 
 tr:last-of-type {
@@ -48,7 +48,7 @@ td {
 
 th {
   background-color: var(--primary_400);
-  font-size: 11px;
+  font-size: 0.7rem;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -71,5 +71,5 @@ tr:last-of-type td {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 68px;
+  margin-top: 4.25rem;
 }

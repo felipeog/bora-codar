@@ -8,7 +8,7 @@ button {
   background: none;
   padding: 1rem 1.6rem;
   color: var(--gray_100);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 img {
