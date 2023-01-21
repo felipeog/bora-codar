@@ -1,7 +1,7 @@
 main {
   display: grid;
-  grid-template-columns: auto 406px;
-  width: 1450px;
+  grid-template-columns: 72fr 28fr;
+  max-width: 1450px;
   min-height: 100dvh;
   margin: 0 auto;
 }
