@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'section-header',
@@ -6,11 +6,14 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class SectionHeader {
+  @Prop() title!: string;
+  @Prop() text!: string;
+
   render() {
     return (
       <Host>
-        section-header
-        <slot></slot>
+        <h1>{this.title}</h1>
+        <p>{this.text}</p>
       </Host>
     );
   }

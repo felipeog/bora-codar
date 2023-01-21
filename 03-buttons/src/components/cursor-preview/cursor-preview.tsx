@@ -1,4 +1,8 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
+import defaultSvg from './svg/default.svg';
+import disabledSvg from './svg/disabled.svg';
+import loadingSvg from './svg/loading.svg';
+import movableSvg from './svg/movable.svg';
 
 @Component({
   tag: 'cursor-preview',
@@ -6,10 +10,19 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class CursorPreview {
+  @Prop() type!: 'default' | 'disabled' | 'loading' | 'movable';
+
+  cursors = {
+    default: defaultSvg,
+    disabled: disabledSvg,
+    loading: loadingSvg,
+    movable: movableSvg,
+  };
+
   render() {
     return (
       <Host>
-        cursor-preview
+        <img src={this.cursors[this.type]} alt="" />
         <slot></slot>
       </Host>
     );

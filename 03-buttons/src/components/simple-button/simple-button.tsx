@@ -9,7 +9,6 @@ export class SimpleButton {
   render() {
     return (
       <Host>
-        simple-button
         <slot></slot>
       </Host>
     );

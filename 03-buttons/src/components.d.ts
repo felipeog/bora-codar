@@ -9,8 +9,11 @@ export namespace Components {
     interface AppRoot {
     }
     interface CursorPreview {
+        "type": 'default' | 'disabled' | 'loading' | 'movable';
     }
     interface SectionHeader {
+        "text": string;
+        "title": string;
     }
     interface SimpleButton {
     }
@@ -51,8 +54,11 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface CursorPreview {
+        "type": 'default' | 'disabled' | 'loading' | 'movable';
     }
     interface SectionHeader {
+        "text": string;
+        "title": string;
     }
     interface SimpleButton {
     }
