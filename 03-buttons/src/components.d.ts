@@ -5,62 +5,72 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil-community/router";
 export namespace Components {
-    interface AppHome {
-    }
-    interface AppProfile {
-        "match": MatchResults;
-    }
     interface AppRoot {
+    }
+    interface CursorPreview {
+    }
+    interface SectionHeader {
+    }
+    interface SimpleButton {
     }
 }
 declare global {
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
-    }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
-    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLCursorPreviewElement extends Components.CursorPreview, HTMLStencilElement {
+    }
+    var HTMLCursorPreviewElement: {
+        prototype: HTMLCursorPreviewElement;
+        new (): HTMLCursorPreviewElement;
+    };
+    interface HTMLSectionHeaderElement extends Components.SectionHeader, HTMLStencilElement {
+    }
+    var HTMLSectionHeaderElement: {
+        prototype: HTMLSectionHeaderElement;
+        new (): HTMLSectionHeaderElement;
+    };
+    interface HTMLSimpleButtonElement extends Components.SimpleButton, HTMLStencilElement {
+    }
+    var HTMLSimpleButtonElement: {
+        prototype: HTMLSimpleButtonElement;
+        new (): HTMLSimpleButtonElement;
+    };
     interface HTMLElementTagNameMap {
-        "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "cursor-preview": HTMLCursorPreviewElement;
+        "section-header": HTMLSectionHeaderElement;
+        "simple-button": HTMLSimpleButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
-    }
-    interface AppProfile {
-        "match"?: MatchResults;
-    }
     interface AppRoot {
     }
+    interface CursorPreview {
+    }
+    interface SectionHeader {
+    }
+    interface SimpleButton {
+    }
     interface IntrinsicElements {
-        "app-home": AppHome;
-        "app-profile": AppProfile;
         "app-root": AppRoot;
+        "cursor-preview": CursorPreview;
+        "section-header": SectionHeader;
+        "simple-button": SimpleButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "cursor-preview": LocalJSX.CursorPreview & JSXBase.HTMLAttributes<HTMLCursorPreviewElement>;
+            "section-header": LocalJSX.SectionHeader & JSXBase.HTMLAttributes<HTMLSectionHeaderElement>;
+            "simple-button": LocalJSX.SimpleButton & JSXBase.HTMLAttributes<HTMLSimpleButtonElement>;
         }
     }
 }
