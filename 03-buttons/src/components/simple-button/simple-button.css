@@ -1,4 +1,7 @@
 button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   text-transform: uppercase;
   border-radius: 999rem;
   border: none;
@@ -27,7 +30,7 @@ button.focus {
   box-shadow: 0 0 0 0.1rem #fff;
 }
 
-button[disabled],
+button:disabled,
 button.disabled {
   cursor: not-allowed;
   color: #949396;
@@ -68,7 +71,7 @@ button.primary.hover {
   background-color: #9674e5;
 }
 
-button.primary[disabled],
+button.primary:disabled,
 button.primary.disabled {
   background-color: #4e3588;
 }
@@ -82,7 +85,7 @@ button.secondary.hover {
   background-color: #6a617f;
 }
 
-button.secondary[disabled],
+button.secondary:disabled,
 button.secondary.disabled {
   background-color: #262330;
 }
