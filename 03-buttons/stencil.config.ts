@@ -10,7 +10,7 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null,
-      baseUrl: 'https://fog-bc-music-player.netlify.app/',
+      baseUrl: 'https://fog-bc-buttons.netlify.app/',
     },
   ],
 };
