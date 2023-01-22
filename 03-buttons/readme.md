@@ -1,4 +1,4 @@
-# Product Card
+# Buttons
 
 - [Live preview](#live-preview)
 - [Overview](#overview)
