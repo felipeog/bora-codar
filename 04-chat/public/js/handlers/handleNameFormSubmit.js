@@ -7,6 +7,15 @@ function handleNameFormSubmit(event) {
   }
 
   state.name = elements.nameInput.value;
+
+  const fragments = state.name.split(" ");
+  const firstFragment = fragments[0].charAt(0).toUpperCase();
+  const secondFragment = fragments[1]
+    ? fragments[1].charAt(0).toUpperCase()
+    : "";
+
+  elements.userName.textContent = state.name;
+  elements.userInitials.textContent = `${firstFragment}${secondFragment}`;
 }
 
 export { handleNameFormSubmit };

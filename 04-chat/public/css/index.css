@@ -1,4 +1,9 @@
-/* :root {} */
+:root {
+  --default-padding: 20px;
+  --initials-height: 48px;
+  --user-height: calc(var(--initials-height) + 2 * var(--default-padding));
+  --form-height: 60px;
+}
 
 *,
 *::before,
@@ -28,6 +33,27 @@ body {
   margin: 0 auto;
 }
 
+.user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: var(--user-height);
+  padding: var(--default-padding);
+}
+
+.user__initials {
+  display: grid;
+  place-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #07847e;
+  border-radius: 50%;
+}
+
+.user__name {
+  font-weight: bold;
+}
+
 .name-form-dialog {
   background-color: #1a1924;
   border: none;
@@ -40,8 +66,8 @@ body {
 }
 
 .message-list-wrapper {
-  height: 85dvh;
-  padding: 20px;
+  height: calc(100dvh - var(--user-height) - var(--form-height));
+  padding: var(--default-padding);
   overflow-y: scroll;
 }
 
@@ -60,8 +86,8 @@ body {
 }
 
 .message-form-wrapper {
-  height: 15dvh;
-  padding: 20px;
+  height: var(--form-height);
+  padding: var(--default-padding);
 }
 
 .message-form {
