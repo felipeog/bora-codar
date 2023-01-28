@@ -4,67 +4,7 @@
   <head>
     <title>Chat</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font: 13px Helvetica, Arial;
-      }
-
-      form {
-        background: #000;
-        padding: 3px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-
-      form #m {
-        border: 0;
-        padding: 10px;
-        width: 80%;
-        margin-right: 0.5%;
-      }
-
-      form #n {
-        border: 0;
-        padding: 10px;
-        width: 10%;
-        margin-right: 0.5%;
-      }
-
-      form button {
-        width: 8%;
-        background: rgb(130, 224, 255);
-        border: none;
-        padding: 10px;
-      }
-
-      #messages {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      #messages li {
-        padding: 5px 10px;
-      }
-
-      #messages li:nth-child(odd) {
-        background: #eee;
-      }
-
-      #messages {
-        margin-bottom: 40px;
-      }
-    </style>
-
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="client.js"></script>
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body onload="connect()">
@@ -72,7 +12,11 @@
 
     <form>
       <input id="n" /><input id="m" autocomplete="off" />
+
       <button>Send</button>
     </form>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
