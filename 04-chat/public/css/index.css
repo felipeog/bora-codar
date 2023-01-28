@@ -1,9 +1,14 @@
 :root {
-  --default-padding: 20px;
+  --primary-100: #633bbc;
+  --primary-200: #282843;
+  --primary-300: #1a1924;
+  --secondary-100: #07847e;
+  --gray-100: #fff;
+  --gray-200: #e1e1e6;
 
+  --default-padding: 20px;
   --initials-height: 48px;
   --user-name-height: calc(var(--initials-height) + 2 * var(--default-padding));
-
   --input-height: 52px;
   --form-height: calc(var(--input-height) + 2 * var(--default-padding));
 }
@@ -60,12 +65,51 @@ body {
 .name-form-dialog {
   background-color: #1a1924;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 8px;
 }
 
 .name-form-dialog::backdrop {
-  background-color: rgb(255 255 255 / 0.1);
-  opacity: 0.6;
+  background-color: rgb(255 255 255 / 0.2);
+}
+
+.name-form__input {
+  border: none;
+  background-color: #282843;
+  outline: none;
+  border-radius: 8px;
+  padding: 8px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.name-form__input::placeholder {
+  color: #e1e1e6;
+}
+
+.name-form__input:focus {
+  box-shadow: 0 0 0 0.1rem #e1e1e6;
+}
+
+.name-form__button {
+  font-size: 12px;
+  margin-left: 1rem;
+  border: none;
+  background-color: #07847e;
+  outline: none;
+  border-radius: 8px;
+  padding: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.name-form__button:focus {
+  box-shadow: 0 0 0 0.1rem #e1e1e6;
+  filter: brightness(120%);
+}
+
+.name-form__button:hover {
+  filter: brightness(120%);
 }
 
 .message-list-wrapper {
@@ -160,8 +204,15 @@ body {
   background-color: transparent;
   cursor: pointer;
   transition: 100ms;
+  outline: none;
+  border-radius: 8px;
 }
 
-.message-form__svg:hover path {
-  opacity: 0.8;
+.message-form__button:focus {
+  box-shadow: 0 0 0 0.1rem #e1e1e6;
+  filter: brightness(120%);
+}
+
+.message-form__button:hover {
+  filter: brightness(120%);
 }
