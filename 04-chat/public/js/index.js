@@ -14,5 +14,6 @@ elements.nameForm.addEventListener("submit", handleNameFormSubmit);
 webSocket.addEventListener("close", handleWebSocketClose);
 webSocket.addEventListener("error", handleWebSocketError);
 webSocket.addEventListener("message", handleWebSocketMessage);
+webSocket.addEventListener("open", (event) => console.log("open", { event }));
 
 window.addEventListener("load", handleWindowLoad);
