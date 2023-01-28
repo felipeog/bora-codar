@@ -6,12 +6,8 @@ function connect() {
   const location = document.location;
   const isHttps = location.protocol === "https:";
   const scheme = `ws${isHttps ? "s" : ""}`;
-
-  if (location.protocol === "https:") {
-    scheme += "s";
-  }
-
   const serverUrl = `${scheme}://${location.hostname}:${location.port}`;
+
   socket = new WebSocket(serverUrl, "json");
 
   socket.onmessage = (event) => {
