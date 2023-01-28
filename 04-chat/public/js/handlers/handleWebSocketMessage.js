@@ -1,25 +1,33 @@
 import { elements } from "../objects/elements.js";
 import { state } from "../objects/state.js";
 
+function padString(string) {
+  return String(string).padStart(2, "0");
+}
+
+function formatDate(isoString) {
+  const date = new Date(isoString);
+
+  return padString(date.getHours()) + ":" + padString(date.getMinutes());
+}
+
 function handleWebSocketMessage(event) {
   console.log("websocket message", { event });
 
   const data = JSON.parse(event.data);
   const isMe = data.payload.id === state.id;
   const newMessageItem = document.createElement("li");
-  const date = new Date(data.payload.date);
+  const date = formatDate(data.payload.date);
+  const name = isMe ? "Você" : data.payload.name;
 
-  newMessageItem.classList.value = `message-list__item ${
-    isMe ? "message-list__item--is-me" : ""
-  }`;
-  newMessageItem.textContent =
-    String(date.getHours()).padStart(2, "0") +
-    ":" +
-    String(date.getMinutes()).padStart(2, "0") +
-    " - " +
-    (isMe ? "Você" : data.payload.name) +
-    ": " +
-    data.payload.message;
+  newMessageItem.classList.value =
+    "message-list__item" + (isMe ? " message-list__item--is-me" : "");
+  newMessageItem.innerHTML = `
+    <div class="message">
+      <p class="message__meta">${name} - ${date}</p>
+      <p class="message__text">${data.payload.message}</p>
+    </div>
+  `;
 
   elements.messageList.appendChild(newMessageItem);
   newMessageItem.scrollIntoView();

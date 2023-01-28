@@ -77,12 +77,38 @@ body {
   list-style-type: none;
 }
 
-.message-list__item:not(:first-of-type) {
-  margin-top: 1rem;
+.message-list__item {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .message-list__item--is-me {
+  align-items: flex-end;
+}
+
+/* .message {} */
+
+.message__meta {
+  font-size: 12px;
+}
+
+.message-list__item--is-me .message__meta {
   text-align: right;
+}
+
+.message__text {
+  background-color: #633bbc;
+  font-size: 12px;
+  max-width: 40dvw;
+  padding: 14px;
+  border-radius: 0 8px 8px 8px;
+}
+
+.message-list__item--is-me .message__text {
+  background-color: #07847e;
+  padding: 14px;
+  border-radius: 8px 8px 0 8px;
 }
 
 .message-form-wrapper {
