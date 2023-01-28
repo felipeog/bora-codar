@@ -7,16 +7,39 @@
     <link rel="stylesheet" href="index.css" />
   </head>
 
-  <body onload="connect()">
-    <ul id="messages"></ul>
+  <body>
+    <main class="container">
+      <section class="message-list-wrapper">
+        <ul class="message-list"></ul>
+      </section>
 
-    <form>
-      <input id="n" /><input id="m" autocomplete="off" />
+      <dialog class="name-form-dialog">
+        <form class="name-form" method="dialog">
+          <input
+            type="text"
+            name="name"
+            placeholder="Digite seu nome"
+            required
+          />
 
-      <button>Send</button>
-    </form>
+          <button type="submit">Salvar</button>
+        </form>
+      </dialog>
 
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+      <section class="message-form-wrapper">
+        <form class="message-form">
+          <input
+            class="message-form__input"
+            type="text"
+            name="message"
+            placeholder="Digite sua mensagem"
+          />
+
+          <button class="message-form__button" type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>

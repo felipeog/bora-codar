@@ -1,6 +1,13 @@
-"use strict";
+let ws;
 
-let socket = null;
+const id = crypto.randomUUID();
+
+const nameFormDialog = document.querySelector(".name-form-dialog");
+const nameForm = document.querySelector(".name-form");
+const messageForm = document.querySelector(".message-form");
+const messageList = document.querySelector(".message-list");
+const nameInput = document.querySelector("input[name=name]");
+const messageInput = document.querySelector("input[name=message]");
 
 function connect() {
   const location = document.location;
@@ -8,39 +15,75 @@ function connect() {
   const scheme = `ws${isHttps ? "s" : ""}`;
   const serverUrl = `${scheme}://${location.hostname}:${location.port}`;
 
-  socket = new WebSocket(serverUrl, "json");
+  ws = new WebSocket(serverUrl, "json");
 
-  socket.onmessage = (event) => {
-    const msg = JSON.parse(event.data);
+  ws.addEventListener("message", (event) => {
+    console.log("websocket message", { event });
 
-    $("#messages").append($("<li>").text(msg.name + ":" + msg.message));
+    const data = JSON.parse(event.data);
+    const isMe = data.payload.id === id;
+    const newMessageItem = document.createElement("li");
 
-    window.scrollTo(0, document.body.scrollHeight);
-  };
+    newMessageItem.classList.value = `message-list__item ${
+      isMe ? "message-list__item--is-me" : ""
+    }`;
+    newMessageItem.textContent =
+      data.payload.date +
+      " " +
+      (isMe ? "Você" : data.payload.name) +
+      ": " +
+      data.payload.message;
 
-  $("form").submit(sendMessage);
+    messageList.appendChild(newMessageItem);
+    newMessageItem.scrollIntoView();
+    // window.scrollTo(0, document.body.scrollHeight);
+  });
+
+  ws.addEventListener("open", (event) => {
+    console.log("websocket open", { event });
+  });
+
+  ws.addEventListener("error", (event) => {
+    console.error("websocket error", { event });
+  });
+
+  ws.addEventListener("close", (event) => {
+    console.log("websocket close", { event });
+  });
+
+  messageForm.addEventListener("submit", sendMessage);
 }
 
-function sendMessage() {
-  const name = $("#n").val();
+function sendMessage(event) {
+  event.preventDefault();
 
-  if (name == "") {
+  if (!nameInput.value) {
     return;
   }
 
-  $("#n").prop("disabled", true);
-  $("#n").css("background", "grey");
-  $("#n").css("color", "white");
-
-  const msg = {
+  const data = {
     type: "message",
-    name: name,
-    message: $("#m").val(),
+    payload: {
+      name: nameInput.value,
+      message: messageInput.value,
+      date: new Date().toISOString(),
+      id,
+    },
   };
 
-  socket.send(JSON.stringify(msg));
+  ws.send(JSON.stringify(data));
 
-  $("#m").val("");
-
-  return false;
+  messageInput.value = "";
 }
+
+nameForm.addEventListener("submit", (event) => {
+  if (!nameInput.value) {
+    return event.preventDefault();
+  }
+});
+
+window.addEventListener("load", () => {
+  nameFormDialog.showModal();
+
+  connect();
+});
