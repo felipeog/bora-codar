@@ -1,5 +1,5 @@
 const state = {
-  id: Math.round(Math.random() * 1_000),
+  id: Math.floor(Math.random() * 1_000_000),
   name: null,
 };
 
