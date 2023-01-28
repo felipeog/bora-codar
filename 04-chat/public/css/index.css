@@ -32,8 +32,8 @@ html {
 }
 
 body {
-  background-color: #1a1924;
-  color: #fff;
+  background-color: var(--primary-300);
+  color: var(--gray-100);
 }
 
 .container {
@@ -54,7 +54,7 @@ body {
   place-content: center;
   width: 48px;
   height: 48px;
-  background-color: #07847e;
+  background-color: var(--secondary-100);
   border-radius: 50%;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 .name-form-dialog {
-  background-color: #1a1924;
+  background-color: var(--primary-300);
   border: none;
   border-radius: 8px;
 }
@@ -74,37 +74,37 @@ body {
 
 .name-form__input {
   border: none;
-  background-color: #282843;
+  background-color: var(--primary-200);
   outline: none;
   border-radius: 8px;
   padding: 8px;
-  color: #fff;
+  color: var(--gray-100);
   font-size: 12px;
 }
 
 .name-form__input::placeholder {
-  color: #e1e1e6;
+  color: var(--gray-200);
 }
 
 .name-form__input:focus {
-  box-shadow: 0 0 0 0.1rem #e1e1e6;
+  box-shadow: 0 0 0 0.1rem var(--gray-200);
 }
 
 .name-form__button {
   font-size: 12px;
   margin-left: 1rem;
   border: none;
-  background-color: #07847e;
+  background-color: var(--secondary-100);
   outline: none;
   border-radius: 8px;
   padding: 8px;
-  color: #fff;
+  color: var(--gray-100);
   cursor: pointer;
   transition: 100ms;
 }
 
 .name-form__button:focus {
-  box-shadow: 0 0 0 0.1rem #e1e1e6;
+  box-shadow: 0 0 0 0.1rem var(--gray-200);
   filter: brightness(120%);
 }
 
@@ -116,7 +116,7 @@ body {
   height: calc(100dvh - var(--user-name-height) - var(--form-height));
   padding: var(--default-padding);
   overflow-y: scroll;
-  scrollbar-color: #282843 transparent;
+  scrollbar-color: var(--primary-200) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -125,7 +125,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #282843;
+  background-color: var(--primary-200);
   border-radius: 99rem;
 }
 
@@ -154,7 +154,7 @@ body {
 }
 
 .message__text {
-  background-color: #633bbc;
+  background-color: var(--primary-100);
   font-size: 12px;
   max-width: 40dvw;
   padding: 14px;
@@ -162,7 +162,7 @@ body {
 }
 
 .message-list__item--is-me .message__text {
-  background-color: #07847e;
+  background-color: var(--secondary-100);
   padding: 14px;
   border-radius: 8px 8px 0 8px;
 }
@@ -176,13 +176,13 @@ body {
   height: var(--input-height);
   display: flex;
   gap: 1rem;
-  background-color: #282843;
+  background-color: var(--primary-200);
   border-radius: 99rem;
   padding: 0 var(--default-padding);
 }
 
 .message-form:focus-within {
-  box-shadow: 0 0 0 0.1rem #e1e1e6;
+  box-shadow: 0 0 0 0.1rem var(--gray-200);
 }
 
 .message-form__input {
@@ -191,11 +191,11 @@ body {
   background-color: transparent;
   outline: none;
   font-size: 12px;
-  color: #fff;
+  color: var(--gray-100);
 }
 
 .message-form__input::placeholder {
-  color: #e1e1e6;
+  color: var(--gray-200);
 }
 
 .message-form__button {
@@ -209,7 +209,7 @@ body {
 }
 
 .message-form__button:focus {
-  box-shadow: 0 0 0 0.1rem #e1e1e6;
+  box-shadow: 0 0 0 0.1rem var(--gray-200);
   filter: brightness(120%);
 }
 
