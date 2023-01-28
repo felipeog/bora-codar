@@ -23,20 +23,22 @@ function connect() {
     const data = JSON.parse(event.data);
     const isMe = data.payload.id === id;
     const newMessageItem = document.createElement("li");
+    const date = new Date(data.payload.date);
 
     newMessageItem.classList.value = `message-list__item ${
       isMe ? "message-list__item--is-me" : ""
     }`;
     newMessageItem.textContent =
-      data.payload.date +
-      " " +
+      String(date.getHours()).padStart(2, "0") +
+      ":" +
+      String(date.getMinutes()).padStart(2, "0") +
+      " - " +
       (isMe ? "Você" : data.payload.name) +
       ": " +
       data.payload.message;
 
     messageList.appendChild(newMessageItem);
     newMessageItem.scrollIntoView();
-    // window.scrollTo(0, document.body.scrollHeight);
   });
 
   ws.addEventListener("open", (event) => {
