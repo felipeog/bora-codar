@@ -13,7 +13,7 @@ function handleMessageFormSubmit(event) {
     type: "message",
     payload: {
       name: state.name,
-      message: elements.messageInput.value,
+      message: elements.messageInput.value.slice(0, 128),
       date: new Date().toISOString(),
       id: state.id,
     },
