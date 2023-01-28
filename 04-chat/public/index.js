@@ -1,14 +1,16 @@
+// globals
 let ws;
-
 const id = crypto.randomUUID();
 
+// elements
 const nameFormDialog = document.querySelector(".name-form-dialog");
 const nameForm = document.querySelector(".name-form");
+const nameInput = document.querySelector(".name-form__input");
 const messageForm = document.querySelector(".message-form");
+const messageInput = document.querySelector(".message-form__input");
 const messageList = document.querySelector(".message-list");
-const nameInput = document.querySelector("input[name=name]");
-const messageInput = document.querySelector("input[name=message]");
 
+// functions
 function connect() {
   const location = document.location;
   const isHttps = location.protocol === "https:";
@@ -78,6 +80,7 @@ function sendMessage(event) {
   messageInput.value = "";
 }
 
+// events
 nameForm.addEventListener("submit", (event) => {
   if (!nameInput.value) {
     return event.preventDefault();

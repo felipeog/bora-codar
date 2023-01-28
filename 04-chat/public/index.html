@@ -4,7 +4,7 @@
   <head>
     <title>Chat</title>
 
-    <link rel="stylesheet" href="index.css" />
+    <link href="index.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -16,11 +16,12 @@
       <dialog class="name-form-dialog">
         <form class="name-form" method="dialog">
           <input
+            autofocus
             class="name-form__input"
-            type="text"
             name="name"
             placeholder="Digite seu nome"
             required
+            type="text"
           />
 
           <button class="name-form__button" type="submit">Salvar</button>
@@ -30,11 +31,12 @@
       <section class="message-form-wrapper">
         <form class="message-form">
           <input
+            autofocus
             class="message-form__input"
-            type="text"
             name="message"
             placeholder="Digite sua mensagem"
             required
+            type="text"
           />
 
           <button class="message-form__button" type="submit">Enviar</button>
@@ -42,6 +44,6 @@
       </section>
     </main>
 
-    <script type="text/javascript" src="index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
