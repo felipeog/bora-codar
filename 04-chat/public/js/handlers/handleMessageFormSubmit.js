@@ -5,7 +5,7 @@ import { webSocket } from "../objects/webSocket.js";
 function handleMessageFormSubmit(event) {
   event.preventDefault();
 
-  if (!state.name) {
+  if (!state.name || !elements.messageInput.value) {
     return;
   }
 
