@@ -69,6 +69,17 @@ body {
   height: calc(100dvh - var(--user-height) - var(--form-height));
   padding: var(--default-padding);
   overflow-y: scroll;
+  scrollbar-color: #282843 transparent;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #282843;
+  border-radius: 99rem;
 }
 
 .message-list {
