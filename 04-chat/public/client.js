@@ -1,16 +1,17 @@
 "use strict";
-var socket = null;
+
+let socket = null;
 
 function connect() {
-  var serverUrl;
-  var scheme = "ws";
-  var location = document.location;
+  const location = document.location;
+  const isHttps = location.protocol === "https:";
+  const scheme = `ws${isHttps ? "s" : ""}`;
 
   if (location.protocol === "https:") {
     scheme += "s";
   }
 
-  serverUrl = `${scheme}://${location.hostname}:${location.port}`;
+  const serverUrl = `${scheme}://${location.hostname}:${location.port}`;
   socket = new WebSocket(serverUrl, "json");
 
   socket.onmessage = (event) => {
