@@ -1,5 +1,5 @@
 const state = {
-  id: crypto.randomUUID(),
+  id: Math.round(Math.random() * 1_000),
   name: null,
 };
 

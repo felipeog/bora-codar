@@ -5,6 +5,7 @@
   --secondary-100: #07847e;
   --gray-100: #fff;
   --gray-200: #e1e1e6;
+  --gray-300: #a3a3b5;
 
   --default-padding: 20px;
   --initials-height: 48px;
@@ -73,6 +74,11 @@ body {
   background-color: rgb(255 255 255 / 0.2);
 }
 
+.name-form {
+  display: grid;
+  gap: 1rem;
+}
+
 .name-form__input {
   border: none;
   background-color: var(--primary-200);
@@ -84,7 +90,7 @@ body {
 }
 
 .name-form__input::placeholder {
-  color: var(--gray-200);
+  color: var(--gray-300);
 }
 
 .name-form__input:focus {
@@ -93,7 +99,6 @@ body {
 
 .name-form__button {
   font-size: 1rem;
-  margin-left: 1rem;
   border: none;
   background-color: var(--secondary-100);
   outline: none;
@@ -196,7 +201,7 @@ body {
 }
 
 .message-form__input::placeholder {
-  color: var(--gray-200);
+  color: var(--gray-300);
 }
 
 .message-form__button {
