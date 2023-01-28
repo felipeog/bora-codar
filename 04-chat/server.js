@@ -1,7 +1,9 @@
+const { WebSocket, WebSocketServer } = require("ws");
+const { stripHtml } = require("string-strip-html");
+
 const http = require("http");
 const path = require("path");
 const express = require("express");
-const { WebSocket, WebSocketServer } = require("ws");
 
 const app = express();
 
@@ -15,17 +17,25 @@ webSocketServer.on("connection", (webSocket) => {
 
   webSocket.on("message", (rawData) => {
     const data = JSON.parse(rawData);
+    const sanitizedData = {
+      ...data,
+      payload: {
+        ...data.payload,
+        name: stripHtml(data.payload.name).result,
+        message: stripHtml(data.payload.message).result,
+      },
+    };
 
     webSocketServer.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(data));
+        client.send(JSON.stringify(sanitizedData));
       }
     });
   });
 
-  webSocket.on("error", () => console.log("error"));
+  webSocket.on("error", (_event) => console.log("error"));
 
-  webSocket.on("close", () => console.log("close"));
+  webSocket.on("close", (_event) => console.log("close"));
 });
 
 httpServer.listen(process.env.PORT || 3000);

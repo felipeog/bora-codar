@@ -12,9 +12,14 @@ function formatDate(isoString) {
 }
 
 function handleWebSocketMessage(event) {
-  console.log("websocket message", { event });
+  console.log("message");
 
   const data = JSON.parse(event.data);
+
+  if (!data.payload.message) {
+    return;
+  }
+
   const isMe = data.payload.id === state.id;
   const newMessageItem = document.createElement("li");
   const date = formatDate(data.payload.date);
