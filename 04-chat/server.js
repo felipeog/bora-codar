@@ -1,4 +1,4 @@
-const { createServer } = require("http");
+const http = require("http");
 const path = require("path");
 const express = require("express");
 const { WebSocket, WebSocketServer } = require("ws");
@@ -7,29 +7,25 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "/public")));
 
-const server = createServer(app);
-const wss = new WebSocketServer({ server });
+const httpServer = http.createServer(app);
+const webSocketServer = new WebSocketServer({ server: httpServer });
 
-wss.on("connection", (ws) => {
+webSocketServer.on("connection", (webSocket) => {
   console.log("connection");
 
-  ws.on("message", (rawData) => {
+  webSocket.on("message", (rawData) => {
     const data = JSON.parse(rawData);
 
-    wss.clients.forEach((client) => {
+    webSocketServer.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {
         client.send(JSON.stringify(data));
       }
     });
   });
 
-  ws.on("error", () => {
-    console.log("error");
-  });
+  webSocket.on("error", () => console.log("error"));
 
-  ws.on("close", () => {
-    console.log("close");
-  });
+  webSocket.on("close", () => console.log("close"));
 });
 
-server.listen(process.env.PORT || 3000);
+httpServer.listen(process.env.PORT || 3000);
