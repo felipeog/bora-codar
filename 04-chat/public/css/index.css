@@ -66,6 +66,7 @@ body {
   background-color: var(--primary-300);
   border: none;
   border-radius: 8px;
+  padding: var(--default-padding);
 }
 
 .name-form-dialog::backdrop {
@@ -79,7 +80,7 @@ body {
   border-radius: 8px;
   padding: 8px;
   color: var(--gray-100);
-  font-size: 12px;
+  font-size: 1rem;
 }
 
 .name-form__input::placeholder {
@@ -91,7 +92,7 @@ body {
 }
 
 .name-form__button {
-  font-size: 12px;
+  font-size: 1rem;
   margin-left: 1rem;
   border: none;
   background-color: var(--secondary-100);
@@ -146,7 +147,7 @@ body {
 }
 
 .message__meta {
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 .message-list__item--is-me .message__meta {
@@ -155,7 +156,7 @@ body {
 
 .message__text {
   background-color: var(--primary-100);
-  font-size: 12px;
+  font-size: 1rem;
   max-width: 40dvw;
   padding: 14px;
   border-radius: 0 8px 8px 8px;
@@ -190,7 +191,7 @@ body {
   border: none;
   background-color: transparent;
   outline: none;
-  font-size: 12px;
+  font-size: 1rem;
   color: var(--gray-100);
 }
 
