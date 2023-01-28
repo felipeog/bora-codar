@@ -1,3 +1,5 @@
+// TODO: better handle `error` and `close` events
+
 import { handleMessageFormSubmit } from "./handlers/handleMessageFormSubmit.js";
 import { handleNameFormSubmit } from "./handlers/handleNameFormSubmit.js";
 import { handleWebSocketMessage } from "./handlers/handleWebSocketMessage.js";

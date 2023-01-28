@@ -1,3 +1,5 @@
+// TODO: better handle `error` and `close` events
+
 const { WebSocket, WebSocketServer } = require("ws");
 const { stripHtml } = require("string-strip-html");
 
