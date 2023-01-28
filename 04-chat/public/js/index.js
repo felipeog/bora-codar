@@ -1,7 +1,7 @@
-// TODO: better handle `error` and `close` events
-
 import { handleMessageFormSubmit } from "./handlers/handleMessageFormSubmit.js";
 import { handleNameFormSubmit } from "./handlers/handleNameFormSubmit.js";
+import { handleWebSocketClose } from "./handlers/handleWebSocketClose.js";
+import { handleWebSocketError } from "./handlers/handleWebSocketError.js";
 import { handleWebSocketMessage } from "./handlers/handleWebSocketMessage.js";
 import { handleWindowLoad } from "./handlers/handleWindowLoad.js";
 
@@ -11,9 +11,8 @@ import { webSocket } from "./objects/webSocket.js";
 elements.messageForm.addEventListener("submit", handleMessageFormSubmit);
 elements.nameForm.addEventListener("submit", handleNameFormSubmit);
 
-webSocket.addEventListener("close", (_event) => console.log("close"));
-webSocket.addEventListener("error", (_event) => console.error("error"));
+webSocket.addEventListener("close", handleWebSocketClose);
+webSocket.addEventListener("error", handleWebSocketError);
 webSocket.addEventListener("message", handleWebSocketMessage);
-webSocket.addEventListener("open", (_event) => console.log("open"));
 
 window.addEventListener("load", handleWindowLoad);

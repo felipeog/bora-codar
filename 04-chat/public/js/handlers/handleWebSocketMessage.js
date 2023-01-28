@@ -12,7 +12,7 @@ function formatDate(isoString) {
 }
 
 function handleWebSocketMessage(event) {
-  console.log("message");
+  console.log("message", { event });
 
   const data = JSON.parse(event.data);
 

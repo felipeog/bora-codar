@@ -4,14 +4,16 @@ const elements = {
   userName: document.querySelector(".user__name"),
 
   // name form
-  nameFormDialog: document.querySelector(".name-form-dialog"),
+  nameButton: document.querySelector(".name-form__button"),
   nameForm: document.querySelector(".name-form"),
+  nameFormDialog: document.querySelector(".name-form-dialog"),
   nameInput: document.querySelector(".name-form__input"),
 
   // message list
   messageList: document.querySelector(".message-list"),
 
   // message form
+  messageButton: document.querySelector(".message-form__button"),
   messageForm: document.querySelector(".message-form"),
   messageInput: document.querySelector(".message-form__input"),
 };

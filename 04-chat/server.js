@@ -15,7 +15,7 @@ const httpServer = http.createServer(app);
 const webSocketServer = new WebSocketServer({ server: httpServer });
 
 webSocketServer.on("connection", (webSocket) => {
-  console.log("connection");
+  console.log("connection", { webSocket });
 
   webSocket.on("message", (rawData) => {
     const data = JSON.parse(rawData);
@@ -35,9 +35,9 @@ webSocketServer.on("connection", (webSocket) => {
     });
   });
 
-  webSocket.on("error", (_event) => console.log("error"));
+  webSocket.on("error", (event) => console.log("error", { event }));
 
-  webSocket.on("close", (_event) => console.log("close"));
+  webSocket.on("close", (event) => console.log("close", { event }));
 });
 
 httpServer.listen(process.env.PORT || 3000);
