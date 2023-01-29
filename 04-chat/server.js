@@ -14,12 +14,13 @@ const httpServer = http.createServer(app);
 const webSocketServer = new WebSocketServer({ server: httpServer });
 
 webSocketServer.on("connection", (webSocket) => {
-  console.log("webSocketServer connection", { webSocket });
+  console.log("[LOG] webSocketServer connection", { webSocket });
 
   webSocket.on("message", (rawData) => {
-    console.log("webSocket message", { rawData });
-
     const data = JSON.parse(rawData);
+
+    console.log("[LOG] webSocket message", { data });
+
     const sanitizedData = {
       ...data,
       payload: {
@@ -37,14 +38,14 @@ webSocketServer.on("connection", (webSocket) => {
   });
 
   webSocket.on("error", (event) => {
-    console.log("webSocket error", { event });
+    console.log("[LOG] webSocket error", { event });
   });
 });
 
 webSocketServer.on("error", (event) => {
-  console.log("webSocketServer error", { event });
+  console.log("[LOG] webSocketServer error", { event });
 });
 
 httpServer.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`[LOG] Listening on port ${port}`);
 });
