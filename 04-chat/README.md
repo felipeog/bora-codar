@@ -38,6 +38,7 @@ Users should be able to:
 - [nodemon](https://nodemon.io/) - Reload, automatically
 - [string-strip-html](https://codsen.com/os/string-strip-html) - Strip HTML tags from strings
 - [ws](https://github.com/websockets/ws) - A Node.js WebSocket library
+- [Fly.io](https://fly.io) - Deploy app servers close to your users
 
 ### Useful resources
 
