@@ -9,13 +9,16 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "/public")));
 
+const port = process.env.PORT || 3000;
 const httpServer = http.createServer(app);
 const webSocketServer = new WebSocketServer({ server: httpServer });
 
 webSocketServer.on("connection", (webSocket) => {
-  console.log("connection", { webSocket });
+  console.log("webSocketServer connection", { webSocket });
 
   webSocket.on("message", (rawData) => {
+    console.log("webSocket message", { rawData });
+
     const data = JSON.parse(rawData);
     const sanitizedData = {
       ...data,
@@ -33,57 +36,15 @@ webSocketServer.on("connection", (webSocket) => {
     });
   });
 
-  webSocket.on("close", (event) => {
-    console.log("close", { event });
-  });
-
   webSocket.on("error", (event) => {
-    console.log("error", { event });
+    console.log("webSocket error", { event });
   });
-
-  webSocket.on("open", (event) => {
-    console.log("open", { event });
-  });
-
-  webSocket.on("ping", (event) => {
-    console.log("ping", { event });
-  });
-
-  webSocket.on("pong", (event) => {
-    console.log("pong", { event });
-  });
-
-  webSocket.on("redirect", (event) => {
-    console.log("redirect", { event });
-  });
-
-  webSocket.on("unexpected-response", (event) => {
-    console.log("unexpected-response", { event });
-  });
-
-  webSocket.on("upgrade", (event) => {
-    console.log("upgrade", { event });
-  });
-});
-
-webSocketServer.on("close", (event) => {
-  console.log("close", { event });
 });
 
 webSocketServer.on("error", (event) => {
-  console.log("error", { event });
+  console.log("webSocketServer error", { event });
 });
 
-webSocketServer.on("headers", (event) => {
-  console.log("headers", { event });
+httpServer.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
-
-webSocketServer.on("listening", (event) => {
-  console.log("listening", { event });
-});
-
-webSocketServer.on("wsClientError", (event) => {
-  console.log("wsClientError", { event });
-});
-
-httpServer.listen(process.env.PORT || 3000);
