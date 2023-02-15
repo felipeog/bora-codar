@@ -10,9 +10,7 @@ export function handleEquals(event) {
     return;
   }
 
-  const result = eval(
-    `${state.currentOperation.left}${state.currentOperation.operator}${state.currentOperation.right}`
-  );
+  const result = getResult();
 
   state.lastOperation = { ...state.currentOperation };
   state.currentOperation = {
@@ -22,4 +20,16 @@ export function handleEquals(event) {
   };
 
   setScreen();
+}
+
+function getResult() {
+  if (state.currentOperation.operator === "%") {
+    return eval(
+      `${state.currentOperation.left / 100} * ${state.currentOperation.right}`
+    );
+  }
+
+  return eval(
+    `${state.currentOperation.left} ${state.currentOperation.operator} ${state.currentOperation.right}`
+  );
 }

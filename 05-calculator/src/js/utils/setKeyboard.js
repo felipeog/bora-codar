@@ -16,7 +16,7 @@ export function setKeyboard() {
       value: "percent",
     },
     {
-      label: "/",
+      label: "÷",
       value: "divide",
     },
     {
@@ -32,7 +32,7 @@ export function setKeyboard() {
       value: "number9",
     },
     {
-      label: "*",
+      label: "×",
       value: "multiply",
     },
     {
@@ -48,7 +48,7 @@ export function setKeyboard() {
       value: "number6",
     },
     {
-      label: "-",
+      label: "−",
       value: "subtract",
     },
     {
@@ -68,7 +68,7 @@ export function setKeyboard() {
       value: "sum",
     },
     {
-      label: "+/-",
+      label: "±",
       value: "inverse",
     },
     {
