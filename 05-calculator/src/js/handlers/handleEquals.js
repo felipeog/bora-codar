@@ -23,13 +23,18 @@ export function handleEquals(event) {
 }
 
 function getResult() {
+  let result;
+
   if (state.currentOperation.operator === "%") {
-    return eval(
+    result = eval(
       `${state.currentOperation.left / 100} * ${state.currentOperation.right}`
     );
   }
 
-  return eval(
+  result = eval(
     `${state.currentOperation.left} ${state.currentOperation.operator} ${state.currentOperation.right}`
   );
+
+  // https://stackoverflow.com/a/3613112/10942224
+  return Number(result.toFixed(4)).toString();
 }

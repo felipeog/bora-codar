@@ -10,9 +10,9 @@ export function handleDecimal() {
 
   if (Number(state.currentOperation[side]) === 0) {
     state.currentOperation[side] = "0.";
+  } else {
+    state.currentOperation[side] += ".";
   }
-
-  state.currentOperation[side] += ".";
 
   setScreen();
 }
