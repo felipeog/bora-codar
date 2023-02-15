@@ -2,7 +2,10 @@ import { state } from "../objects/state";
 import { setScreen } from "../utils/setScreen";
 
 export function handleOperator(value) {
-  if (!state.currentOperation.left || !!state.currentOperation.right) {
+  if (
+    Number(state.currentOperation.left) <= 0 ||
+    Number(state.currentOperation.right) > 0
+  ) {
     return;
   }
 

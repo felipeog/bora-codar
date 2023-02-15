@@ -5,7 +5,7 @@ export function handleClear({ type }) {
   switch (type) {
     case "all":
       state.currentOperation = {
-        left: 0,
+        left: "0",
         operator: null,
         right: null,
       };
@@ -24,7 +24,7 @@ export function handleClear({ type }) {
       } else if (state.currentOperation.operator !== null) {
         state.currentOperation.operator = null;
       } else if (state.currentOperation.left !== null) {
-        state.currentOperation.left = 0;
+        state.currentOperation.left = "0";
       }
 
       setScreen();

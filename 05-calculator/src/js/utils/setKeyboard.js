@@ -76,7 +76,7 @@ export function setKeyboard() {
       value: "number0",
     },
     {
-      label: ",",
+      label: ".",
       value: "decimal",
     },
     {
