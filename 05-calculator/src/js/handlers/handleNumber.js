@@ -25,7 +25,7 @@ function concatNumber(value, state) {
   };
   const number = numbers[value];
 
-  if (state?.endsWith(".") || Number(state) > 0) {
+  if (state?.endsWith(".") || Number(state) !== 0) {
     return `${state}${number}`;
   }
 

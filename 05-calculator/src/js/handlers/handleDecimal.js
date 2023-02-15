@@ -8,7 +8,7 @@ export function handleDecimal() {
     return;
   }
 
-  if (Number(state.currentOperation[side]) <= 0) {
+  if (Number(state.currentOperation[side]) === 0) {
     state.currentOperation[side] = "0.";
   }
 
