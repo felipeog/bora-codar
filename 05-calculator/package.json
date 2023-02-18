@@ -4,7 +4,7 @@
     "dev": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest --reporter verbose",
     "test:ui": "vitest --ui",
     "test:run": "vitest run"
   },
