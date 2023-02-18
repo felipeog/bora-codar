@@ -102,6 +102,7 @@ button {
 /* chrome */
 ::-webkit-scrollbar {
   background-color: transparent;
+  width: 4px;
   height: 4px;
 }
 
