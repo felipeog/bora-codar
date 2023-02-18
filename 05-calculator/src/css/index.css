@@ -70,7 +70,7 @@ button {
 
 .screen__current-operation-wrapper {
   display: grid;
-  gap: 16px;
+  gap: 8px;
   grid-template-columns: 11px auto;
   align-items: center;
 }
@@ -86,6 +86,11 @@ button {
   font-size: 36px;
   height: 50px;
   position: relative;
+}
+
+/* scrollbar */
+.screen__last-operation,
+.screen__current-operation {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -95,16 +100,16 @@ button {
 }
 
 /* chrome */
-.screen__current-operation::-webkit-scrollbar {
+::-webkit-scrollbar {
   background-color: transparent;
   height: 4px;
 }
 
-.screen__current-operation::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: var(--gray_200);
   border-radius: 99rem;
 }
-/* end chrome */
+/* end scrollbar */
 
 .keyboard {
   display: grid;

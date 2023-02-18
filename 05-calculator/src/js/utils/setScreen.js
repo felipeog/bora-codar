@@ -5,9 +5,14 @@ export function setScreen() {
   elements.screen.lastOperation.textContent = formatOperation(
     state.lastOperation
   );
+  elements.screen.lastOperation.scrollLeft =
+    elements.screen.lastOperation.scrollWidth;
+
   elements.screen.currentOperation.textContent = formatOperation(
     state.currentOperation
   );
+  elements.screen.currentOperation.scrollLeft =
+    elements.screen.currentOperation.scrollWidth;
 }
 
 function formatOperation(operation) {
