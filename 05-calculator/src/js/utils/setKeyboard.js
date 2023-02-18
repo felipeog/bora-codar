@@ -6,6 +6,7 @@ export function setKeyboard() {
     {
       label: "CE",
       value: "clearLastInput",
+      className: "keyboard__button--ce",
     },
     {
       label: "C",
@@ -18,6 +19,7 @@ export function setKeyboard() {
     {
       label: "÷",
       value: "divide",
+      className: "keyboard__button--operator",
     },
     {
       label: "7",
@@ -34,6 +36,7 @@ export function setKeyboard() {
     {
       label: "×",
       value: "multiply",
+      className: "keyboard__button--operator",
     },
     {
       label: "4",
@@ -50,6 +53,7 @@ export function setKeyboard() {
     {
       label: "−",
       value: "subtract",
+      className: "keyboard__button--operator",
     },
     {
       label: "1",
@@ -66,6 +70,7 @@ export function setKeyboard() {
     {
       label: "+",
       value: "sum",
+      className: "keyboard__button--operator",
     },
     {
       label: "±",
@@ -82,6 +87,7 @@ export function setKeyboard() {
     {
       label: "=",
       value: "equals",
+      className: "keyboard__button--equals",
     },
   ];
 
@@ -92,6 +98,10 @@ export function setKeyboard() {
     buttonElement.classList.add("keyboard__button");
     buttonElement.setAttribute("data-value", button.value);
     buttonElement.addEventListener("click", handleButtonClick);
+
+    if (button?.className) {
+      buttonElement.classList.add(button.className);
+    }
 
     elements.keyboard[button.value] = buttonElement;
     elements.keyboard.wrapper.appendChild(buttonElement);

@@ -1,7 +1,12 @@
 /* global variables */
 :root {
-  --primary_100: #0f0d13;
-  --gray_100: #a5a2b0;
+  --primary_100: #975dfa;
+  --primary_200: #7f45e2;
+  --primary_300: #462878;
+
+  --gray_100: #ebebeb;
+  --gray_200: #6b6b6b;
+  --gray_300: #2d2a37;
 }
 
 /* soft reset */
@@ -15,16 +20,14 @@
 
 /* general styles */
 html,
-button,
-input {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+button {
+  font-family: Rubik, sans-serif;
   font-size: 16px;
+  color: var(--gray_100);
 }
 
 body {
-  background-color: var(--primary_100);
-  color: var(--gray_100);
+  background: linear-gradient(#807ece, #8e7ece);
 }
 
 button {
@@ -39,12 +42,60 @@ button {
 }
 
 .container {
+  width: 356px;
+  height: 566px;
+  background-color: var(--gray_300);
+  border-radius: 48px;
+  padding: 54px 32px 32px;
+  /* prettier-ignore */
+  box-shadow:
+    0 4px 4px rgb(0 0 0 /0.1),
+    inset 0 4px 4px rgb(255 255 255 /0.1);
 }
 
 .screen {
+  width: 288px;
+  height: 86px;
 }
 
 .keyboard {
   display: grid;
-  grid-template-columns: repeat(4, 48px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.keyboard__button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  background: linear-gradient(rgb(0 0 0 /0.05), rgb(255 255 255 /0.05));
+  transition: border 100ms;
+  /* prettier-ignore */
+  box-shadow:
+    0 0 2px rgb(0 0 0 /0.2),
+    0 4px 4px rgb(0 0 0 /0.2),
+    inset 0 2px 2px rgb(255 255 255 /0.075);
+}
+
+.keyboard__button:hover {
+  border: 1px solid var(--gray_100);
+}
+
+.keyboard__button:active {
+  border: 1px solid var(--gray_200);
+}
+
+.keyboard__button--ce {
+  color: var(--primary_100);
+}
+
+.keyboard__button--operator {
+  background: linear-gradient(rgb(70 40 120), rgb(84, 53, 134));
+}
+
+.keyboard__button--equals {
+  background: linear-gradient(rgb(127, 69, 226), rgb(144, 85, 245));
 }
