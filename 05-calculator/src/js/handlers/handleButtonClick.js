@@ -31,11 +31,8 @@ export function handleButtonClick(event) {
       break;
 
     case "clearAll":
-      handleClear({ type: "all" });
-      break;
-
     case "clearLastInput":
-      handleClear({ type: "last" });
+      handleClear(value);
       break;
 
     case "decimal":

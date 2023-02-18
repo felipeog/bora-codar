@@ -2,9 +2,9 @@ import { state } from "../objects/state";
 
 import { setScreen } from "../utils/setScreen";
 
-export function handleClear({ type }) {
-  switch (type) {
-    case "all":
+export function handleClear(value) {
+  switch (value) {
+    case "clearAll":
       state.currentOperation = {
         left: "0",
         operator: null,
@@ -19,7 +19,7 @@ export function handleClear({ type }) {
       setScreen();
       break;
 
-    case "last":
+    case "clearLastInput":
       if (state.currentOperation.right !== null) {
         state.currentOperation.right = null;
       } else if (state.currentOperation.operator !== null) {
