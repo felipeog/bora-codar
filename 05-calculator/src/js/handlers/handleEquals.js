@@ -1,11 +1,11 @@
 import { state } from "../objects/state";
 
-import { checkOperation } from "../utils/checkOperation";
+import { checkValidOperation } from "../utils/checkValidOperation";
 import { getResult } from "../utils/getResult";
 import { setScreen } from "../utils/setScreen";
 
 export function handleEquals(event) {
-  const isValid = checkOperation(state.currentOperation);
+  const isValid = checkValidOperation(state.currentOperation);
 
   if (!isValid) {
     return;
