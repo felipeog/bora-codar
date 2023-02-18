@@ -26,6 +26,7 @@ export function handleOperator(value) {
   };
   const operator = operators[value];
 
+  // FIXME: ignore this when coming from a valid operation
   if (operator === "-" && checkEmptyOperation(state.currentOperation)) {
     state.currentOperation.left = "-";
   } else {
