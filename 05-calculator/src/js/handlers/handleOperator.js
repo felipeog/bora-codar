@@ -1,13 +1,18 @@
 import { state } from "../objects/state";
-
 import { checkEmptyOperation } from "../utils/checkEmptyOperation";
 import { checkValidOperation } from "../utils/checkValidOperation";
 import { getResult } from "../utils/getResult";
 import { setScreen } from "../utils/setScreen";
 
 export function handleOperator(value) {
-  if (checkValidOperation(state.currentOperation)) {
-    const result = getResult(state.currentOperation);
+  const hasPreviousOperation = checkValidOperation(state.currentOperation);
+
+  if (hasPreviousOperation) {
+    const { result, error } = getResult(state.currentOperation);
+
+    if (error) {
+      return alert(error);
+    }
 
     state.lastOperation = { ...state.currentOperation };
     state.currentOperation = {
@@ -26,8 +31,11 @@ export function handleOperator(value) {
   };
   const operator = operators[value];
 
-  // FIXME: ignore this when coming from a valid operation
-  if (operator === "-" && checkEmptyOperation(state.currentOperation)) {
+  if (
+    operator === "-" &&
+    checkEmptyOperation(state.currentOperation) &&
+    !hasPreviousOperation
+  ) {
     state.currentOperation.left = "-";
   } else {
     state.currentOperation.operator = operator;
