@@ -65,6 +65,7 @@ button {
 .screen__last-operation {
   color: var(--gray_200);
   font-size: 20px;
+  line-height: 1;
   height: 28px;
 }
 
@@ -97,6 +98,7 @@ button {
 
   /* firefox */
   scrollbar-color: var(--gray_200) transparent;
+  scrollbar-width: thin;
 }
 
 /* chrome */
