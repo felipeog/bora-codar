@@ -1,9 +1,9 @@
 import { state } from "../objects/state";
-
+import { getCurrentSide } from "../utils/getCurrentSide";
 import { setScreen } from "../utils/setScreen";
 
 export function handleInverse() {
-  const side = state.currentOperation.operator ? "right" : "left";
+  const side = getCurrentSide();
 
   if (Number(state.currentOperation[side]) === 0) {
     return;

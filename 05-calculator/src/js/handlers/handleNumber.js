@@ -1,24 +1,23 @@
+import { bounds } from "../consts/bounds";
+import { decimalPrecision } from "../consts/decimalPrecision";
 import { state } from "../objects/state";
-
+import { getCurrentSide } from "../utils/getCurrentSide";
 import { setScreen } from "../utils/setScreen";
 
 export function handleNumber(value) {
-  const side = state.currentOperation.operator ? "right" : "left";
+  const side = getCurrentSide();
 
   if (state.currentOperation[side]?.includes(".")) {
     const decimal = state.currentOperation[side].split(".")[1];
 
-    if (decimal?.length >= 3) {
+    if (decimal?.length >= decimalPrecision) {
       return;
     }
   }
 
   const newValue = concatNumber(value, state.currentOperation[side]);
 
-  if (
-    Number(newValue) >= -999_999_999.999 &&
-    Number(newValue) <= 999_999_999.999
-  ) {
+  if (Number(newValue) >= bounds.lower && Number(newValue) <= bounds.upper) {
     state.currentOperation[side] = newValue;
   }
 
