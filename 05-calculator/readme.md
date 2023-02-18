@@ -18,15 +18,15 @@ https://fog-bc-calculator.netlify.app
 
 ### The challenge
 
-[Layout](https://postimg.cc/)
+[Layout](https://postimg.cc/SJpJKfM5)
 
 Users should be able to:
 
-- [ ] Calculate
+- [x] Calculate
 
 ### Screenshots
 
-[![boracodar-calculator.png](https://i.postimg.cc/boracodar-calculator.png)](https://postimg.cc/)
+[![boracodar-calculator.png](https://i.postimg.cc/zDtKwmNt/boracodar-calculator.png)](https://postimg.cc/fkdVZrJm)
 
 ## My process
 
