@@ -5,7 +5,7 @@ export const state = {
     right: null,
   },
   lastOperation: {
-    left: null,
+    left: "0",
     operator: null,
     right: null,
   },

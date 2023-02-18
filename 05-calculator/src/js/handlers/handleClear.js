@@ -11,7 +11,7 @@ export function handleClear(value) {
         right: null,
       };
       state.lastOperation = {
-        left: null,
+        left: "0",
         operator: null,
         right: null,
       };
