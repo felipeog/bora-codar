@@ -1,13 +1,12 @@
 import { state } from "../objects/state";
 
-import { checkOperation } from "../utils/checkOperation";
+import { checkEmptyOperation } from "../utils/checkEmptyOperation";
+import { checkValidOperation } from "../utils/checkValidOperation";
 import { getResult } from "../utils/getResult";
 import { setScreen } from "../utils/setScreen";
 
 export function handleOperator(value) {
-  const isValid = checkOperation(state.currentOperation);
-
-  if (isValid) {
+  if (checkValidOperation(state.currentOperation)) {
     const result = getResult(state.currentOperation);
 
     state.lastOperation = { ...state.currentOperation };
@@ -27,7 +26,11 @@ export function handleOperator(value) {
   };
   const operator = operators[value];
 
-  state.currentOperation.operator = operator;
+  if (operator === "-" && checkEmptyOperation(state.currentOperation)) {
+    state.currentOperation.left = "-";
+  } else {
+    state.currentOperation.operator = operator;
+  }
 
   setScreen();
 }
