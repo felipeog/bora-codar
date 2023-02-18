@@ -15,7 +15,7 @@ export function handleClear(value) {
       break;
 
     default:
-      console.error("Unhandled case @ handleClear");
+      break;
   }
 }
 
