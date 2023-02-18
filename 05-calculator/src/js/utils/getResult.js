@@ -1,3 +1,6 @@
+import { formatNumber } from "./formatNumber";
+
+// TODO: handle out of bounds
 export function getResult(operation) {
   let result;
 
@@ -7,6 +10,5 @@ export function getResult(operation) {
     result = eval(`${operation.left} ${operation.operator} ${operation.right}`);
   }
 
-  // https://stackoverflow.com/a/3613112/10942224
-  return Number(result.toFixed(4)).toString();
+  return formatNumber(result);
 }

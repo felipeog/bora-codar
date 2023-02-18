@@ -4,9 +4,23 @@ import { setScreen } from "../utils/setScreen";
 
 export function handleNumber(value) {
   const side = state.currentOperation.operator ? "right" : "left";
+
+  if (state.currentOperation[side]?.includes(".")) {
+    const decimal = state.currentOperation[side].split(".")[1];
+
+    if (decimal?.length >= 3) {
+      return;
+    }
+  }
+
   const newValue = concatNumber(value, state.currentOperation[side]);
 
-  state.currentOperation[side] = newValue;
+  if (
+    Number(newValue) >= -999_999_999.999 &&
+    Number(newValue) <= 999_999_999.999
+  ) {
+    state.currentOperation[side] = newValue;
+  }
 
   setScreen();
 }
