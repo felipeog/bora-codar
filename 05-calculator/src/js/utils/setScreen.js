@@ -13,8 +13,17 @@ export function setScreen() {
 }
 
 function formatOperation(operation) {
+  const operators = {
+    "/": "÷",
+    "*": "×",
+    "%": "%",
+    "-": "−",
+    "+": "+",
+  };
   const left = operation.left ?? "";
-  const operator = operation.operator ? ` ${operation.operator}` : "";
+  const operator = operation.operator
+    ? ` ${operators[operation.operator]}`
+    : "";
   const right = operation.right ? ` ${operation.right}` : "";
 
   return `${left}${operator}${right}`;
