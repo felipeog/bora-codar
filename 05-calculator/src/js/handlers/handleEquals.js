@@ -1,16 +1,17 @@
 import { state } from "../objects/state";
+
+import { checkOperation } from "../utils/checkOperation";
+import { getResult } from "../utils/getResult";
 import { setScreen } from "../utils/setScreen";
 
 export function handleEquals(event) {
-  const isValid = Object.values(state.currentOperation).every(
-    (item) => item !== null
-  );
+  const isValid = checkOperation(state.currentOperation);
 
   if (!isValid) {
     return;
   }
 
-  const result = getResult();
+  const result = getResult(state.currentOperation);
 
   state.lastOperation = { ...state.currentOperation };
   state.currentOperation = {
@@ -20,21 +21,4 @@ export function handleEquals(event) {
   };
 
   setScreen();
-}
-
-function getResult() {
-  let result;
-
-  if (state.currentOperation.operator === "%") {
-    result = eval(
-      `${state.currentOperation.left / 100} * ${state.currentOperation.right}`
-    );
-  }
-
-  result = eval(
-    `${state.currentOperation.left} ${state.currentOperation.operator} ${state.currentOperation.right}`
-  );
-
-  // https://stackoverflow.com/a/3613112/10942224
-  return Number(result.toFixed(4)).toString();
 }
