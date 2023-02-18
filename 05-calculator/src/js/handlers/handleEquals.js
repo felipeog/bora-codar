@@ -4,10 +4,8 @@ import { checkValidOperation } from "../utils/checkValidOperation";
 import { getResult } from "../utils/getResult";
 import { setScreen } from "../utils/setScreen";
 
-export function handleEquals(event) {
-  const isValid = checkValidOperation(state.currentOperation);
-
-  if (!isValid) {
+export function handleEquals() {
+  if (!checkValidOperation(state.currentOperation)) {
     return;
   }
 
