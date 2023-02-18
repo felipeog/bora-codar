@@ -59,6 +59,31 @@ button {
 .screen {
   width: 288px;
   height: 86px;
+  text-align: right;
+}
+
+.screen__last-operation {
+  color: var(--gray_200);
+  font-size: 20px;
+  height: 28px;
+}
+
+.screen__current-operation {
+  margin-top: 8px;
+  color: var(--gray_100);
+  font-size: 36px;
+  height: 50px;
+  position: relative;
+}
+
+.screen__current-operation::before {
+  content: "=";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--gray_200);
 }
 
 .keyboard {
