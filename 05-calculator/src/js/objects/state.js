@@ -1,12 +1,6 @@
+import { defaultState } from "../consts/defaultState";
+
 export const state = {
-  currentOperation: {
-    left: "0",
-    operator: null,
-    right: null,
-  },
-  lastOperation: {
-    left: "0",
-    operator: null,
-    right: null,
-  },
+  currentOperation: { ...defaultState },
+  lastOperation: { ...defaultState },
 };
