@@ -5,14 +5,11 @@ export function setScreen() {
   elements.screen.lastOperation.textContent = formatOperation(
     state.lastOperation
   );
-  elements.screen.lastOperation.scrollLeft =
-    elements.screen.lastOperation.scrollWidth;
-
   elements.screen.currentOperation.textContent = formatOperation(
     state.currentOperation
   );
-  elements.screen.currentOperation.scrollLeft =
-    elements.screen.currentOperation.scrollWidth;
+
+  scrollToTheRight();
 }
 
 function formatOperation(operation) {
@@ -21,4 +18,11 @@ function formatOperation(operation) {
   const right = operation.right ? ` ${operation.right}` : "";
 
   return `${left}${operator}${right}`;
+}
+
+function scrollToTheRight() {
+  elements.screen.lastOperation.scrollLeft =
+    elements.screen.lastOperation.scrollWidth;
+  elements.screen.currentOperation.scrollLeft =
+    elements.screen.currentOperation.scrollWidth;
 }
