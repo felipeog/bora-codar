@@ -51,3 +51,7 @@ The buttons can be used by:
 
 - mouse, clicking on them
 - keyboard, tabbing into them and pressing `enter` or `space bar`
+- keyboard, pressing the equivalent keys on the physical keyboard
+  - `c` for `clear all`
+  - `i` for `inverse`
+  - `backspace` for `clear entry`
