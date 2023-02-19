@@ -1,0 +1,11 @@
+{
+  "name": "bora-codar",
+  "type": "module",
+  "scripts": {
+    "generate-readme": "node ./scripts/generateReadme/index.js",
+    "generate-readme:dev": "NODE_ENV=development node ./scripts/generateReadme/index.js"
+  },
+  "dependencies": {
+    "glob": "^8.1.0"
+  }
+}
