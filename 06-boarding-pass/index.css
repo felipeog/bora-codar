@@ -1,0 +1,233 @@
+/* global variables */
+:root {
+  --primary_100: #8257e5;
+  --primary_200: #633bbc;
+  --primary_300: #271a45;
+
+  --gray_100: #fff;
+  --gray_200: #b8b1c8;
+  --gray_300: #5c5c5c;
+  --gray_400: #1f1f1f;
+}
+
+/* soft reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* general styles */
+html {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  color: var(--gray_400);
+}
+
+body {
+  background: linear-gradient(135deg, var(--primary_100), var(--primary_300));
+}
+
+/* boarding pass styles */
+.wrapper {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  width: 327px;
+}
+
+/* .header {} */
+
+.header__title {
+  text-align: center;
+  color: var(--gray_100);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ticket {
+  filter: drop-shadow(0 0 6px rgb(0 0 0 /0.2));
+}
+
+/* .flight {} */
+
+/* .flight__meta {} */
+
+.flight__destination {
+  margin-top: 24px;
+}
+
+/* .passenger {} */
+
+.boarding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boarding__meta {
+  display: grid;
+  gap: 14px;
+}
+
+.boarding__qr-wrapper {
+  text-align: center;
+}
+
+.boarding__qr-image {
+  width: 160px;
+}
+
+.notice {
+  text-align: center;
+  color: var(--gray_400);
+  margin-top: 8px;
+}
+
+/* .notice__text {} */
+
+/* .footer {} */
+
+.footer__text {
+  text-align: center;
+  color: var(--gray_200);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* shared styles */
+.section {
+  background-color: var(--gray_100);
+  padding: 8px 32px;
+}
+
+.section:first-of-type {
+  padding-top: 24px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.section:last-of-type {
+  padding-bottom: 24px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.section__hidden-title {
+  display: none;
+}
+
+.section__label {
+  font-size: 14px;
+  color: var(--gray_300);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.section__value {
+  font-size: 16px;
+  color: var(--gray_400);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.section__value--big {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.section__value--regular {
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.section__value--badge {
+  background-color: var(--primary_100);
+  color: var(--gray_100);
+  font-weight: 500;
+  display: inline-block;
+  border-radius: 8px;
+  line-height: 1.4;
+  padding: 2px 6px;
+}
+
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.two-columns__left {
+  text-align: left;
+}
+
+.two-columns__right {
+  text-align: right;
+}
+
+.three-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.three-columns__left {
+  text-align: left;
+}
+
+.three-columns__center {
+  text-align: center;
+}
+
+.three-columns__right {
+  text-align: right;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  box-sizing: content-box;
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  border: solid 160px var(--gray_100);
+  border-radius: 50%;
+}
+
+.divider__ruler {
+  width: 300px;
+  border-top: dashed var(--gray_200) 1px;
+  z-index: 2;
+}
+
+.divider::before {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.divider::after {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+/* end shared styles */

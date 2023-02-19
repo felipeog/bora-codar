@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Boarding Pass</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <main class="container">
+        <header class="header">
+          <h1 class="header__title">Cartão de embarque</h1>
+        </header>
+
+        <div class="ticket">
+          <section class="section flight">
+            <h1 class="section__hidden-title">Voo</h1>
+
+            <div class="flight__meta">
+              <div class="two-columns">
+                <div class="two-columns__left">
+                  <p class="section__label">Voo</p>
+                  <p class="section__value">C8D4</p>
+                </div>
+
+                <div class="two-columns__right">
+                  <p class="section__label">Data</p>
+                  <p class="section__value">06/01/1994</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flight__destination">
+              <div class="two-columns">
+                <div class="two-columns__left">
+                  <p class="section__label">Rio de Janeiro, BR</p>
+                </div>
+
+                <div class="two-columns__right">
+                  <p class="section__label">Belo Horizonte, BR</p>
+                </div>
+              </div>
+
+              <div class="three-columns">
+                <div class="three-columns__left">
+                  <p class="section__value section__value--big">SDU</p>
+                </div>
+
+                <div class="three-columns__center">
+                  <img src="airplane.svg" alt="" />
+                </div>
+
+                <div class="three-columns__right">
+                  <p class="section__value section__value--big">PLU</p>
+                </div>
+              </div>
+
+              <div class="two-columns">
+                <div class="two-columns__left">
+                  <p class="section__value section__value--regular">13:00</p>
+                </div>
+
+                <div class="two-columns__right">
+                  <p class="section__value section__value--regular">14:00</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider">
+            <div class="divider__ruler"></div>
+          </div>
+
+          <section class="section">
+            <h1 class="section__hidden-title">Passageiro</h1>
+
+            <div class="passenger">
+              <div class="two-columns">
+                <div class="two-columns__left">
+                  <p class="section__label">Passageiro</p>
+                  <p class="section__value">Ônix Pereira</p>
+                </div>
+
+                <div class="two-columns__right">
+                  <p class="section__label">Assento</p>
+                  <p class="section__value">69B</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider">
+            <div class="divider__ruler"></div>
+          </div>
+
+          <section class="section">
+            <h1 class="section__hidden-title">Embarque</h1>
+
+            <div class="boarding">
+              <div class="boarding__meta">
+                <div>
+                  <div class="section__label">Embarque</div>
+                  <div class="section__value section__value--badge">12:15</div>
+                </div>
+
+                <div>
+                  <div class="section__label">Terminal</div>
+                  <div class="section__value">20</div>
+                </div>
+
+                <div>
+                  <div class="section__label">Portão</div>
+                  <div class="section__value">16</div>
+                </div>
+              </div>
+
+              <div class="boarding__qr-wrapper">
+                <img class="boarding__qr-image" src="qr-code.svg" alt="" />
+                <div class="section__label">Grupo de embarque: 7</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h1 class="section__hidden-title">Notice</h1>
+
+            <div class="notice">
+              <p class="notice__text"><b>Atenção:</b> o portão fecha 12:45</p>
+            </div>
+          </section>
+        </div>
+
+        <footer class="footer">
+          <p class="footer__text">
+            Qualquer problema procure o balcão de atendimento da sua companhia
+            aérea
+          </p>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
