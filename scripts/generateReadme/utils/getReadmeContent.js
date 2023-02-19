@@ -20,10 +20,9 @@ function formatChallengeSection(challenges) {
   const title = `## Challenges`;
   const tableHeader = `| Name | Code | Preview |\n` + `| --- | --- | --- |`;
   const formattedChallenges = challenges
-    .map(
-      (challenge) =>
-        `| ${challenge.name} | ${challenge.code} | ${challenge.preview} |`
-    )
+    .map((challenge) => {
+      return `| ${challenge.name} | [Open code](${challenge.code}) | [Open preview](${challenge.preview}) |`;
+    })
     .join("\n");
 
   return `${title}\n` + `\n` + `${tableHeader}\n${formattedChallenges}\n`;
