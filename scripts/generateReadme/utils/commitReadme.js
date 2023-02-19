@@ -1,6 +1,8 @@
 import { execSync } from "child_process";
 
-export function commitReadme(user) {
+import { user } from "../consts/user.js";
+
+export function commitReadme() {
   console.log("Commiting...");
 
   try {

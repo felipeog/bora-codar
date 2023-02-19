@@ -1,4 +1,3 @@
-import { user } from "./consts/user.js";
 import { commitReadme } from "./utils/commitReadme.js";
 import { getChallenges } from "./utils/getChallenges.js";
 import { getReadmeContent } from "./utils/getReadmeContent.js";
@@ -11,7 +10,7 @@ export function generateReadme() {
   updateaReadme(readmeContent);
 
   if (process.env.NODE_ENV !== "development") {
-    commitReadme(user);
+    commitReadme();
   }
 }
 
