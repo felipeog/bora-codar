@@ -202,6 +202,9 @@ body {
   --mask: radial-gradient(12px at 12px, transparent 99%, black) -12px;
   -webkit-mask: var(--mask);
   mask: var(--mask);
+  --mask-repeat: repeat-x;
+  -webkit-mask-repeat: var(--mask-repeat);
+  mask-repeat: var(--mask-repeat);
 }
 
 .divider__ruler {
