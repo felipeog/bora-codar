@@ -1,4 +1,4 @@
-# Boarding pass
+# Boarding Pass
 
 - [Live preview](#live-preview)
 - [Overview](#overview)
