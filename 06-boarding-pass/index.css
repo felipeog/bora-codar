@@ -196,23 +196,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   height: 24px;
-  overflow: hidden;
-}
+  background-color: var(--gray_100);
 
-.divider::before,
-.divider::after {
-  content: "";
-  box-sizing: content-box;
-  display: block;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  border: solid 160px var(--gray_100);
-  border-radius: 50%;
+  --mask: radial-gradient(12px at 12px, transparent 99%, black) -12px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
 }
 
 .divider__ruler {
