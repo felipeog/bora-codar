@@ -20,28 +20,34 @@ import { useFilterStore } from "../stores/filterStore";
 
 function MapView() {
   const filteredBlocks = useFilterStore((state) => state.filteredBlocks);
-  const formattedLocations = filteredBlocks.reduce((acc, cur) => {
-    const locationState = cur.location.split(" - ")[1];
+  const locationsByState = filteredBlocks.reduce((acc, cur) => {
+    const state = cur.location.split(" - ")[1];
 
-    if (acc[locationState]) {
+    if (acc[state]) {
       return {
         ...acc,
-        [locationState]: {
-          ...acc[locationState],
-          blocks: [...acc[locationState].blocks, cur],
+        [state]: {
+          ...acc[state],
+          blocks: [...acc[state].blocks, cur],
         },
       };
     }
 
     return {
       ...acc,
-      [locationState]: {
+      [state]: {
+        state: state,
         longitude: cur.longitude,
         latitude: cur.latitude,
         blocks: [cur],
       },
     };
   }, {});
+  const locations = Object.values(locationsByState);
+
+  if (!locations.length) {
+    return "Sem resultados.";
+  }
 
   const geographyStyle = {
     fill: "#aaa",
@@ -81,8 +87,11 @@ function MapView() {
         }
       </Geographies>
 
-      {Object.entries(formattedLocations).map(([key, value]) => (
-        <Marker key={key} coordinates={[value.longitude, value.latitude]}>
+      {locations.map((location) => (
+        <Marker
+          key={location.state}
+          coordinates={[location.longitude, location.latitude]}
+        >
           <Popover>
             <PopoverTrigger>
               <g style={{ cursor: "pointer" }}>
@@ -96,7 +105,7 @@ function MapView() {
                     fill: "#000",
                   }}
                 >
-                  {key} - {value.blocks.length}
+                  {location.state} - {location.blocks.length}
                 </text>
               </g>
             </PopoverTrigger>
@@ -106,11 +115,11 @@ function MapView() {
                 <PopoverArrow />
                 <PopoverCloseButton />
 
-                <PopoverHeader>Blocos {key}</PopoverHeader>
+                <PopoverHeader>Blocos</PopoverHeader>
 
                 <PopoverBody>
                   <ul>
-                    {value.blocks.map((block) => (
+                    {location.blocks.map((block) => (
                       <li key={block.title}>
                         <p>{block.title}</p>
                         <p>{block.location}</p>
