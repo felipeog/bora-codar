@@ -23,7 +23,7 @@ function Content() {
           </Heading>
 
           <TabList
-            border="1px solid var(--chakra-colors-gray-200)"
+            border="1px solid var(--chakra-colors-blue-100)"
             borderRadius={4}
             padding={1}
           >
