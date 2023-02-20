@@ -16,7 +16,7 @@ import { MapView } from "./MapView";
 function Content() {
   return (
     <Flex width={960} marginX="auto" paddingY={20} as="section">
-      <Tabs variant="solid-rounded" width="100%">
+      <Tabs variant="soft-rounded" width="100%">
         <HStack justifyContent="space-between">
           <Heading as="h1" size="md">
             Blocos recomendados

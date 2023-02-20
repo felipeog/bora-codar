@@ -34,11 +34,15 @@ function ListView() {
           <CardBody>
             <VStack alignItems="start" spacing={4}>
               <Heading size="sm">{block.title}</Heading>
-              <Text>{block.description}</Text>
+
+              <Text color="gray.600">{block.description}</Text>
 
               <HStack>
-                <Icon as={IoLocationOutline} />
-                <Text>{block.location}</Text>
+                <Icon
+                  as={IoLocationOutline}
+                  color="var(--chakra-colors-red-400)"
+                />
+                <Text color="gray.600">{block.location}</Text>
               </HStack>
             </VStack>
           </CardBody>

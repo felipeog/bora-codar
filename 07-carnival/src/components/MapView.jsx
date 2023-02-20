@@ -42,8 +42,8 @@ function MapView() {
   }
 
   const geographyStyle = {
-    fill: "var(--chakra-colors-gray-100)",
-    stroke: "var(--chakra-colors-gray-300)",
+    fill: "var(--chakra-colors-blue-50)",
+    stroke: "var(--chakra-colors-blue-200)",
     strokeWidth: 0.5,
     outline: "none",
     transition: "100ms",

@@ -1,9 +1,9 @@
+import { useState } from "react";
 import {
   Text,
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
   PopoverBody,
   Portal,
   PopoverArrow,
@@ -13,11 +13,27 @@ import {
 } from "@chakra-ui/react";
 
 function MapPopover({ location }) {
+  const [isHovering, setIsHovering] = useState();
+
   return (
     <Popover>
       <PopoverTrigger>
-        <g style={{ cursor: "pointer" }}>
-          <circle r={6} fill="var(--chakra-colors-red-500)" />
+        <g
+          style={{ cursor: "pointer" }}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
+          <circle
+            r={6}
+            fill={
+              isHovering
+                ? "var(--chakra-colors-red-500)"
+                : "var(--chakra-colors-red-400)"
+            }
+            style={{
+              transition: "100ms",
+            }}
+          />
           <text
             textAnchor="middle"
             y={-8}
@@ -25,6 +41,7 @@ function MapPopover({ location }) {
               fontSize: 12,
               fontFamily: "var(--chakra-fonts-body)",
               fill: "var(--chakra-colors-black)",
+              transition: "100ms",
             }}
           >
             {location.state} - {location.blocks.length}
@@ -36,8 +53,6 @@ function MapPopover({ location }) {
         <PopoverContent>
           <PopoverArrow />
           <PopoverCloseButton />
-
-          <PopoverHeader>Blocos</PopoverHeader>
 
           <PopoverBody>
             <List spacing={4}>
