@@ -11,8 +11,29 @@ import {
 } from "@chakra-ui/react";
 
 import { locations } from "../consts/locations";
+import { useFilterStore } from "../stores/filterStore";
 
 function Hero() {
+  const [setTitle, setLocation, applyFilters] = useFilterStore((state) => [
+    state.setTitle,
+    state.setLocation,
+    state.applyFilters,
+  ]);
+
+  function handleTitleChange(event) {
+    setTitle(event.target.value);
+  }
+
+  function handleLocationChange(event) {
+    setLocation(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    applyFilters();
+  }
+
   return (
     <Box backgroundColor="gray.50">
       <Flex
@@ -32,16 +53,24 @@ function Hero() {
 
         <Card marginTop={8} width="100%">
           <CardBody>
-            <HStack spacing={4}>
-              <Input placeholder="Pesquise por nome" />
-              <Select placeholder="Selecione uma cidade">
+            <HStack spacing={4} as="form" onSubmit={handleSubmit}>
+              <Input
+                placeholder="Pesquise por nome"
+                onChange={handleTitleChange}
+              />
+
+              <Select
+                placeholder="Selecione uma cidade"
+                onChange={handleLocationChange}
+              >
                 {locations.map((location) => (
                   <option key={location} value={location}>
                     {location}
                   </option>
                 ))}
               </Select>
-              <Button textTransform="uppercase" flexShrink={0}>
+
+              <Button textTransform="uppercase" flexShrink={0} type="submit">
                 Buscar agora
               </Button>
             </HStack>

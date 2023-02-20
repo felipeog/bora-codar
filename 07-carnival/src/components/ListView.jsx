@@ -11,12 +11,18 @@ import {
 } from "@chakra-ui/react";
 import { IoLocationOutline } from "react-icons/io5";
 
-import { blocks } from "../consts/blocks";
+import { useFilterStore } from "../stores/filterStore";
 
 function ListView() {
+  const filteredBlocks = useFilterStore((state) => state.filteredBlocks);
+
+  if (!filteredBlocks?.length) {
+    return "Sem resultados.";
+  }
+
   return (
     <SimpleGrid columns={3} spacing={6} marginTop={8}>
-      {blocks.map((block) => (
+      {filteredBlocks.map((block) => (
         <Card key={block.title} as="article" overflow="hidden">
           <Image
             objectFit="cover"
