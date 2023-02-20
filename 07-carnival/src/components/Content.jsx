@@ -27,7 +27,7 @@ function Content() {
                 Lista
               </Text>
             </Tab>
-            <Tab>
+            <Tab isDisabled>
               <Text textTransform="uppercase" fontSize="xs">
                 Mapa
               </Text>
