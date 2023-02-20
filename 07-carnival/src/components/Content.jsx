@@ -7,6 +7,7 @@ import {
   Text,
   TabPanels,
   TabPanel,
+  HStack,
 } from "@chakra-ui/react";
 
 import { ListView } from "./ListView";
@@ -16,7 +17,7 @@ function Content() {
   return (
     <Flex width={960} marginX="auto" paddingY={20} as="section">
       <Tabs variant="solid-rounded" width="100%">
-        <Flex justifyContent="space-between" alignItems="center">
+        <HStack justifyContent="space-between">
           <Heading as="h1" size="md">
             Blocos recomendados
           </Heading>
@@ -33,7 +34,7 @@ function Content() {
               </Text>
             </Tab>
           </TabList>
-        </Flex>
+        </HStack>
 
         <TabPanels>
           <TabPanel padding={0}>

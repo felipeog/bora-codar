@@ -15,7 +15,7 @@ import { blocks } from "../consts/blocks";
 
 function ListView() {
   return (
-    <SimpleGrid columns={3} spacing={4} marginTop={8}>
+    <SimpleGrid columns={3} spacing={6} marginTop={8}>
       {blocks.map((block) => (
         <Card key={block.title} as="article" overflow="hidden">
           <Image
