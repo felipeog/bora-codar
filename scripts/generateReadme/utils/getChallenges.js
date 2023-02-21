@@ -13,10 +13,10 @@ export function getChallenges() {
     "../../../**/challenge.json"
   );
   const challengesPaths = glob.sync(challengesGlobPattern);
-  const challenges = challengesPaths.map((packagePath) => {
-    const packageFileBuffer = fs.readFileSync(packagePath);
+  const challenges = challengesPaths.map((challengePath) => {
+    const challengeFileBuffer = fs.readFileSync(challengePath);
 
-    return JSON.parse(packageFileBuffer);
+    return JSON.parse(challengeFileBuffer);
   });
 
   console.log("Done");

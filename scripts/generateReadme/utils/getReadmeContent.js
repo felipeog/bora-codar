@@ -18,12 +18,12 @@ export function getReadmeContent(challenges) {
 
 function formatChallengeSection(challenges) {
   const title = `## Challenges`;
-  const tableHeader = `| Name | Code | Preview |\n` + `| --- | --- | --- |`;
-  const formattedChallenges = challenges
+  const tableHead = `| Name | Code | Preview |\n` + `| --- | --- | --- |\n`;
+  const tableBody = challenges
     .map((challenge) => {
       return `| ${challenge.name} | [Open code](${challenge.code}) | [Open preview](${challenge.preview}) |`;
     })
     .join("\n");
 
-  return `${title}\n` + `\n` + `${tableHeader}\n${formattedChallenges}\n`;
+  return `${title}\n` + `\n` + `${tableHead}${tableBody}\n`;
 }
