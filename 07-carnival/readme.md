@@ -61,7 +61,6 @@ The form can be used by:
 
 - mouse, clicking on them
 - keyboard, tabbing into them and pressing left or right `arrow` buttons
--
 
 ### Map
 
