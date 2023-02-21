@@ -2,6 +2,9 @@ name: Generate readme
 
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+      - main
 
 jobs:
   generate-readme:
