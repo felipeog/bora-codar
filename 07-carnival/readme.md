@@ -8,6 +8,9 @@
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
 - [Functionality](#functionality)
+  - [Search form](#search-form)
+  - [Tabs](#tabs)
+  - [Map](#map)
 
 ## Live preview
 
