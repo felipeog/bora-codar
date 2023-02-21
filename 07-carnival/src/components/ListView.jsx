@@ -35,7 +35,9 @@ function ListView() {
             <VStack alignItems="start" spacing={4}>
               <Heading size="sm">{block.title}</Heading>
 
-              <Text color="gray.600">{block.description}</Text>
+              <Text color="gray.600" lineHeight={1.4}>
+                {block.description}
+              </Text>
 
               <HStack>
                 <Icon
