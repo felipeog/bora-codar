@@ -10,6 +10,7 @@
 | Chat | [Open code](https://github.com/felipeog/bora-codar/tree/main/04-chat) | [Open preview](https://fog-bc-chat.fly.dev) |
 | Calculator | [Open code](https://github.com/felipeog/bora-codar/tree/main/05-calculator) | [Open preview](https://fog-bc-calculator.netlify.app) |
 | Boarding Pass | [Open code](https://github.com/felipeog/bora-codar/tree/main/06-boarding-pass) | [Open preview](https://fog-bc-boarding-pass.netlify.app) |
+| Carnival | [Open code](https://github.com/felipeog/bora-codar/tree/main/07-carnival) | [Open preview](https://fog-bc-carnival.netlify.app) |
 
 ## Resources
 
