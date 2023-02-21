@@ -35,7 +35,17 @@ function MapView() {
       },
     };
   }, {});
-  const locations = Object.values(locationsByState);
+  const locations = Object.values(locationsByState).sort((a, b) => {
+    if (a.latitude < b.latitude) {
+      return 1;
+    }
+
+    if (a.latitude > b.latitude) {
+      return -1;
+    }
+
+    return 0;
+  });
 
   if (!locations.length) {
     return "Sem resultados.";
@@ -63,6 +73,7 @@ function MapView() {
             geographies.map((geo) => (
               <Geography
                 key={geo.rsmKey + "-Geography"}
+                tabIndex={-1}
                 stroke="#FFF"
                 geography={geo}
                 style={{

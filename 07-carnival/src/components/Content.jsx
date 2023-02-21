@@ -55,10 +55,24 @@ function Content() {
         </HStack>
 
         <TabPanels>
-          <TabPanel padding={0}>
+          <TabPanel
+            padding={0}
+            sx={{
+              "&:focus-visible": {
+                boxShadow: "var(--chakra-shadows-outline)",
+              },
+            }}
+          >
             <ListView />
           </TabPanel>
-          <TabPanel padding={0}>
+          <TabPanel
+            padding={0}
+            sx={{
+              "&:focus-visible": {
+                boxShadow: "var(--chakra-shadows-outline)",
+              },
+            }}
+          >
             <MapView />
           </TabPanel>
         </TabPanels>

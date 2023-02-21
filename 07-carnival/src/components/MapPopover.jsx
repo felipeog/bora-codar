@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Text,
   Popover,
@@ -7,26 +6,39 @@ import {
   PopoverBody,
   Portal,
   PopoverArrow,
-  PopoverCloseButton,
   List,
   ListItem,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 function MapPopover({ location }) {
-  const [isHovering, setIsHovering] = useState();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  function openPopover() {
+    onOpen();
+  }
+
+  function closePopover() {
+    onClose();
+  }
 
   return (
-    <Popover>
+    <Popover isOpen={isOpen} returnFocusOnClose={false} autoFocus={false}>
       <PopoverTrigger>
         <g
-          style={{ cursor: "pointer" }}
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
+          style={{
+            cursor: "pointer",
+          }}
+          onMouseEnter={openPopover}
+          onMouseLeave={closePopover}
+          onFocus={openPopover}
+          onBlur={closePopover}
+          tabIndex={0}
         >
           <circle
             r={6}
             fill={
-              isHovering
+              isOpen
                 ? "var(--chakra-colors-red-500)"
                 : "var(--chakra-colors-red-400)"
             }
@@ -52,7 +64,6 @@ function MapPopover({ location }) {
       <Portal>
         <PopoverContent>
           <PopoverArrow />
-          <PopoverCloseButton />
 
           <PopoverBody>
             <List spacing={4}>

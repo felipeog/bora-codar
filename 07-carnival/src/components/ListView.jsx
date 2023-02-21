@@ -23,7 +23,7 @@ function ListView() {
   return (
     <SimpleGrid columns={3} spacing={6} marginTop={8}>
       {filteredBlocks.map((block) => (
-        <Card key={block.title} as="article" overflow="hidden">
+        <Card key={block.title} as="article" overflow="hidden" tabIndex={0}>
           <Image
             objectFit="cover"
             height={150}
