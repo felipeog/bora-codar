@@ -1,5 +1,10 @@
 {
   "name": "07-carnival",
+  "homepage": "https://fog-bc-carnival.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/07-carnival"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",

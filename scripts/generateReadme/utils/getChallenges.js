@@ -8,15 +8,20 @@ export function getChallenges() {
   console.log("Getting challenges...");
 
   const currentDirectory = getCurrentDirectory(import.meta.url);
-  const challengesGlobPattern = path.resolve(
+  const packagesGlobPattern = path.resolve(
     currentDirectory,
-    "../../../**/challenge.json"
+    "../../../challenges/*/package.json"
   );
-  const challengesPaths = glob.sync(challengesGlobPattern);
-  const challenges = challengesPaths.map((challengePath) => {
-    const challengeFileBuffer = fs.readFileSync(challengePath);
+  const packagesPaths = glob.sync(packagesGlobPattern);
+  const challenges = packagesPaths.map((packagePath) => {
+    const packageFileBuffer = fs.readFileSync(packagePath);
+    const packageFile = JSON.parse(packageFileBuffer);
 
-    return JSON.parse(challengeFileBuffer);
+    return {
+      name: packageFile?.name ?? "missing name",
+      code: packageFile?.repository?.url ?? "missing code",
+      preview: packageFile?.homepage ?? "missing preview",
+    };
   });
 
   console.log("Done");

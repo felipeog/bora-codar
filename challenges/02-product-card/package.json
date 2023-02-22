@@ -1,5 +1,10 @@
 {
   "name": "02-product-card",
+  "homepage": "https://fog-bc-product-card.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/02-product-card"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",

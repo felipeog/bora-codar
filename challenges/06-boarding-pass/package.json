@@ -1,0 +1,9 @@
+{
+  "name": "06-boarding-pass",
+  "homepage": "https://fog-bc-boarding-pass.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/06-boarding-pass"
+  },
+  "version": "0.0.0"
+}

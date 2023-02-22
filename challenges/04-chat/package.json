@@ -1,5 +1,11 @@
 {
   "name": "04-chat",
+  "homepage": "https://fog-bc-chat.fly.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/04-chat"
+  },
+  "version": "0.0.0",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"

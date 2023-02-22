@@ -1,18 +1,26 @@
 {
   "name": "01-music-player",
+  "homepage": "https://fog-bc-music-player.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/01-music-player"
+  },
+  "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
-    "test": "vitest --reporter verbose",
+    "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run"
   },
   "devDependencies": {
     "@playwright/test": "1.29.2",
+    "@types/jsmediatags": "3.9.3",
     "@vitest/ui": "0.27.1",
     "playwright": "1.29.2",
     "vite": "4.0.4",
+    "vite-plugin-mkcert": "1.11.0",
     "vitest": "0.27.1"
   }
 }
