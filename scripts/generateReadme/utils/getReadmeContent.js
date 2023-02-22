@@ -6,8 +6,9 @@ export function getReadmeContent(challenges) {
   const challengesSection = formatChallengeSection(challenges);
   const orderedSections = [
     readmeSections.header,
-    challengesSection,
     readmeSections.resources,
+    challengesSection,
+    readmeSections.workspaces,
   ];
   const content = orderedSections.join("\n");
 

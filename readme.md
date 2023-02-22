@@ -1,5 +1,10 @@
 # #boraCodar
 
+## Resources
+
+- [#boraCodar](https://boracodar.dev)
+- [@rocketseat - Figma](https://www.figma.com/@rocketseat)
+
 ## Challenges
 
 | Name | Code | Preview |
@@ -12,7 +17,16 @@
 | 06-boarding-pass | [Open code](https://github.com/felipeog/bora-codar/tree/main/challenges/06-boarding-pass) | [Open preview](https://fog-bc-boarding-pass.netlify.app) |
 | 07-carnival | [Open code](https://github.com/felipeog/bora-codar/tree/main/challenges/07-carnival) | [Open preview](https://fog-bc-carnival.netlify.app) |
 
-## Resources
+## Workspaces
 
-- [#boraCodar](https://boracodar.dev)
-- [@rocketseat - Figma](https://www.figma.com/@rocketseat)
+Defining workspaces:
+
+```
+yarn plop
+```
+
+Running commands in the context of workspaces:
+
+```
+yarn workspace <workspace_name> <command>
+```
