@@ -1,0 +1,10 @@
+body {
+  background-color: #f6f0f6;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

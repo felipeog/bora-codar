@@ -1,0 +1,19 @@
+{
+  "name": "08-dashboard",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://fog-bc-dashboard.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/08-dashboard"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.1.0"
+  }
+}
