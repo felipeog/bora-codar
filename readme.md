@@ -16,6 +16,7 @@
 | 05-calculator | [Open code](https://github.com/felipeog/bora-codar/tree/main/challenges/05-calculator) | [Open preview](https://fog-bc-calculator.netlify.app) |
 | 06-boarding-pass | [Open code](https://github.com/felipeog/bora-codar/tree/main/challenges/06-boarding-pass) | [Open preview](https://fog-bc-boarding-pass.netlify.app) |
 | 07-carnival | [Open code](https://github.com/felipeog/bora-codar/tree/main/challenges/07-carnival) | [Open preview](https://fog-bc-carnival.netlify.app) |
+| 08-dashboard | [Open code](https://github.com/felipeog/bora-codar/tree/main/challenges/08-dashboard) | [Open preview](https://fog-bc-dashboard.netlify.app) |
 
 ## Workspaces
 
