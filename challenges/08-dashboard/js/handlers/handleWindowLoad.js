@@ -1,3 +1,5 @@
+// https://stackoverflow.com/a/18473154/10942224
+
 import { createSvgElement } from "../utils/createSvgElement";
 import { setSvgElementAttributes } from "../utils/setSvgElementAttributes";
 
@@ -30,7 +32,6 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   const linearGradient = createSvgElement("linearGradient");
   const mask = createSvgElement("mask");
   const movingCircle = createSvgElement("circle");
-  const overlapCircle = createSvgElement("circle");
   const path = createSvgElement("path");
   const rect = createSvgElement("rect");
   const staticCircle = createSvgElement("circle");
@@ -57,7 +58,8 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   const arc = createSvgArc(percentage);
   setSvgElementAttributes(path, {
     d: arc,
-    fill: "white",
+    stroke: "white",
+    "stroke-width": 16,
     transform: "translate(50 50) rotate(-90) scale(1 -1)",
   });
 
@@ -73,13 +75,6 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
     r: "8",
     cx: "50",
     fill: "white",
-  });
-
-  setSvgElementAttributes(overlapCircle, {
-    r: "42",
-    cx: "50",
-    cy: "50",
-    fill: "black",
   });
 
   setSvgElementAttributes(linearGradient, {
@@ -121,7 +116,6 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   mask.appendChild(path);
   mask.appendChild(staticCircle);
   mask.appendChild(movingCircle);
-  mask.appendChild(overlapCircle);
 
   linearGradient.appendChild(stopColorStart);
   linearGradient.appendChild(stopColorEnd);
@@ -137,19 +131,15 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
 }
 
 function createSvgArc(percentage) {
-  const radius = 58;
+  const radius = 50;
   const startAngle = 0;
   const endAngle = (percentage / 105.4) * (Math.PI * 2);
   const isLargeArc = endAngle - startAngle <= Math.PI ? 0 : 1;
 
   return [
-    // move
-    // M x y
-    "M 0 0",
-
     // line
-    // L x y
-    `L ${radius} 0`,
+    // M x y
+    `M ${radius} 0`,
 
     // arc
     // A rx ry x-axis-rotation large-arc-flag sweep-flag x y
@@ -161,10 +151,6 @@ function createSvgArc(percentage) {
     0,
     Math.cos(endAngle) * radius,
     -Math.sin(endAngle) * radius,
-
-    // line
-    // L x y
-    "L 0 0",
   ].join(" ");
 }
 
