@@ -138,15 +138,13 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
 }
 
 function createSvgArc(percentage) {
-  const x = 50;
-  const y = 50;
   const radius = 50;
   const startAngle = 0;
   const endAngle = (percentage / 105.4) * 360;
   const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
 
-  const movePosition = polarToCartesian(x, y, radius, endAngle);
-  const arcPosition = polarToCartesian(x, y, radius, startAngle);
+  const movePosition = polarToCartesian(radius, endAngle);
+  const arcPosition = polarToCartesian(radius, startAngle);
 
   const d = [
     "M",
@@ -166,7 +164,9 @@ function createSvgArc(percentage) {
   return d;
 }
 
-function polarToCartesian(centerX, centerY, radius, degrees) {
+function polarToCartesian(radius, degrees) {
+  const centerX = 50;
+  const centerY = 50;
   const radians = ((degrees - 90) * Math.PI) / 180.0;
 
   return {
