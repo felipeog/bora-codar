@@ -55,7 +55,7 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   setSvgElementAttributes(svg, {
     id: svgId,
     viewBox: "-8 -8 116 116",
-    width: "197",
+    width: 197,
     transform: `rotate(${(percentage / 100) * 8})`,
   });
 
@@ -71,16 +71,16 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   });
 
   setSvgElementAttributes(staticCircle, {
-    r: "8",
-    cx: "50",
+    r: 8,
+    cx: 50,
     fill: "white",
   });
 
   const degrees = (percentage / 105.4) * 360;
   setSvgElementAttributes(movingCircle, {
     transform: `rotate(${degrees}, 50, 50)`,
-    r: "8",
-    cx: "50",
+    r: 8,
+    cx: 50,
     fill: "white",
   });
 
@@ -103,19 +103,19 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   });
 
   setSvgElementAttributes(trackCircle, {
-    r: "50",
-    cx: "50",
-    cy: "50",
+    r: 50,
+    cx: 50,
+    cy: 50,
     fill: "none",
     stroke: "lightgray",
-    "stroke-width": "16",
+    "stroke-width": 16,
   });
 
   setSvgElementAttributes(rect, {
-    x: "-8",
-    y: "-8",
-    width: "116",
-    height: "116",
+    x: -8,
+    y: -8,
+    width: 116,
+    height: 116,
     fill: `url(#${linearGradientId})`,
     mask: `url(#${maskId})`,
   });
