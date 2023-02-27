@@ -11,9 +11,8 @@ export function handleWindowLoad() {
       svgChart?.dataset?.chartName ??
       String(Math.floor(Math.random() * 1_000_000)).padStart(6, "0");
     const percentage = svgChart?.dataset?.chartPercentage ?? "0";
-    const gradientStart =
-      svgChart?.dataset?.chartGradientStart ?? getRandomRgb();
-    const gradientEnd = svgChart?.dataset?.chartGradientEnd ?? getRandomRgb();
+    const gradientStart = svgChart?.dataset?.chartGradientStart ?? "#CE9FFC";
+    const gradientEnd = svgChart?.dataset?.chartGradientEnd ?? "#7367F0";
 
     const chart = createChart({
       name,
@@ -24,14 +23,6 @@ export function handleWindowLoad() {
 
     svgChart.appendChild(chart);
   });
-}
-
-function getRandomRgb() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-
-  return `rgb(${r} ${g} ${b})`;
 }
 
 // TODO: handle 0 and 100
@@ -56,7 +47,7 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
     id: svgId,
     viewBox: "-8 -8 116 116",
     width: 197,
-    transform: `rotate(${(percentage / 100) * 8})`,
+    transform: `rotate(${(percentage / 100) * 9.2})`,
   });
 
   setSvgElementAttributes(mask, {
@@ -107,7 +98,7 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
     cx: 50,
     cy: 50,
     fill: "none",
-    stroke: "lightgray",
+    stroke: "#464556",
     "stroke-width": 16,
   });
 
