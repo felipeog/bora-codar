@@ -10,7 +10,7 @@ export function handleWindowLoad() {
     const name =
       svgChart?.dataset?.chartName ??
       String(Math.floor(Math.random() * 1_000_000)).padStart(6, "0");
-    const percentage = svgChart?.dataset?.chartPercentage ?? "0";
+    const percentage = Number(svgChart?.dataset?.chartPercentage ?? "0");
     const gradientStart = svgChart?.dataset?.chartGradientStart ?? "#CE9FFC";
     const gradientEnd = svgChart?.dataset?.chartGradientEnd ?? "#7367F0";
 
@@ -25,8 +25,91 @@ export function handleWindowLoad() {
   });
 }
 
-// TODO: handle 0 and 100
+// TODO: separate 0 and 100 handling
 function createChart({ name, percentage, gradientStart, gradientEnd }) {
+  if (percentage <= 0) {
+    const svg = createSvgElement("svg");
+    const trackCircle = createSvgElement("circle");
+
+    const svgId = `svg-${name}`;
+
+    setSvgElementAttributes(svg, {
+      id: svgId,
+      viewBox: "-8 -8 116 116",
+      width: 197,
+    });
+
+    setSvgElementAttributes(trackCircle, {
+      r: 50,
+      cx: 50,
+      cy: 50,
+      fill: "none",
+      stroke: "#464556",
+      "stroke-width": 16,
+    });
+
+    svg.appendChild(trackCircle);
+
+    return svg;
+  }
+
+  if (percentage >= 100) {
+    const defs = createSvgElement("defs");
+    const linearGradient = createSvgElement("linearGradient");
+    const stopColorEnd = createSvgElement("stop");
+    const stopColorStart = createSvgElement("stop");
+    const svg = createSvgElement("svg");
+    const trackCircle = createSvgElement("circle");
+
+    const linearGradientId = `linearGradient-${name}`;
+    const svgId = `svg-${name}`;
+
+    setSvgElementAttributes(svg, {
+      id: svgId,
+      viewBox: "-8 -8 116 116",
+      width: 197,
+    });
+
+    setSvgElementAttributes(linearGradient, {
+      id: linearGradientId,
+      x1: "0%",
+      y1: "0%",
+      x2: "100%",
+      y2: "100%",
+    });
+
+    setSvgElementAttributes(stopColorStart, {
+      offset: "0%",
+      "stop-color": gradientStart,
+    });
+
+    setSvgElementAttributes(stopColorEnd, {
+      offset: "100%",
+      "stop-color": gradientEnd,
+    });
+
+    setSvgElementAttributes(trackCircle, {
+      r: 50,
+      cx: 50,
+      cy: 50,
+      fill: "none",
+      stroke: `url(#${linearGradientId})`,
+      "stroke-width": 16,
+    });
+
+    linearGradient.appendChild(stopColorStart);
+    linearGradient.appendChild(stopColorEnd);
+
+    defs.appendChild(linearGradient);
+
+    svg.appendChild(defs);
+    svg.appendChild(trackCircle);
+
+    return svg;
+  }
+
+  const svg = createSvgElement("svg");
+  const trackCircle = createSvgElement("circle");
   const defs = createSvgElement("defs");
   const linearGradient = createSvgElement("linearGradient");
   const mask = createSvgElement("mask");
@@ -36,8 +119,6 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
   const staticCircle = createSvgElement("circle");
   const stopColorEnd = createSvgElement("stop");
   const stopColorStart = createSvgElement("stop");
-  const svg = createSvgElement("svg");
-  const trackCircle = createSvgElement("circle");
 
   const linearGradientId = `linearGradient-${name}`;
   const maskId = `mask-${name}`;
