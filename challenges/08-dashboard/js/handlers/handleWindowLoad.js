@@ -26,6 +26,14 @@ export function handleWindowLoad() {
   });
 }
 
+function getRandomRgb() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+  return `rgb(${r} ${g} ${b})`;
+}
+
 // TODO: handle 0 and 100
 function createChart({ name, percentage, gradientStart, gradientEnd }) {
   const defs = createSvgElement("defs");
@@ -60,7 +68,6 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
     d: arc,
     stroke: "white",
     "stroke-width": 16,
-    transform: "translate(50 50) rotate(-90) scale(1 -1)",
   });
 
   setSvgElementAttributes(staticCircle, {
@@ -131,33 +138,39 @@ function createChart({ name, percentage, gradientStart, gradientEnd }) {
 }
 
 function createSvgArc(percentage) {
+  const x = 50;
+  const y = 50;
   const radius = 50;
   const startAngle = 0;
-  const endAngle = (percentage / 105.4) * (Math.PI * 2);
-  const isLargeArc = endAngle - startAngle <= Math.PI ? 0 : 1;
+  const endAngle = (percentage / 105.4) * 360;
+  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
 
-  return [
-    // line
-    // M x y
-    `M ${radius} 0`,
+  const movePosition = polarToCartesian(x, y, radius, endAngle);
+  const arcPosition = polarToCartesian(x, y, radius, startAngle);
 
-    // arc
-    // A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+  const d = [
+    "M",
+    movePosition.x,
+    movePosition.y,
+
     "A",
     radius,
     radius,
     0,
-    isLargeArc,
+    largeArcFlag,
     0,
-    Math.cos(endAngle) * radius,
-    -Math.sin(endAngle) * radius,
+    arcPosition.x,
+    arcPosition.y,
   ].join(" ");
+
+  return d;
 }
 
-function getRandomRgb() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
+function polarToCartesian(centerX, centerY, radius, degrees) {
+  const radians = ((degrees - 90) * Math.PI) / 180.0;
 
-  return `rgb(${r} ${g} ${b})`;
+  return {
+    x: centerX + radius * Math.cos(radians),
+    y: centerY + radius * Math.sin(radians),
+  };
 }
