@@ -3,7 +3,7 @@ body {
   padding: 1rem;
 }
 
-main {
+.App {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;

@@ -1,5 +1,6 @@
-// https://codepen.io/olegn/pen/BXZQxQ?editors=1010
+import { createApp } from "vue";
+import { App } from "./App.js";
 
-import { handleWindowLoad } from "./handlers/handleWindowLoad";
+const app = createApp(App);
 
-window.addEventListener("load", handleWindowLoad);
+app.mount("#app");

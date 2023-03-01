@@ -9,11 +9,9 @@
     "url": "https://github.com/felipeog/bora-codar/tree/main/challenges/08-dashboard"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "live-server"
   },
   "devDependencies": {
-    "vite": "^4.1.0"
+    "live-server": "1.2.1"
   }
 }

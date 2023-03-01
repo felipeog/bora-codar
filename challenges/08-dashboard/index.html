@@ -5,27 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="shortcut icon" href="vite.svg" type="image/svg" />
+    <link rel="stylesheet" href="css/index.css" />
 
     <title>Dashboard</title>
   </head>
 
   <body>
-    <div class="wrapper">
-      <main class="container">
-        <div class="svg-chart" data-chart-percentage="0"></div>
-        <div class="svg-chart" data-chart-percentage="0.1111"></div>
-        <div class="svg-chart" data-chart-percentage="1"></div>
-        <div class="svg-chart" data-chart-percentage="10"></div>
-        <div class="svg-chart" data-chart-percentage="50"></div>
-        <div class="svg-chart" data-chart-percentage="90"></div>
-        <div class="svg-chart" data-chart-percentage="99"></div>
-        <div class="svg-chart" data-chart-percentage="99.9999"></div>
-        <div class="svg-chart" data-chart-percentage="100"></div>
-      </main>
-    </div>
+    <div id="app"></div>
 
-    <script type="module" src="./js/index.js"></script>
+    <script type="importmap">
+      {
+        "imports": { "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js" }
+      }
+    </script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>
