@@ -17,20 +17,28 @@ const Zero = {
       return `svg-${this.id}`;
     },
   },
+  data() {
+    return {
+      viewBox: `${VIEWBOX.X1} ${VIEWBOX.Y1} ${VIEWBOX.X2} ${VIEWBOX.Y2}`,
+      svgWidth: SVG_WIDTH,
+      radius: RADIUS,
+      strokeWidth: STROKE_WIDTH,
+    };
+  },
   template: /*html*/ `
     <svg
       class="DonutChart-Zero"
       :id="svgId"
-      viewBox="-8 -8 116 116"
-      width="197"
+      :viewBox="viewBox"
+      :width="svgWidth"
     >
       <circle
-        r="50"
-        cx="50"
-        cy="50"
+        cx="50%"
+        cy="50%"
+        :r="radius"
         fill="none"
         stroke="#464556"
-        stroke-width="16"
+        :stroke-width="strokeWidth"
       ></circle>
     </svg>
   `,
@@ -126,12 +134,12 @@ const Between = {
           x2="100%"
           y2="100%"
         >
-          <stop 
-            offset="0%" 
+          <stop
+            offset="0%"
             :stop-color="gradientStart"
           ></stop>
-          <stop 
-            offset="100%" 
+          <stop
+            offset="100%"
             :stop-color="gradientEnd"
           ></stop>
         </linearGradient>
@@ -169,12 +177,20 @@ const OneHundred = {
       return `url(#${this.linearGradientId})`;
     },
   },
+  data() {
+    return {
+      viewBox: `${VIEWBOX.X1} ${VIEWBOX.Y1} ${VIEWBOX.X2} ${VIEWBOX.Y2}`,
+      svgWidth: SVG_WIDTH,
+      radius: RADIUS,
+      strokeWidth: STROKE_WIDTH,
+    };
+  },
   template: /*html*/ `
     <svg
       class="DonutChart-OneHundred"
       :id="svgId"
-      viewBox="-8 -8 116 116"
-      width="197"
+      :viewBox="viewBox"
+      :width="svgWidth"
     >
       <defs>
         <linearGradient
@@ -195,12 +211,12 @@ const OneHundred = {
         </linearGradient>
       </defs>
       <circle
-        r="50"
-        cx="50"
-        cy="50"
-        fill="none"
         :stroke="linearGradientUrl"
-        stroke-width="16"
+        cx="50%"
+        cy="50%"
+        :r="radius"
+        fill="none"
+        :stroke-width="strokeWidth"
       ></circle>
     </svg>
   `,
