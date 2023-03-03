@@ -125,7 +125,7 @@ export const DonutChart = {
       return this?.gradientEnd ?? "#7367F0";
     },
     computedPercentage() {
-      return Number(this?.percentage ?? "0");
+      return Math.round(Number(this?.percentage ?? "0"));
     },
   },
   template: "#DonutChart",

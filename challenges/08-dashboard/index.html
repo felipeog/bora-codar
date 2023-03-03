@@ -18,26 +18,24 @@
       ===== DonutChart =====
      -->
     <template id="DonutChart">
-      <div class="DonutChart">
-        <template v-if="computedPercentage <= 0">
-          <zero :id="computedId" />
-        </template>
-        <template v-else-if="computedPercentage >= 100">
-          <one-hundred
-            :gradient-end="computedGradientEnd"
-            :gradient-start="computedGradientStart"
-            :id="computedId"
-          />
-        </template>
-        <template v-else>
-          <between
-            :gradient-end="computedGradientEnd"
-            :gradient-start="computedGradientStart"
-            :id="computedId"
-            :percentage="computedPercentage"
-          />
-        </template>
-      </div>
+      <template v-if="computedPercentage <= 0">
+        <zero :id="computedId" />
+      </template>
+      <template v-else-if="computedPercentage >= 100">
+        <one-hundred
+          :gradient-end="computedGradientEnd"
+          :gradient-start="computedGradientStart"
+          :id="computedId"
+        />
+      </template>
+      <template v-else>
+        <between
+          :gradient-end="computedGradientEnd"
+          :gradient-start="computedGradientStart"
+          :id="computedId"
+          :percentage="computedPercentage"
+        />
+      </template>
     </template>
 
     <!-- 
