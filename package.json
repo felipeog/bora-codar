@@ -7,13 +7,14 @@
   "scripts": {
     "generate-readme": "node ./scripts/generateReadme/index.js",
     "generate-readme:dev": "NODE_ENV=development node ./scripts/generateReadme/index.js",
-    "plop": "plop"
+    "plop": "plop --plopfile ./plop/plopfile.js"
   },
   "workspaces": [
     "challenges/*"
   ],
   "devDependencies": {
     "glob": "^8.1.0",
-    "plop": "^3.1.2"
+    "plop": "^3.1.2",
+    "prettier": "^2.8.4"
   }
 }

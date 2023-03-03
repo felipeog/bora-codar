@@ -1,5 +1,5 @@
-module.exports = function (plop) {
-  plop.setPartial("packageName", "{{packageName}}");
+export default function (plop) {
+  plop.setPartial("name", "{{name}}");
   plop.setPartial("homepage", "{{homepage}}");
   plop.setPartial("repositoryUrl", "{{repositoryUrl}}");
 
@@ -8,26 +8,26 @@ module.exports = function (plop) {
     prompts: [
       {
         type: "string",
-        name: "packageName",
+        name: "name",
         message: "Workspace name",
       },
       {
         type: "string",
         name: "homepage",
-        message: "Preview",
+        message: "Preview URL",
       },
       {
         type: "string",
         name: "repositoryUrl",
-        message: "Code",
+        message: "Code URL",
       },
     ],
     actions: [
       {
         type: "add",
-        path: "challenges/{{packageName}}/package.json",
-        templateFile: "plop-templates/workspace-package.json",
+        path: "../challenges/{{name}}/package.json",
+        templateFile: "./package-template.json",
       },
     ],
   });
-};
+}
