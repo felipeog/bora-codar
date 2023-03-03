@@ -63,7 +63,9 @@ const Between = {
       return `url(#${this.linearGradientId})`;
     },
     strokeDashOffset() {
-      const offsettedPercentage = 106.2;
+      const circumferenceOffset = this.circumference + this.strokeWidth;
+      const offsettedPercentage =
+        (circumferenceOffset / this.circumference) * 100;
 
       return (
         (this.circumference * (offsettedPercentage - this.percentage)) /
@@ -71,7 +73,8 @@ const Between = {
       );
     },
     transformRotate() {
-      const rotationDegrees = 10.2;
+      const circumferenceOffset = this.strokeWidth / 2;
+      const rotationDegrees = (circumferenceOffset / this.circumference) * 360;
       const offsetDegrees = -90;
       const degrees = rotationDegrees * (this.percentage / 100) + offsetDegrees;
       const point = this.chartWidth / 2;
@@ -121,7 +124,7 @@ const Between = {
               repeatCount="1"
               fill="freeze"
               calcMode="spline"
-              keySplines="0.45, 0.05, 0.55, 0.95"
+              keySplines="0.5, 0, 0.5, 1"
               keyTimes="0; 1"
               :values="animateValues"
             />
