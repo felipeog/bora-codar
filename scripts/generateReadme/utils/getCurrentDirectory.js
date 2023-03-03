@@ -1,6 +1,8 @@
 import path from "path";
-import { fileURLToPath } from "url";
+import url from "url";
 
 export function getCurrentDirectory(importMetaUrl) {
-  return path.dirname(fileURLToPath(importMetaUrl));
+  const currentDirectory = path.dirname(url.fileURLToPath(importMetaUrl));
+
+  return currentDirectory;
 }

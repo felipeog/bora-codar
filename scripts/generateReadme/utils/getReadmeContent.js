@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import prettier from "prettier";
 
 import { getCurrentDirectory } from "./getCurrentDirectory.js";
 
@@ -14,10 +15,11 @@ export function getReadmeContent(challenges) {
   const template = fs.readFileSync(templateFilePath, { encoding: "utf-8" });
   const challengesTable = getChallengeTable(challenges);
   const content = template.replace("<!-- challenges -->", challengesTable);
+  const formattedContent = prettier.format(content, { parser: "markdown" });
 
   console.log("Done");
 
-  return content;
+  return formattedContent;
 }
 
 function getChallengeTable(challenges) {
@@ -27,6 +29,7 @@ function getChallengeTable(challenges) {
       return `| ${challenge.name} | [Open code](${challenge.code}) | [Open preview](${challenge.preview}) |`;
     })
     .join("\n");
+  const challengesTable = `${tableHead}${tableBody}`;
 
-  return `${tableHead}${tableBody}`;
+  return challengesTable;
 }
