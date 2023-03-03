@@ -33,7 +33,7 @@ const Zero = {
         cx="50%"
         cy="50%"
         fill="none"
-        stroke="#464556"
+        stroke="var(--primary_100)"
       ></circle>
     </svg>
   `,
@@ -67,17 +67,20 @@ const Between = {
         offsettedPercentage
       );
     },
-    transformRotate() {
+    animateValues() {
+      return `${this.circumference}; ${this.strokeDashOffset}`;
+    },
+    animateTransform() {
       const circumferenceOffset = this.strokeWidth / 2;
       const rotationDegrees = (circumferenceOffset / this.circumference) * 360;
       const offsetDegrees = -90;
       const degrees = rotationDegrees * (this.percentage / 100) + offsetDegrees;
       const point = this.chartWidth / 2;
 
-      return `rotate(${degrees}, ${point}, ${point})`;
-    },
-    animateValues() {
-      return `${this.circumference}; ${this.strokeDashOffset}`;
+      return {
+        from: `${offsetDegrees}, ${point}, ${point}`,
+        to: `${degrees}, ${point}, ${point}`,
+      };
     },
   },
   data() {
@@ -104,7 +107,6 @@ const Between = {
           <circle
             :r="radius"
             :stroke-dasharray="circumference"
-            :stroke-dashoffset="strokeDashOffset"
             :stroke-width="strokeWidth"
             :transform="transformRotate"
             cx="50%"
@@ -123,6 +125,16 @@ const Between = {
               keyTimes="0; 1"
               repeatCount="1"
             />
+            <animateTransform
+              :from="animateTransform.from"
+              :to="animateTransform.to"
+              attributeName="transform"
+              attributeType="XML"
+              dur="1s"
+              fill="freeze"
+              repeatCount="1"
+              type="rotate"
+            />
           </circle>
         </mask>
         <linearGradient
@@ -134,11 +146,11 @@ const Between = {
         >
           <stop
             :stop-color="gradientStart"
-            offset="0%"
+            offset="20%"
           ></stop>
           <stop
             :stop-color="gradientEnd"
-            offset="100%"
+            offset="80%"
           ></stop>
         </linearGradient>
       </defs>
@@ -148,7 +160,7 @@ const Between = {
         cx="50%"
         cy="50%"
         fill="none"
-        stroke="#464556"
+        stroke="var(--primary_100)"
       ></circle>
       <rect
         :fill="linearGradientUrl"
@@ -200,11 +212,11 @@ const OneHundred = {
         >
           <stop
             :stop-color="gradientStart"
-            offset="0%"
+            offset="20%"
           ></stop>
           <stop
             :stop-color="gradientEnd"
-            offset="100%"
+            offset="80%"
           ></stop>
         </linearGradient>
       </defs>

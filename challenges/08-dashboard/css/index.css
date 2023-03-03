@@ -1,5 +1,11 @@
+:root {
+  --primary_100: #464556;
+  --primary_200: #363447;
+  --primary_300: #292738;
+}
+
 body {
-  background-color: #292738;
+  background-color: var(--primary_300);
   padding: 1rem;
 }
 
