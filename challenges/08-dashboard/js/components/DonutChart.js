@@ -14,33 +14,33 @@ const Zero = {
   },
   data() {
     return {
-      viewBox: VIEWBOX,
-      svgWidth: SVG_WIDTH,
       radius: RADIUS,
       strokeWidth: STROKE_WIDTH,
+      svgWidth: SVG_WIDTH,
+      viewBox: VIEWBOX,
     };
   },
   template: /*html*/ `
     <svg
-      class="DonutChart-Zero"
       :id="svgId"
       :viewBox="viewBox"
       :width="svgWidth"
+      class="DonutChart-Zero"
     >
       <circle
+        :r="radius"
+        :stroke-width="strokeWidth"
         cx="50%"
         cy="50%"
-        :r="radius"
         fill="none"
         stroke="#464556"
-        :stroke-width="strokeWidth"
       ></circle>
     </svg>
   `,
 };
 
 const Between = {
-  props: ["id", "percentage", "gradientStart", "gradientEnd"],
+  props: ["gradientEnd", "gradientStart", "id", "percentage"],
   computed: {
     svgId() {
       return `svg-${this.id}`;
@@ -82,88 +82,88 @@ const Between = {
   },
   data() {
     return {
-      viewBox: VIEWBOX,
-      svgWidth: SVG_WIDTH,
       chartWidth: CHART_WIDTH,
-      radius: RADIUS,
       circumference: CIRCUMFERENCE,
+      radius: RADIUS,
       strokeWidth: STROKE_WIDTH,
+      svgWidth: SVG_WIDTH,
+      viewBox: VIEWBOX,
     };
   },
   template: /*html*/ `
     <svg
-      class="DonutChart-Between"
       :id="svgId"
       :viewBox="viewBox"
       :width="svgWidth"
+      class="DonutChart-Between"
     >
       <defs>
         <mask
           :id="maskId"
         >
           <circle
-            cx="50%"
-            cy="50%"
             :r="radius"
-            stroke="white"
-            fill="none"
-            :stroke-width="strokeWidth"
             :stroke-dasharray="circumference"
             :stroke-dashoffset="strokeDashOffset"
-            stroke-linecap="round"
+            :stroke-width="strokeWidth"
             :transform="transformRotate"
+            cx="50%"
+            cy="50%"
+            fill="none"
+            stroke-linecap="round"
+            stroke="white"
           >
             <animate
+              :values="animateValues"
               attributeName="stroke-dashoffset"
-              dur="1s"
-              repeatCount="1"
-              fill="freeze"
               calcMode="spline"
+              dur="1s"
+              fill="freeze"
               keySplines="0.5, 0, 0.5, 1"
               keyTimes="0; 1"
-              :values="animateValues"
+              repeatCount="1"
             />
           </circle>
         </mask>
         <linearGradient
           :id="linearGradientId"
           x1="0%"
-          y1="0%"
           x2="100%"
+          y1="0%"
           y2="100%"
         >
           <stop
-            offset="0%"
             :stop-color="gradientStart"
+            offset="0%"
           ></stop>
           <stop
-            offset="100%"
             :stop-color="gradientEnd"
+            offset="100%"
           ></stop>
         </linearGradient>
       </defs>
       <circle
+        :r="radius"
+        :stroke-width="strokeWidth"
         cx="50%"
         cy="50%"
-        :r="radius"
-        stroke="#464556"
         fill="none"
-        :stroke-width="strokeWidth"
+        stroke="#464556"
       ></circle>
       <rect
+        :fill="linearGradientUrl"
+        :height="chartWidth"
+        :mask="maskUrl"
+        :width="chartWidth"
         x="0"
         y="0"
-        :width="chartWidth"
-        :height="chartWidth"
-        :fill="linearGradientUrl"
-        :mask="maskUrl"
       ></rect>
     </svg>
   `,
 };
 
 const OneHundred = {
-  props: ["id", "gradientStart", "gradientEnd"],
+  props: ["gradientEnd", "gradientStart", "id"],
   computed: {
     svgId() {
       return `svg-${this.id}`;
@@ -177,44 +177,44 @@ const OneHundred = {
   },
   data() {
     return {
-      viewBox: VIEWBOX,
-      svgWidth: SVG_WIDTH,
       radius: RADIUS,
       strokeWidth: STROKE_WIDTH,
+      svgWidth: SVG_WIDTH,
+      viewBox: VIEWBOX,
     };
   },
   template: /*html*/ `
     <svg
-      class="DonutChart-OneHundred"
       :id="svgId"
       :viewBox="viewBox"
       :width="svgWidth"
+      class="DonutChart-OneHundred"
     >
       <defs>
         <linearGradient
           :id="linearGradientId"
           x1="0%"
-          y1="0%"
           x2="100%"
+          y1="0%"
           y2="100%"
         >
           <stop
-            offset="0%"
             :stop-color="gradientStart"
+            offset="0%"
           ></stop>
           <stop
-            offset="100%"
             :stop-color="gradientEnd"
+            offset="100%"
           ></stop>
         </linearGradient>
       </defs>
       <circle
+        :r="radius"
+        :stroke-width="strokeWidth"
         :stroke="linearGradientUrl"
         cx="50%"
         cy="50%"
-        :r="radius"
         fill="none"
-        :stroke-width="strokeWidth"
       ></circle>
     </svg>
   `,
@@ -222,11 +222,11 @@ const OneHundred = {
 
 export const DonutChart = {
   components: {
-    Zero,
     Between,
     OneHundred,
+    Zero,
   },
-  props: ["id", "gradient-start", "gradient-end", "percentage"],
+  props: ["gradient-end", "gradient-start", "id", "percentage"],
   computed: {
     computedId() {
       return (
@@ -254,16 +254,16 @@ export const DonutChart = {
       />
       <OneHundred
         v-else-if="computedPercentage >= 100"
-        :id="computedId"
-        :gradientStart="computedGradientStart"
         :gradientEnd="computedGradientEnd"
+        :gradientStart="computedGradientStart"
+        :id="computedId"
       />
       <Between
         v-else
+        :gradientEnd="computedGradientEnd"
+        :gradientStart="computedGradientStart"
         :id="computedId"
         :percentage="computedPercentage"
-        :gradientStart="computedGradientStart"
-        :gradientEnd="computedGradientEnd"
       />
     </div>
   `,
