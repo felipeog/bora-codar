@@ -14,12 +14,12 @@ export default function (plop) {
       {
         type: "string",
         name: "homepage",
-        message: "Preview",
+        message: "Preview URL",
       },
       {
         type: "string",
         name: "repositoryUrl",
-        message: "Code",
+        message: "Code URL",
       },
     ],
     actions: [
