@@ -14,6 +14,35 @@
   <body>
     <div id="app"></div>
 
+    <!-- 
+      ===== DonutChart =====
+     -->
+    <template id="DonutChart">
+      <div class="DonutChart">
+        <template v-if="computedPercentage <= 0">
+          <zero :id="computedId" />
+        </template>
+        <template v-else-if="computedPercentage >= 100">
+          <one-hundred
+            :gradient-end="computedGradientEnd"
+            :gradient-start="computedGradientStart"
+            :id="computedId"
+          />
+        </template>
+        <template v-else>
+          <between
+            :gradient-end="computedGradientEnd"
+            :gradient-start="computedGradientStart"
+            :id="computedId"
+            :percentage="computedPercentage"
+          />
+        </template>
+      </div>
+    </template>
+
+    <!-- 
+      ===== DonutChart-Zero =====
+     -->
     <template id="DonutChart-Zero">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +63,9 @@
       </svg>
     </template>
 
+    <!-- 
+      ===== DonutChart-OneHundred =====
+     -->
     <template id="DonutChart-OneHundred">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +98,9 @@
       </svg>
     </template>
 
+    <!-- 
+      ===== DonutChart-Between =====
+     -->
     <template id="DonutChart-Between">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -137,6 +172,15 @@
           y="0"
         ></rect>
       </svg>
+    </template>
+
+    <!-- 
+      ===== Card =====
+     -->
+    <template id="Card">
+      <div class="Card" :style="wrapperStyle">
+        <slot />
+      </div>
     </template>
 
     <script type="module" src="js/index.js"></script>

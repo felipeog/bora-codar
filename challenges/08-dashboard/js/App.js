@@ -1,12 +1,16 @@
 import { DonutChart } from "./components/DonutChart.js";
+import { Card } from "./components/Card.js";
 
 export const App = {
   components: {
     DonutChart,
+    Card,
   },
   template: /*html*/ `
     <div class="App">
-      <DonutChart percentage="0" />
+      <Card :styleProp="{ backgroundColor: 'gray' }">
+        <DonutChart percentage="0" />
+      </Card>
       <DonutChart percentage="0.11" />
       <DonutChart percentage="0.1" />
       <DonutChart percentage="1" />

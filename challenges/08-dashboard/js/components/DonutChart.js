@@ -128,27 +128,5 @@ export const DonutChart = {
       return Number(this?.percentage ?? "0");
     },
   },
-  template: /*html*/ `
-    <div
-      class="DonutChart"
-    >
-      <Zero
-        v-if="computedPercentage <= 0"
-        :id="computedId"
-      />
-      <OneHundred
-        v-else-if="computedPercentage >= 100"
-        :gradientEnd="computedGradientEnd"
-        :gradientStart="computedGradientStart"
-        :id="computedId"
-      />
-      <Between
-        v-else
-        :gradientEnd="computedGradientEnd"
-        :gradientStart="computedGradientStart"
-        :id="computedId"
-        :percentage="computedPercentage"
-      />
-    </div>
-  `,
+  template: "#DonutChart",
 };
