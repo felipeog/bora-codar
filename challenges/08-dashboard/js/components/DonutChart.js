@@ -1,8 +1,8 @@
 const SVG_WIDTH = 197;
-const RADIUS = SVG_WIDTH / 2;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-const STROKE_WIDTH = 35;
+const STROKE_WIDTH = 30;
 const CHART_WIDTH = SVG_WIDTH + STROKE_WIDTH;
+const RADIUS = (SVG_WIDTH - STROKE_WIDTH) / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 const VIEWBOX = `0 0 ${CHART_WIDTH} ${CHART_WIDTH}`;
 
 const Zero = {
@@ -20,23 +20,7 @@ const Zero = {
       viewBox: VIEWBOX,
     };
   },
-  template: /*html*/ `
-    <svg
-      :id="svgId"
-      :viewBox="viewBox"
-      :width="svgWidth"
-      class="DonutChart-Zero"
-    >
-      <circle
-        :r="radius"
-        :stroke-width="strokeWidth"
-        cx="50%"
-        cy="50%"
-        fill="none"
-        stroke="var(--primary_100)"
-      ></circle>
-    </svg>
-  `,
+  template: "#DonutChart-Zero",
 };
 
 const Between = {
@@ -75,7 +59,7 @@ const Between = {
       const rotationDegrees = (circumferenceOffset / this.circumference) * 360;
       const offsetDegrees = -90;
       const degrees = rotationDegrees * (this.percentage / 100) + offsetDegrees;
-      const point = this.chartWidth / 2;
+      const point = this.svgWidth / 2;
 
       return {
         from: `${offsetDegrees}, ${point}, ${point}`,
@@ -85,93 +69,15 @@ const Between = {
   },
   data() {
     return {
-      chartWidth: CHART_WIDTH,
+      svgWidth: SVG_WIDTH,
       circumference: CIRCUMFERENCE,
       radius: RADIUS,
       strokeWidth: STROKE_WIDTH,
-      svgWidth: SVG_WIDTH,
       viewBox: VIEWBOX,
+      chartWidth: CHART_WIDTH,
     };
   },
-  template: /*html*/ `
-    <svg
-      :id="svgId"
-      :viewBox="viewBox"
-      :width="svgWidth"
-      class="DonutChart-Between"
-    >
-      <defs>
-        <mask
-          :id="maskId"
-        >
-          <circle
-            :r="radius"
-            :stroke-dasharray="circumference"
-            :stroke-width="strokeWidth"
-            :transform="transformRotate"
-            cx="50%"
-            cy="50%"
-            fill="none"
-            stroke-linecap="round"
-            stroke="white"
-          >
-            <animate
-              :values="animateValues"
-              attributeName="stroke-dashoffset"
-              calcMode="spline"
-              dur="1s"
-              fill="freeze"
-              keySplines="0.5, 0, 0.5, 1"
-              keyTimes="0; 1"
-              repeatCount="1"
-            />
-            <animateTransform
-              :from="animateTransform.from"
-              :to="animateTransform.to"
-              attributeName="transform"
-              attributeType="XML"
-              dur="1s"
-              fill="freeze"
-              repeatCount="1"
-              type="rotate"
-            />
-          </circle>
-        </mask>
-        <linearGradient
-          :id="linearGradientId"
-          x1="0%"
-          x2="100%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            :stop-color="gradientStart"
-            offset="20%"
-          ></stop>
-          <stop
-            :stop-color="gradientEnd"
-            offset="80%"
-          ></stop>
-        </linearGradient>
-      </defs>
-      <circle
-        :r="radius"
-        :stroke-width="strokeWidth"
-        cx="50%"
-        cy="50%"
-        fill="none"
-        stroke="var(--primary_100)"
-      ></circle>
-      <rect
-        :fill="linearGradientUrl"
-        :height="chartWidth"
-        :mask="maskUrl"
-        :width="chartWidth"
-        x="0"
-        y="0"
-      ></rect>
-    </svg>
-  `,
+  template: "#DonutChart-Between",
 };
 
 const OneHundred = {
@@ -195,41 +101,7 @@ const OneHundred = {
       viewBox: VIEWBOX,
     };
   },
-  template: /*html*/ `
-    <svg
-      :id="svgId"
-      :viewBox="viewBox"
-      :width="svgWidth"
-      class="DonutChart-OneHundred"
-    >
-      <defs>
-        <linearGradient
-          :id="linearGradientId"
-          x1="0%"
-          x2="100%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            :stop-color="gradientStart"
-            offset="20%"
-          ></stop>
-          <stop
-            :stop-color="gradientEnd"
-            offset="80%"
-          ></stop>
-        </linearGradient>
-      </defs>
-      <circle
-        :r="radius"
-        :stroke-width="strokeWidth"
-        :stroke="linearGradientUrl"
-        cx="50%"
-        cy="50%"
-        fill="none"
-      ></circle>
-    </svg>
-  `,
+  template: "#DonutChart-OneHundred",
 };
 
 export const DonutChart = {

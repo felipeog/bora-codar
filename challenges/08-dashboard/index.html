@@ -14,6 +14,131 @@
   <body>
     <div id="app"></div>
 
+    <template id="DonutChart-Zero">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :id="svgId"
+        :viewBox="viewBox"
+        :width="svgWidth"
+        :height="svgWidth"
+        class="DonutChart-Zero"
+      >
+        <circle
+          :r="radius"
+          :stroke-width="strokeWidth"
+          cx="50%"
+          cy="50%"
+          fill="none"
+          stroke="var(--primary_100)"
+        ></circle>
+      </svg>
+    </template>
+
+    <template id="DonutChart-OneHundred">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :id="svgId"
+        :viewBox="viewBox"
+        :width="svgWidth"
+        :height="svgWidth"
+        class="DonutChart-OneHundred"
+      >
+        <defs>
+          <linearGradient
+            :id="linearGradientId"
+            x1="0%"
+            x2="100%"
+            y1="0%"
+            y2="100%"
+          >
+            <stop :stop-color="gradientStart" offset="20%"></stop>
+            <stop :stop-color="gradientEnd" offset="80%"></stop>
+          </linearGradient>
+        </defs>
+        <circle
+          :r="radius"
+          :stroke-width="strokeWidth"
+          :stroke="linearGradientUrl"
+          cx="50%"
+          cy="50%"
+          fill="none"
+        ></circle>
+      </svg>
+    </template>
+
+    <template id="DonutChart-Between">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :id="svgId"
+        :viewBox="viewBox"
+        :width="svgWidth"
+        :height="svgWidth"
+        class="DonutChart-Between"
+      >
+        <defs>
+          <mask :id="maskId">
+            <circle
+              :r="radius"
+              :stroke-dasharray="circumference"
+              :stroke-width="strokeWidth"
+              cx="50%"
+              cy="50%"
+              fill="none"
+              stroke-linecap="round"
+              stroke="white"
+            >
+              <animate
+                :values="animateValues"
+                attributeName="stroke-dashoffset"
+                calcMode="spline"
+                dur="1s"
+                fill="freeze"
+                keySplines="0.5, 0, 0.5, 1"
+                keyTimes="0; 1"
+                repeatCount="1"
+              />
+              <animateTransform
+                :from="animateTransform.from"
+                :to="animateTransform.to"
+                attributeName="transform"
+                attributeType="XML"
+                dur="1s"
+                fill="freeze"
+                repeatCount="1"
+                type="rotate"
+              />
+            </circle>
+          </mask>
+          <linearGradient
+            :id="linearGradientId"
+            x1="0%"
+            x2="100%"
+            y1="0%"
+            y2="100%"
+          >
+            <stop :stop-color="gradientStart" offset="20%"></stop>
+            <stop :stop-color="gradientEnd" offset="80%"></stop>
+          </linearGradient>
+        </defs>
+        <circle
+          :r="radius"
+          :stroke-width="strokeWidth"
+          cx="50%"
+          cy="50%"
+          fill="none"
+          stroke="var(--primary_100)"
+        ></circle>
+        <rect
+          :fill="linearGradientUrl"
+          :height="svgWidth"
+          :mask="maskUrl"
+          :width="svgWidth"
+          x="0"
+          y="0"
+        ></rect>
+      </svg>
+    </template>
+
     <script type="module" src="js/index.js"></script>
   </body>
 </html>
