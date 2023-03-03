@@ -22,12 +22,12 @@
 
 Defining workspaces:
 
-```
+```bash
 yarn plop
 ```
 
 Running commands in the context of workspaces:
 
-```
+```bash
 yarn workspace <workspace_name> <command>
 ```

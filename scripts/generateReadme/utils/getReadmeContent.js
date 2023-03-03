@@ -1,24 +1,26 @@
-import { readmeSections } from "../consts/readmeSections.js";
+import fs from "fs";
+import path from "path";
+
+import { getCurrentDirectory } from "./getCurrentDirectory.js";
 
 export function getReadmeContent(challenges) {
   console.log("Getting readme content...");
 
-  const challengesSection = formatChallengeSection(challenges);
-  const orderedSections = [
-    readmeSections.header,
-    readmeSections.resources,
-    challengesSection,
-    readmeSections.workspaces,
-  ];
-  const content = orderedSections.join("\n");
+  const currentDirectory = getCurrentDirectory(import.meta.url);
+  const templateFilePath = path.resolve(
+    currentDirectory,
+    "../readme-template.md"
+  );
+  const template = fs.readFileSync(templateFilePath, { encoding: "utf-8" });
+  const challengesTable = getChallengeTable(challenges);
+  const content = template.replace("<!-- challenges -->", challengesTable);
 
   console.log("Done");
 
   return content;
 }
 
-function formatChallengeSection(challenges) {
-  const title = `## Challenges`;
+function getChallengeTable(challenges) {
   const tableHead = `| Name | Code | Preview |\n` + `| --- | --- | --- |\n`;
   const tableBody = challenges
     .map((challenge) => {
@@ -26,5 +28,5 @@ function formatChallengeSection(challenges) {
     })
     .join("\n");
 
-  return `${title}\n` + `\n` + `${tableHead}${tableBody}\n`;
+  return `${tableHead}${tableBody}`;
 }
