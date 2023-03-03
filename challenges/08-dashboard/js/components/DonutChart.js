@@ -1,3 +1,15 @@
+const SVG_WIDTH = 197;
+const RADIUS = SVG_WIDTH / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+const STROKE_WIDTH = 35;
+const CHART_WIDTH = SVG_WIDTH + STROKE_WIDTH;
+const VIEWBOX = {
+  X1: 0,
+  Y1: 0,
+  X2: CHART_WIDTH,
+  Y2: CHART_WIDTH,
+};
+
 const Zero = {
   props: ["id"],
   computed: {
@@ -5,7 +17,7 @@ const Zero = {
       return `svg-${this.id}`;
     },
   },
-  template: `
+  template: /*html*/ `
     <svg
       class="DonutChart-Zero"
       :id="svgId"
@@ -42,81 +54,70 @@ const Between = {
     linearGradientUrl() {
       return `url(#${this.linearGradientId})`;
     },
-    percentageArc() {
-      const radius = 50;
-      const startAngle = 0;
-      const endAngle = (this.percentage / 105.4) * 360;
-      const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-      const movePosition = this.polarToCartesian(radius, endAngle);
-      const arcPosition = this.polarToCartesian(radius, startAngle);
+    strokeDashOffset() {
+      const offsettedPercentage = 106.2;
 
-      const d = [
-        "M",
-        movePosition.x,
-        movePosition.y,
-        "A",
-        radius,
-        radius,
-        0,
-        largeArcFlag,
-        0,
-        arcPosition.x,
-        arcPosition.y,
-      ].join(" ");
-
-      return d;
+      return (
+        (this.circumference * (offsettedPercentage - this.percentage)) /
+        offsettedPercentage
+      );
     },
-    movingCircleRotation() {
-      const degrees = (this.percentage / 105.4) * 360;
+    transformRotate() {
+      const rotationDegrees = 10.2;
+      const offsetDegrees = -90;
+      const degrees = rotationDegrees * (this.percentage / 100) + offsetDegrees;
+      const point = this.chartWidth / 2;
 
-      return `rotate(${degrees}, 50, 50)`;
+      return `rotate(${degrees}, ${point}, ${point})`;
     },
-    svgRotation() {
-      const degrees = (this.percentage / 100) * 9.2;
-
-      return `rotate(${degrees})`;
+    animateValues() {
+      return `${this.circumference}; ${this.strokeDashOffset}`;
     },
   },
-  methods: {
-    polarToCartesian(radius, degrees) {
-      const centerX = 50;
-      const centerY = 50;
-      const radians = ((degrees - 90) * Math.PI) / 180.0;
-
-      return {
-        x: centerX + radius * Math.cos(radians),
-        y: centerY + radius * Math.sin(radians),
-      };
-    },
+  data() {
+    return {
+      viewBox: `${VIEWBOX.X1} ${VIEWBOX.Y1} ${VIEWBOX.X2} ${VIEWBOX.Y2}`,
+      svgWidth: SVG_WIDTH,
+      chartWidth: CHART_WIDTH,
+      radius: RADIUS,
+      circumference: CIRCUMFERENCE,
+      strokeWidth: STROKE_WIDTH,
+    };
   },
-  template: `
+  template: /*html*/ `
     <svg
       class="DonutChart-Between"
-      :id="svgid"
-      viewBox="-8 -8 116 116"
-      width="197"
-      :transform="svgRotation"
+      :id="svgId"
+      :viewBox="viewBox"
+      :width="svgWidth"
     >
       <defs>
         <mask
           :id="maskId"
         >
-          <path
-            :d="percentageArc"
+          <circle
+            cx="50%"
+            cy="50%"
+            :r="radius"
             stroke="white"
-            stroke-width="16"
-          ></path>
-          <circle
-            r="8"
-            cx="50"
-            fill="white"
-          ></circle>
-          <circle
-            :transform="movingCircleRotation"
-            r="8"
-            cx="50"
-            fill="white"
-          ></circle>
+            fill="none"
+            :stroke-width="strokeWidth"
+            :stroke-dasharray="circumference"
+            :stroke-dashoffset="strokeDashOffset"
+            stroke-linecap="round"
+            :transform="transformRotate"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              dur="1s"
+              repeatCount="1"
+              fill="freeze"
+              calcMode="spline"
+              keySplines="0.45, 0.05, 0.55, 0.95"
+              keyTimes="0; 1"
+              :values="animateValues"
+            />
+          </circle>
         </mask>
         <linearGradient
           :id="linearGradientId"
@@ -125,29 +126,29 @@ const Between = {
           x2="100%"
           y2="100%"
         >
-          <stop
-            offset="0%"
+          <stop 
+            offset="0%" 
             :stop-color="gradientStart"
           ></stop>
-          <stop
-            offset="100%"
+          <stop 
+            offset="100%" 
             :stop-color="gradientEnd"
           ></stop>
         </linearGradient>
       </defs>
       <circle
-        r="50"
-        cx="50"
-        cy="50"
-        fill="none"
+        cx="50%"
+        cy="50%"
+        :r="radius"
         stroke="#464556"
-        stroke-width="16"
+        fill="none"
+        :stroke-width="strokeWidth"
       ></circle>
       <rect
-        x="-8"
-        y="-8"
-        width="116"
-        height="116"
+        x="0"
+        y="0"
+        :width="chartWidth"
+        :height="chartWidth"
         :fill="linearGradientUrl"
         :mask="maskUrl"
       ></rect>
@@ -168,7 +169,7 @@ const OneHundred = {
       return `url(#${this.linearGradientId})`;
     },
   },
-  template: `
+  template: /*html*/ `
     <svg
       class="DonutChart-OneHundred"
       :id="svgId"
@@ -229,7 +230,7 @@ export const DonutChart = {
       return Number(this?.percentage ?? "0");
     },
   },
-  template: `
+  template: /*html*/ `
     <div
       class="DonutChart"
     >

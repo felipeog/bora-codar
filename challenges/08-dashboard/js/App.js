@@ -4,7 +4,7 @@ export const App = {
   components: {
     DonutChart,
   },
-  template: `
+  template: /*html*/ `
     <div class="App">
       <DonutChart percentage="0" />
       <DonutChart percentage="0.1111" />
