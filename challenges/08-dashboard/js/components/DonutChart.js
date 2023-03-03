@@ -3,12 +3,7 @@ const RADIUS = SVG_WIDTH / 2;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 const STROKE_WIDTH = 35;
 const CHART_WIDTH = SVG_WIDTH + STROKE_WIDTH;
-const VIEWBOX = {
-  X1: 0,
-  Y1: 0,
-  X2: CHART_WIDTH,
-  Y2: CHART_WIDTH,
-};
+const VIEWBOX = `0 0 ${CHART_WIDTH} ${CHART_WIDTH}`;
 
 const Zero = {
   props: ["id"],
@@ -19,7 +14,7 @@ const Zero = {
   },
   data() {
     return {
-      viewBox: `${VIEWBOX.X1} ${VIEWBOX.Y1} ${VIEWBOX.X2} ${VIEWBOX.Y2}`,
+      viewBox: VIEWBOX,
       svgWidth: SVG_WIDTH,
       radius: RADIUS,
       strokeWidth: STROKE_WIDTH,
@@ -87,7 +82,7 @@ const Between = {
   },
   data() {
     return {
-      viewBox: `${VIEWBOX.X1} ${VIEWBOX.Y1} ${VIEWBOX.X2} ${VIEWBOX.Y2}`,
+      viewBox: VIEWBOX,
       svgWidth: SVG_WIDTH,
       chartWidth: CHART_WIDTH,
       radius: RADIUS,
@@ -182,7 +177,7 @@ const OneHundred = {
   },
   data() {
     return {
-      viewBox: `${VIEWBOX.X1} ${VIEWBOX.Y1} ${VIEWBOX.X2} ${VIEWBOX.Y2}`,
+      viewBox: VIEWBOX,
       svgWidth: SVG_WIDTH,
       radius: RADIUS,
       strokeWidth: STROKE_WIDTH,
