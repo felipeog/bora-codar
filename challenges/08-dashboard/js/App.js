@@ -18,7 +18,7 @@ export const App = {
     const monthPercentage = (monthActual / monthGoal) * 100;
 
     return {
-      nps: Math.random() * 200 - 100,
+      nps: Math.random() * 130 - 30,
       sales: {
         goal: salesGoal,
         actual: salesActual,
@@ -48,12 +48,12 @@ export const App = {
         </Card>
 
         <Card>
-          <DonutChart :percentage="sales.percentage" />
+          <DonutChart :percentage="sales.percentage" gradientStart="#CE9FFC" gradientEnd="#7367F0" />
           goal: {{ sales.goal }} <br /> actual: {{ sales.actual }}
         </Card>
 
         <Card>
-          <DonutChart :percentage="month.percentage" />
+          <DonutChart :percentage="month.percentage" gradientStart="#DF9780" gradientEnd="#A66DE9" />
           goal: {{ month.goal }} <br /> actual: {{ month.actual }}
         </Card>
 
