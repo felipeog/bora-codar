@@ -1,10 +1,12 @@
 import { DonutChart } from "./components/DonutChart.js";
 import { Card } from "./components/Card.js";
+import { Nps } from "./components/Nps.js";
 
 export const App = {
   components: {
-    DonutChart,
     Card,
+    DonutChart,
+    Nps,
   },
   data() {
     const salesGoal = Math.random() * 100;
@@ -42,7 +44,7 @@ export const App = {
     <div class="App">
       <div className="container">
         <Card>
-          nps: {{ nps }}
+          <Nps :score="nps"/>
         </Card>
 
         <Card>

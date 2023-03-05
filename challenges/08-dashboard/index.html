@@ -5,6 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="shortcut icon" href="vite.svg" type="image/svg" />
     <link rel="stylesheet" href="css/index.css" />
 
@@ -65,7 +71,7 @@
           dominant-baseline="middle"
           fill="var(--gray_100)"
           font-size="2rem"
-          font-weight="bold"
+          font-weight="var(--weight_bold)"
         >
           0%
         </text>
@@ -111,7 +117,7 @@
           dominant-baseline="middle"
           fill="var(--gray_100)"
           font-size="2rem"
-          font-weight="bold"
+          font-weight="var(--weight_bold)"
         >
           100%
         </text>
@@ -198,7 +204,7 @@
           dominant-baseline="middle"
           fill="var(--gray_100)"
           font-size="2rem"
-          font-weight="bold"
+          font-weight="var(--weight_bold)"
         >
           {{ percentage }}%
         </text>
@@ -212,6 +218,24 @@
       <div class="Card" :style="wrapperStyle">
         <slot />
       </div>
+    </template>
+
+    <!-- 
+      ===== Nps =====
+     -->
+    <template id="Nps">
+      <article class="Nps" :style="styles.wrapper">
+        <h1 :style="styles.header">NPS geral</h1>
+
+        <div>
+          <p v-html="data.emoji" :style="styles.emoji"></p>
+          <p :style="styles.label">{{ data.label }}</p>
+        </div>
+
+        <p :style="styles.scoreWrapper">
+          NPS score <span :style="styles.scoreValue">{{ computedScore }}</span>
+        </p>
+      </article>
     </template>
 
     <script type="module" src="js/index.js"></script>
