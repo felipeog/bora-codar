@@ -23,6 +23,30 @@ const Zero = {
   template: "#DonutChart-Zero",
 };
 
+const OneHundred = {
+  props: ["gradientEnd", "gradientStart", "id"],
+  computed: {
+    svgId() {
+      return `svg-${this.id}`;
+    },
+    linearGradientId() {
+      return `linearGradient-${this.id}`;
+    },
+    linearGradientUrl() {
+      return `url(#${this.linearGradientId})`;
+    },
+  },
+  data() {
+    return {
+      radius: RADIUS,
+      strokeWidth: STROKE_WIDTH,
+      svgWidth: SVG_WIDTH,
+      viewBox: VIEWBOX,
+    };
+  },
+  template: "#DonutChart-OneHundred",
+};
+
 const Between = {
   props: ["gradientEnd", "gradientStart", "id", "percentage"],
   computed: {
@@ -80,30 +104,6 @@ const Between = {
   template: "#DonutChart-Between",
 };
 
-const OneHundred = {
-  props: ["gradientEnd", "gradientStart", "id"],
-  computed: {
-    svgId() {
-      return `svg-${this.id}`;
-    },
-    linearGradientId() {
-      return `linearGradient-${this.id}`;
-    },
-    linearGradientUrl() {
-      return `url(#${this.linearGradientId})`;
-    },
-  },
-  data() {
-    return {
-      radius: RADIUS,
-      strokeWidth: STROKE_WIDTH,
-      svgWidth: SVG_WIDTH,
-      viewBox: VIEWBOX,
-    };
-  },
-  template: "#DonutChart-OneHundred",
-};
-
 export const DonutChart = {
   components: {
     Between,
@@ -119,10 +119,10 @@ export const DonutChart = {
       );
     },
     computedGradientStart() {
-      return this?.gradientStart ?? "#CE9FFC";
+      return this?.gradientStart ?? "white";
     },
     computedGradientEnd() {
-      return this?.gradientEnd ?? "#7367F0";
+      return this?.gradientEnd ?? "white";
     },
     computedPercentage() {
       return Math.round(Number(this?.percentage ?? "0"));
