@@ -1,11 +1,8 @@
 export const Nps = {
   props: ["score"],
   computed: {
-    computedScore() {
-      return Math.round(Number(this.score));
-    },
     data() {
-      if (this.computedScore < 0) {
+      if (this.score < 0) {
         return {
           emoji: "&#128577;",
           label: "Precisa melhorar…",
@@ -13,7 +10,7 @@ export const Nps = {
         };
       }
 
-      if (this.computedScore >= 0 && this.computedScore < 30) {
+      if (this.score >= 0 && this.score < 30) {
         return {
           emoji: "&#128578;",
           label: "Bom",
@@ -21,7 +18,7 @@ export const Nps = {
         };
       }
 
-      if (this.computedScore >= 30 && this.computedScore < 70) {
+      if (this.score >= 30 && this.score < 70) {
         return {
           emoji: "&#128512;",
           label: "Ótimo",
@@ -37,16 +34,6 @@ export const Nps = {
     },
     styles() {
       return {
-        wrapper: {
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          alignItems: "center",
-        },
-        header: {
-          fontWeight: "var(--weight_semibold)",
-          fontSize: "1.5rem",
-        },
         emoji: {
           fontSize: "3.4rem",
           textAlign: "center",
@@ -56,13 +43,6 @@ export const Nps = {
           fontWeight: "var(--weight_semibold)",
           fontSize: "1.5rem",
           textAlign: "center",
-        },
-        scoreWrapper: {
-          fontWeight: "var(--weight_semibold)",
-          fontSize: ".8rem",
-        },
-        scoreValue: {
-          fontWeight: "var(--weight_regular)",
         },
       };
     },

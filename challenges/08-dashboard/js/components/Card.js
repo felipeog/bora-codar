@@ -2,6 +2,8 @@ export const Card = {
   props: ["styleProp"],
   computed: {
     wrapperStyle() {
+      console.log("🚀 ~ this.styleProp:", this.styleProp);
+
       const hasStyles =
         this.styleProp !== null && typeof this.styleProp === "object";
 

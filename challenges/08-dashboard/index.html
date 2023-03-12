@@ -54,7 +54,6 @@
         :viewBox="viewBox"
         :width="svgWidth"
         :height="svgWidth"
-        class="DonutChart-Zero"
       >
         <circle
           :r="radius"
@@ -88,7 +87,6 @@
         :viewBox="viewBox"
         :width="svgWidth"
         :height="svgWidth"
-        class="DonutChart-OneHundred"
       >
         <defs>
           <linearGradient
@@ -134,7 +132,6 @@
         :viewBox="viewBox"
         :width="svgWidth"
         :height="svgWidth"
-        class="DonutChart-Between"
       >
         <defs>
           <mask :id="maskId">
@@ -216,26 +213,44 @@
      -->
     <template id="Card">
       <div class="Card" :style="wrapperStyle">
-        <slot />
+        <slot></slot>
       </div>
+    </template>
+
+    <!-- 
+      ===== VerticalCard =====
+     -->
+    <template id="VerticalCard">
+      <card :style-prop="wrapperStyle">
+        <slot name="header"></slot>
+        <slot name="body"></slot>
+        <slot name="footer"></slot>
+      </card>
+    </template>
+
+    <!-- 
+      ===== NpsCard =====
+     -->
+    <template id="NpsCard">
+      <vertical-card>
+        <template v-slot:header>NPS geral</template>
+
+        <template v-slot:body>
+          <nps :score="score"></nps>
+        </template>
+
+        <template v-slot:footer>{{ score }}</template>
+      </vertical-card>
     </template>
 
     <!-- 
       ===== Nps =====
      -->
     <template id="Nps">
-      <article class="Nps" :style="styles.wrapper">
-        <h1 :style="styles.header">NPS geral</h1>
-
-        <div>
-          <p v-html="data.emoji" :style="styles.emoji"></p>
-          <p :style="styles.label">{{ data.label }}</p>
-        </div>
-
-        <p :style="styles.scoreWrapper">
-          NPS score <span :style="styles.scoreValue">{{ computedScore }}</span>
-        </p>
-      </article>
+      <div>
+        <p v-html="data.emoji" :style="styles.emoji"></p>
+        <p :style="styles.label">{{ data.label }}</p>
+      </div>
     </template>
 
     <script type="module" src="js/index.js"></script>
