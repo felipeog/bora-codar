@@ -1,16 +1,33 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-# use JSON;
-use Path::Tiny;
+use JSON;
 
-my @files = glob('../challenges/*/package.json');
+my @packageFilePaths = glob("../challenges/*/package.json");
+my @challenges;
 
-foreach my $file (@files) {
-  my $f = path($file);
-  my $res = $f->slurp;
-  # my $perl_scalar = decode_json $res;
+foreach my $packageFilePath (@packageFilePaths) {
+    open my $in, '<', $packageFilePath
+      or die "Can't read file: $!";
 
-  # print $perl_scalar;
-  print $res;
+    my $packageFileContent = do {
+        local $/;
+        <$in>;
+    };
+
+    my $package = decode_json $packageFileContent;
+    my %hash    = (
+        name    => $package->{name},
+        code    => $package->{repository}->{url},
+        preview => $package->{homepage},
+    );
+
+    push @challenges, {%hash};
+}
+
+foreach my $challenge (@challenges) {
+    print "name: ",    $challenge->{name},    "\n";
+    print "code: ",    $challenge->{code},    "\n";
+    print "preview: ", $challenge->{preview}, "\n";
+    print "\n";
 }
