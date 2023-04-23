@@ -14,8 +14,35 @@
   <body>
     <div class="wrapper">
       <main class="container">
-        <canvas id="doughnut" width="197" height="197"></canvas>
-        <canvas id="bar" width="523" height="186"></canvas>
+        <section class="card">
+          <h1 class="card__title">NPS geral</h1>
+
+          <div class="card__content">😃</div>
+        </section>
+
+        <section class="card">
+          <h1 class="card__title">Vendas fechadas</h1>
+
+          <div class="card__content doughnut-wrapper">
+            <canvas class="doughnut"></canvas>
+          </div>
+        </section>
+
+        <section class="card">
+          <h1 class="card__title">Meta mensal</h1>
+
+          <div class="card__content doughnut-wrapper">
+            <canvas class="doughnut"></canvas>
+          </div>
+        </section>
+
+        <section class="card">
+          <h1 class="card__title">Vendas por dia da semana</h1>
+
+          <div class="card__content bar-wrapper">
+            <canvas class="bar"></canvas>
+          </div>
+        </section>
       </main>
     </div>
 
