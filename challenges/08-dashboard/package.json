@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.2.1"
   }
 }
