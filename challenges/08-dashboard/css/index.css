@@ -1,3 +1,19 @@
+:root {
+  --nps_grade_bad: #f16e64;
+  --nps_grade_regular: #f9b73e;
+  --nps_grade_great: #3cc273;
+  --nps_grade_excellent: #22aa58;
+
+  --sales_gradient_start: #ce9ffc;
+  --sales_gradient_end: #7367f0;
+
+  --month_gradient_start: #df9780;
+  --month_gradient_end: #a66de9;
+
+  --week_gradient_start: #90f7ec;
+  --week_gradient_end: #32ccbc;
+}
+
 html,
 body {
   margin: 0;
@@ -19,6 +35,35 @@ body {
 
 .container {
   display: grid;
+  gap: 3rem 2em;
+  grid-template-areas:
+    "nps sales month"
+    "week week week";
+}
+
+.card {
+  padding: 1.6rem 2rem;
+  border-radius: 1rem;
+}
+
+.card__title {
+  margin: 0 0 1rem;
+}
+
+.card--nps {
+  grid-area: nps;
+}
+
+.card--sales {
+  grid-area: sales;
+}
+
+.card--month {
+  grid-area: month;
+}
+
+.card--week {
+  grid-area: week;
 }
 
 .card {
@@ -27,8 +72,10 @@ body {
 
 .doughnut-wrapper {
   width: 197px;
+  height: 197px;
 }
 
 .bar-wrapper {
   width: 523px;
+  height: 186px;
 }
