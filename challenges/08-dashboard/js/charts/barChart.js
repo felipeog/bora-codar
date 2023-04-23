@@ -1,5 +1,7 @@
 import Chart from "chart.js/auto";
 
+import { getCssVariableValue } from "../utils/getCssVariableValue";
+
 function getGradient(chart, gradient) {
   const { ctx, chartArea } = chart;
   const linearGradient = ctx.createLinearGradient(
@@ -56,9 +58,11 @@ function barChart(selector, week, gradient) {
           display: false,
         },
         ticks: {
-          color: "white",
+          color: "#fff",
           font: {
             size: 14,
+            family: getCssVariableValue("--font_family"),
+            weight: getCssVariableValue("--font_weight_medium"),
           },
         },
       },

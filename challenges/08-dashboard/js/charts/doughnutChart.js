@@ -1,11 +1,17 @@
 import Chart from "chart.js/auto";
 
+import { getCssVariableValue } from "../utils/getCssVariableValue";
+
 const customBackgroundPlugin = {
   id: "customBackgroundPlugin",
   beforeDraw: (chart, _args, options) => {
     const { ctx, chartArea } = chart;
     const xCenter = (chartArea.left + chart.width) / 2;
     const yCenter = (chartArea.top + chart.height) / 2;
+
+    const fontFamily = getCssVariableValue("--font_family");
+    const valueWeight = getCssVariableValue("--font_weight_bold");
+    const labelWeight = getCssVariableValue("--font_weight_regular");
 
     ctx.save();
     ctx.beginPath();
@@ -16,14 +22,14 @@ const customBackgroundPlugin = {
     ctx.restore();
 
     ctx.save();
-    ctx.font = "bold 34px sans-serif";
+    ctx.font = `${valueWeight} 34px ${fontFamily}`;
     ctx.textAlign = "center";
     ctx.fillStyle = "#fff";
     ctx.fillText(`${Math.round(options.value * 100)}%`, xCenter, 96);
     ctx.restore();
 
     ctx.save();
-    ctx.font = "16px sans-serif";
+    ctx.font = `${labelWeight} 16px ${fontFamily}`;
     ctx.textAlign = "center";
     ctx.fillStyle = "#fff";
     ctx.fillText("alcançada", xCenter, 120);
